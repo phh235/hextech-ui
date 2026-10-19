@@ -43,16 +43,18 @@ export function LobbyBlock({ className }: { className?: string }) {
           {Array.from({ length: 5 }, (_, index) => (
             <div
               key={index}
-              className="grid min-h-36 content-center justify-items-center gap-3 border border-border bg-background p-4 text-center"
+              className="grid min-h-36 content-center justify-items-center gap-3 border border-hx-border bg-hx-background p-4 text-center"
             >
               <div
                 aria-hidden="true"
-                className="grid size-11 place-items-center border border-primary/50 text-xl text-primary"
+                className="grid size-11 place-items-center border border-hx-primary/50 text-hx-xl text-hx-primary"
               >
                 {members[index]?.slice(0, 1) || '+'}
               </div>
-              <span className="max-w-full break-all text-sm">{members[index] || 'Open slot'}</span>
-              <span className="text-xs text-muted-foreground">
+              <span className="max-w-full break-all text-hx-sm">
+                {members[index] || 'Open slot'}
+              </span>
+              <span className="text-hx-xs text-hx-muted-foreground">
                 {members[index]
                   ? index === 0
                     ? ready
@@ -106,7 +108,7 @@ export function LobbyBlock({ className }: { className?: string }) {
           </Button>
         </form>
         {queued && <Progress label="Simulated matchmaking" value={null} />}
-        <p role="status" className="m-0 text-sm text-muted-foreground">
+        <p role="status" className="m-0 text-hx-sm text-hx-muted-foreground">
           {message}
         </p>
       </CardContent>

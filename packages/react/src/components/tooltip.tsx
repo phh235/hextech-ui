@@ -17,7 +17,7 @@ export function TooltipContent({ className, side = 'top', ...props }: TooltipCon
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-popover max-w-xs border-2 border-transparent px-3 py-2 font-sans text-xs text-foreground',
+            'hx-popup hx-popover max-w-xs border-2 border-transparent px-3 py-2 font-hx-sans text-hx-xs text-hx-foreground',
             className,
           )}
         />

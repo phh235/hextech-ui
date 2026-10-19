@@ -8,6 +8,19 @@
 /* Semantic component colors for the Hextech light and dark themes. */
 @layer hextech-ui.theme {
   [data-hextech-ui-theme='hextech'] {
+    /* Numeric Tailwind utilities keep Hextech geometry inside explicit theme regions. */
+    --spacing: var(--hextech-ui-space-unit);
+    --container-xs: calc(var(--hextech-ui-rem) * 20);
+    --container-sm: calc(var(--hextech-ui-rem) * 24);
+    --container-md: calc(var(--hextech-ui-rem) * 28);
+    --container-lg: calc(var(--hextech-ui-rem) * 32);
+    --container-xl: calc(var(--hextech-ui-rem) * 36);
+    --container-2xl: calc(var(--hextech-ui-rem) * 42);
+    --container-3xl: calc(var(--hextech-ui-rem) * 48);
+    --container-4xl: calc(var(--hextech-ui-rem) * 56);
+    --container-5xl: calc(var(--hextech-ui-rem) * 64);
+    --container-6xl: calc(var(--hextech-ui-rem) * 72);
+    --container-7xl: calc(var(--hextech-ui-rem) * 80);
     --hextech-ui-chart-series-1: #0aa89b;
     --hextech-ui-chart-series-2: #ba8c2e;
     --hextech-ui-chart-series-3: #8e6be8;

@@ -38,7 +38,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
       ref={ref}
       {...props}
       className={cn(
-        'text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary focus-visible:outline-2 focus-visible:outline-focus aria-disabled:pointer-events-none aria-disabled:opacity-50',
+        'text-hx-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary focus-visible:outline-2 focus-visible:outline-hx-focus aria-disabled:pointer-events-none aria-disabled:opacity-50',
         className,
       )}
     />

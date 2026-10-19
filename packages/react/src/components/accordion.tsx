@@ -41,7 +41,7 @@ export function AccordionTrigger({
           props.onBlur?.(event);
         }}
         className={cn(
-          'hx-disclosure-trigger group flex w-full items-center gap-2 py-2 text-left font-display text-base font-bold uppercase leading-[normal]',
+          'hx-disclosure-trigger group flex w-full items-center gap-2 py-2 text-left font-hx-display text-hx-base font-hx-bold uppercase leading-[normal]',
           className,
         )}
       >
@@ -68,7 +68,7 @@ export function AccordionPanel({
     <Primitive.Panel
       {...props}
       className={cn(
-        'hx-disclosure overflow-hidden pb-4 font-sans text-sm leading-[1.24] text-muted-foreground',
+        'hx-disclosure overflow-hidden pb-4 font-hx-sans text-hx-sm leading-[1.24] text-hx-muted-foreground',
         className,
       )}
     />

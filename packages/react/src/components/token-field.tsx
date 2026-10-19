@@ -154,7 +154,7 @@ export function TokenField({
     <div className="grid w-full">
       <span
         id={`${id}-label`}
-        className="font-sans text-sm font-normal leading-[1.1025rem] tracking-[0.02em] text-muted-foreground"
+        className="font-hx-sans text-hx-sm font-hx-normal leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground"
       >
         {label}
       </span>
@@ -177,26 +177,26 @@ export function TokenField({
           contentEditable={ready && !disabled && !readOnly}
           suppressContentEditableWarning
           className={cn(
-            'hx-token-editor hx-input min-h-9 whitespace-pre-wrap break-words border border-transparent px-3 py-1.5 font-sans text-xs font-normal leading-5 tracking-[0.025em] outline-none',
+            'hx-token-editor hx-input min-h-9 whitespace-pre-wrap break-words border border-transparent px-3 py-1.5 font-hx-sans text-hx-xs font-hx-normal leading-5 tracking-[0.025em] outline-none',
             className,
           )}
         />
         {!text && (
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute top-1.5 left-3 font-sans text-xs text-muted-foreground"
+            className="pointer-events-none absolute top-1.5 left-3 font-hx-sans text-hx-xs text-hx-muted-foreground"
           >
             {ready ? placeholder : 'Loading editor…'}
           </span>
         )}
       </div>
       {description && (
-        <p id={`${id}-description`} className="m-0 text-xs text-muted-foreground">
+        <p id={`${id}-description`} className="m-0 text-hx-xs text-hx-muted-foreground">
           {description}
         </p>
       )}
       {message && (
-        <p id={`${id}-error`} aria-live="polite" className="m-0 text-xs text-destructive">
+        <p id={`${id}-error`} aria-live="polite" className="m-0 text-hx-xs text-hx-destructive">
           {message}
         </p>
       )}

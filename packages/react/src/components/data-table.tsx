@@ -279,7 +279,7 @@ export function DataTable<T extends object>({
       onFocus: () => setActive(key),
       onKeyDown: (event: React.KeyboardEvent<HTMLTableCellElement>) =>
         cellKey(event, rowIndex, colIndex),
-      className: 'hx-grid-cell border-0 px-3 py-1.5 text-sm',
+      className: 'hx-grid-cell border-0 px-3 py-1.5 text-hx-sm',
     };
   }
   const offset = selectionMode !== 'none' ? 1 : 0;
@@ -303,9 +303,9 @@ export function DataTable<T extends object>({
     <div
       inert={!readyForInput}
       data-hextech-ready={readyForInput ? 'true' : 'false'}
-      className={cn('grid w-full min-w-0 gap-3 font-sans', className)}
+      className={cn('grid w-full min-w-0 gap-3 font-hx-sans', className)}
     >
-      <p id={`${id}-help`} className="m-0 text-xs text-muted-foreground">
+      <p id={`${id}-help`} className="m-0 text-hx-xs text-hx-muted-foreground">
         {grid ? gridHelp : 'Tab moves between table controls.'}
         {grid && selectionMode !== 'none' && ' Space selects a row.'}
         {onReorder && ' Alt + ↑ or ↓ moves a row; sorting must be cleared first.'}
@@ -326,13 +326,13 @@ export function DataTable<T extends object>({
           aria-rowcount={
             grid ? (onLoadMore && hasMore ? -1 : data.length + 1 + (onLoadMore ? 1 : 0)) : undefined
           }
-          className="hx-table m-0 w-full table-fixed border-collapse text-start text-sm leading-[1.1025rem] tracking-[0.02em]"
+          className="hx-table m-0 w-full table-fixed border-collapse text-start text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em]"
           style={{ minWidth: table.getTotalSize() + offset * 60 + (onReorder ? 100 : 0) }}
         >
           <thead>
             <tr aria-rowindex={grid ? 1 : undefined}>
               {selectionMode !== 'none' && (
-                <th scope="col" className="w-15 border-b border-border p-3">
+                <th scope="col" className="w-15 border-b border-hx-border p-3">
                   {selectionMode === 'multiple' ? (
                     <Checkbox
                       aria-label="Select current page"
@@ -356,14 +356,14 @@ export function DataTable<T extends object>({
                     key={header.id}
                     scope="col"
                     aria-sort={sorted ? (sorted === 'asc' ? 'ascending' : 'descending') : undefined}
-                    className="hx-table-head hx-grid-column relative px-3 py-1.5 text-start font-display text-xs font-bold uppercase leading-4 tracking-[0.075em]"
+                    className="hx-table-head hx-grid-column relative px-3 py-1.5 text-start font-hx-display text-hx-xs font-hx-bold uppercase leading-4 tracking-[0.075em]"
                     style={{ width: header.getSize() }}
                   >
                     <button
                       type="button"
                       disabled={disabled || !header.column.getCanSort()}
                       onClick={header.column.getToggleSortingHandler()}
-                      className="w-full text-start outline-offset-[-1px] hover:text-primary focus-visible:outline-1 focus-visible:outline-focus"
+                      className="w-full text-start outline-offset-[-1px] hover:text-hx-primary focus-visible:outline-1 focus-visible:outline-hx-focus"
                     >
                       {column.header}
                       <span aria-hidden="true">
@@ -436,7 +436,7 @@ export function DataTable<T extends object>({
               {onReorder && (
                 <th
                   scope="col"
-                  className="w-25 border-b border-border p-2 text-xs text-muted-foreground"
+                  className="w-25 border-b border-hx-border p-2 text-hx-xs text-hx-muted-foreground"
                 >
                   Move
                 </th>
@@ -539,7 +539,7 @@ export function DataTable<T extends object>({
                           const target = rows[r - 1];
                           if (target) move(row.id, target.id, 'before');
                         }}
-                        className="size-9 border border-border disabled:opacity-40"
+                        className="size-9 border border-hx-border disabled:opacity-40"
                       >
                         ↑
                       </button>
@@ -555,7 +555,7 @@ export function DataTable<T extends object>({
                           const target = rows[r + 1];
                           if (target) move(row.id, target.id, 'after');
                         }}
-                        className="size-9 border border-border disabled:opacity-40"
+                        className="size-9 border border-hx-border disabled:opacity-40"
                       >
                         ↓
                       </button>
@@ -580,13 +580,13 @@ export function DataTable<T extends object>({
           </tbody>
         </table>
         {!rows.length && (!onLoadMore || !hasMore) && (
-          <div className="p-6 text-center text-sm text-muted-foreground">
+          <div className="p-6 text-center text-hx-sm text-hx-muted-foreground">
             {loading ? <Spinner label="Loading rows" /> : emptyState}
           </div>
         )}
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="m-0 text-xs text-muted-foreground" role="status">
+        <p className="m-0 text-hx-xs text-hx-muted-foreground" role="status">
           {onLoadMore && hasMore ? 'Loaded page' : 'Page'}{' '}
           {Math.min(table.state.pagination.pageIndex + 1, Math.max(1, table.getPageCount()))} of{' '}
           {Math.max(1, table.getPageCount())}

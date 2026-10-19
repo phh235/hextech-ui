@@ -69,7 +69,7 @@ export function Autocomplete<T = string>({
           <Primitive.Clear
             aria-label={`Clear ${label}`}
             className={cn(
-              'min-w-8 text-muted-foreground',
+              'min-w-8 text-hx-muted-foreground',
               size === 'small' ? 'min-h-8' : size === 'large' ? 'min-h-10' : 'min-h-9',
             )}
           >
@@ -78,7 +78,7 @@ export function Autocomplete<T = string>({
           <Primitive.Trigger
             aria-label={`Show ${label} suggestions`}
             className={cn(
-              'min-w-9 text-primary',
+              'min-w-9 text-hx-primary',
               size === 'small' ? 'min-h-8' : size === 'large' ? 'min-h-10' : 'min-h-9',
             )}
           >
@@ -88,8 +88,8 @@ export function Autocomplete<T = string>({
       </div>
       <Primitive.Portal>
         <Primitive.Positioner {...portalTheme} sideOffset={6} className="z-50">
-          <Primitive.Popup className="hx-popup hx-select-popup min-w-[var(--anchor-width)] border p-0 font-sans text-sm">
-            <Primitive.Empty className="p-3 text-muted-foreground">{emptyState}</Primitive.Empty>
+          <Primitive.Popup className="hx-popup hx-select-popup min-w-[var(--anchor-width)] border p-0 font-hx-sans text-hx-sm">
+            <Primitive.Empty className="p-3 text-hx-muted-foreground">{emptyState}</Primitive.Empty>
             <Primitive.List className="max-h-64 overflow-y-auto">
               {(option: T) => (
                 <Primitive.Item

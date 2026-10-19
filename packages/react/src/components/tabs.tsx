@@ -38,7 +38,7 @@ export function Tab({
         props.onBlur?.(event);
       }}
       className={cn(
-        'hx-tab relative cursor-pointer px-4 py-1 font-display text-xs font-medium uppercase leading-4 tracking-[0.1em]',
+        'hx-tab relative cursor-pointer px-4 py-1 font-hx-display text-hx-xs font-hx-medium uppercase leading-4 tracking-[0.1em]',
         className,
       )}
     />
@@ -52,7 +52,7 @@ export function TabPanel({
     <Primitive.Panel
       {...props}
       className={cn(
-        'hx-tab-panel py-4 font-sans text-sm text-foreground focus-visible:outline-1 focus-visible:outline-focus',
+        'hx-tab-panel py-4 font-hx-sans text-hx-sm text-hx-foreground focus-visible:outline-1 focus-visible:outline-hx-focus',
         className,
       )}
     />

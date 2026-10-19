@@ -24,7 +24,9 @@ export function AuthBlock({ className, defaultMode = 'login', onDemoSubmit }: Au
       className={cn('mx-auto w-full max-w-md', className)}
     >
       <CardHeader>
-        <p className="m-0 font-mono text-xs tracking-widest text-accent">YOUR NEXT CHAPTER</p>
+        <p className="m-0 font-hx-mono text-hx-xs tracking-widest text-hx-accent">
+          YOUR NEXT CHAPTER
+        </p>
         <CardTitle>Welcome to the workshop.</CardTitle>
         <CardDescription>Keep your builds, notes and next great idea together.</CardDescription>
       </CardHeader>
@@ -113,10 +115,10 @@ export function AuthBlock({ className, defaultMode = 'login', onDemoSubmit }: Au
             </TabPanel>
           ))}
         </Tabs>
-        <p role="status" className="m-0 mt-2 text-sm text-accent">
+        <p role="status" className="m-0 mt-2 text-hx-sm text-hx-accent">
           {message}
         </p>
-        <p className="m-0 mt-4 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
+        <p className="m-0 mt-4 border-t border-hx-border pt-4 text-hx-xs leading-relaxed text-hx-muted-foreground">
           UI demo only. Credentials stay in this form; no authentication, email or storage service
           is connected.
         </p>

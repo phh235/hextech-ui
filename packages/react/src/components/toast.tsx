@@ -21,13 +21,13 @@ function ToastViewport() {
     <Primitive.Portal>
       <Primitive.Viewport
         {...portalTheme}
-        className="fixed right-4 bottom-4 z-[100] flex w-[min(360px,calc(100vw-2rem))] flex-col-reverse gap-3 outline-none"
+        className="fixed right-4 bottom-4 z-[100] flex w-[min(360px,calc(100vw_-_2*var(--hextech-ui-rem)))] flex-col-reverse gap-3 outline-none"
       >
         {toasts.map((toast) => (
           <Primitive.Root
             key={toast.id}
             toast={toast}
-            className="hx-toast relative flex items-center gap-1.5 border-2 border-transparent p-4 font-sans text-[13px] leading-[normal] outline-none data-limited:hidden"
+            className="hx-toast relative flex items-center gap-1.5 border-2 border-transparent p-4 font-hx-sans text-[13px] leading-[normal] outline-none data-limited:hidden"
           >
             <Primitive.Content className="flex min-w-0 flex-1 items-center gap-1.5">
               {toast.type === 'loading' ? (
@@ -36,8 +36,8 @@ function ToastViewport() {
                 <NotificationIcon type={toast.type} />
               )}
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                <Primitive.Title className="hx-toast-title font-display text-sm font-bold uppercase leading-6 tracking-[0.075em]" />
-                <Primitive.Description className="text-sm leading-[1.1025rem] tracking-[0.02em] text-muted-foreground" />
+                <Primitive.Title className="hx-toast-title font-hx-display text-hx-sm font-hx-bold uppercase leading-6 tracking-[0.075em]" />
+                <Primitive.Description className="text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground" />
               </div>
               {toast.actionProps && (
                 <Primitive.Action
@@ -57,7 +57,7 @@ function ToastViewport() {
                   shape: 'round',
                   thin: true,
                   className:
-                    'hx-toast-close absolute start-0 top-0 size-[1.33rem] min-h-[1.33rem] -translate-x-[35%] -translate-y-[35%] p-0 rtl:translate-x-[35%]',
+                    'hx-toast-close absolute start-0 top-0 size-[calc(var(--hextech-ui-rem)*1.33)] min-h-[calc(var(--hextech-ui-rem)*1.33)] -translate-x-[35%] -translate-y-[35%] p-0 rtl:translate-x-[35%]',
                 })}
               >
                 <svg

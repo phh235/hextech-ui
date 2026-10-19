@@ -76,7 +76,7 @@ export function SearchField({
           aria-hidden="true"
           viewBox="0 0 20 20"
           fill="none"
-          className="pointer-events-none absolute top-1/2 left-[5px] z-1 size-4 -translate-y-1/2 text-primary"
+          className="pointer-events-none absolute top-1/2 left-[5px] z-1 size-4 -translate-y-1/2 text-hx-primary"
         >
           <circle cx="8" cy="8" r="5.5" stroke="currentColor" strokeWidth="1.5" />
           <path d="m12 12 5 5" stroke="currentColor" strokeWidth="1.5" />
@@ -109,7 +109,7 @@ export function SearchField({
             aria-label={`Clear ${label}`}
             disabled={props.disabled}
             onClick={clear}
-            className="absolute inset-y-0 right-0 flex w-10 items-center justify-center text-xs font-black text-[var(--hextech-ui-gold-300)] hover:text-foreground active:text-[var(--hextech-ui-gold-600)] focus-visible:outline-1 focus-visible:outline-focus"
+            className="absolute inset-y-0 right-0 flex w-10 items-center justify-center text-hx-xs font-hx-black text-[var(--hextech-ui-gold-300)] hover:text-hx-foreground active:text-[var(--hextech-ui-gold-600)] focus-visible:outline-1 focus-visible:outline-hx-focus"
           >
             <ControlIcon name="close" />
           </button>

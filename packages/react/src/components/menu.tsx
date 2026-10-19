@@ -44,7 +44,7 @@ export function MenuContent({
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-menu min-w-[150px] border-2 border-transparent p-0 font-sans text-sm outline-none',
+            'hx-popup hx-menu min-w-[150px] border-2 border-transparent p-0 font-hx-sans text-hx-sm outline-none',
             className,
           )}
         />
@@ -91,7 +91,7 @@ export function MenuLabel({
   return (
     <Primitive.GroupLabel
       {...props}
-      className={cn('px-2 pt-2 pb-[3.2px] font-sans text-sm text-foreground', className)}
+      className={cn('px-2 pt-2 pb-[3.2px] font-hx-sans text-hx-sm text-hx-foreground', className)}
     />
   );
 }
@@ -102,7 +102,7 @@ export function MenuSeparator({
   return (
     <Primitive.Separator
       {...props}
-      className={cn('mx-2 my-[6.4px] h-px bg-foreground/25', className)}
+      className={cn('mx-2 my-[6.4px] h-px bg-hx-foreground/25', className)}
     />
   );
 }

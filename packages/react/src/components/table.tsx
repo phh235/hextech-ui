@@ -6,7 +6,7 @@ export function Table({ className, ...props }: ComponentPropsWithoutRef<'table'>
       <table
         {...props}
         className={cn(
-          'hx-table w-full border-collapse font-sans text-left text-sm leading-[1.1025rem] tracking-[0.02em]',
+          'hx-table w-full border-collapse font-hx-sans text-left text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em]',
           className,
         )}
       />
@@ -15,7 +15,10 @@ export function Table({ className, ...props }: ComponentPropsWithoutRef<'table'>
 }
 export function TableCaption({ className, ...props }: ComponentPropsWithoutRef<'caption'>) {
   return (
-    <caption {...props} className={cn('mb-3 text-left text-xs text-muted-foreground', className)} />
+    <caption
+      {...props}
+      className={cn('mb-3 text-left text-hx-xs text-hx-muted-foreground', className)}
+    />
   );
 }
 export function TableHeader({ className, ...props }: ComponentPropsWithoutRef<'thead'>) {
@@ -36,7 +39,7 @@ export function TableHead({ className, scope = 'col', ...props }: ComponentProps
       {...props}
       scope={scope}
       className={cn(
-        'hx-table-head px-3 py-1.5 text-left font-display text-xs font-bold uppercase leading-4 tracking-[0.075em]',
+        'hx-table-head px-3 py-1.5 text-left font-hx-display text-hx-xs font-hx-bold uppercase leading-4 tracking-[0.075em]',
         className,
       )}
     />

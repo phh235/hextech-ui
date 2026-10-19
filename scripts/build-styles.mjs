@@ -16,6 +16,17 @@ const result = await postcss([tailwind({ base: dir, optimize: true })]).process(
 // A tarball must instead carry the unmodified fonts and their original notices.
 const outputPath = path.join(dir, 'dist/styles.css');
 const portable = postcss.parse(result.css, { from: outputPath });
+// Standalone CSS must not reset a host application's generic Tailwind theme variables.
+portable.walkRules((rule) => {
+  if (
+    rule.parent?.type === 'atrule' &&
+    rule.parent.name === 'layer' &&
+    rule.parent.params === 'theme' &&
+    rule.selector.includes(':root')
+  ) {
+    rule.selector = '[data-hextech-ui-theme="hextech"]';
+  }
+});
 const assets = new Map();
 portable.walkAtRules('font-face', (face) => {
   face.walkDecls('src', (declaration) => {

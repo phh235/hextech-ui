@@ -12,11 +12,11 @@ export function Slider({ className, label, thumbLabels, ...props }: SliderProps)
   return (
     <Primitive.Root
       {...props}
-      className={cn('hx-slider grid w-full min-w-32 gap-1 font-sans text-sm', className)}
+      className={cn('hx-slider grid w-full min-w-32 gap-1 font-hx-sans text-hx-sm', className)}
     >
-      <div className="flex justify-between gap-4 text-xs">
+      <div className="flex justify-between gap-4 text-hx-xs">
         <Primitive.Label>{label}</Primitive.Label>
-        <Primitive.Value className="font-mono text-primary" />
+        <Primitive.Value className="font-hx-mono text-hx-primary" />
       </div>
       <Primitive.Control className="hx-slider-control flex h-7 touch-none items-center">
         <Primitive.Track className="hx-slider-track relative h-0.5 w-full rounded-full">

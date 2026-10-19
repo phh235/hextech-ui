@@ -11,7 +11,7 @@ export function Separator({ className, orientation = 'horizontal', ...props }: S
       {...props}
       orientation={orientation}
       className={cn(
-        'shrink-0 bg-border',
+        'shrink-0 bg-hx-border',
         orientation === 'horizontal' ? 'h-px w-full' : 'min-h-6 w-px self-stretch',
         className,
       )}
@@ -29,7 +29,7 @@ export function Divider({
 }) {
   if (children)
     return (
-      <div className={cn('flex grow items-center gap-8 text-primary', className)}>
+      <div className={cn('flex grow items-center gap-8 text-hx-primary', className)}>
         {preset !== 'right' && <Divider preset="left" />}
         {children}
         {preset !== 'left' && <Divider preset="right" />}

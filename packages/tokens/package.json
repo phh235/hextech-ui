@@ -16,7 +16,8 @@
   ],
   "exports": {
     "./base.css": "./src/base.css",
-    "./tailwind.css": "./src/tailwind.css"
+    "./tailwind.css": "./src/tailwind.css",
+    "./tailwind-global.css": "./src/tailwind-global.css"
   },
   "scripts": {
     "build": "node ../../scripts/check-css.mjs tokens",

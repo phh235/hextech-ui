@@ -72,15 +72,15 @@ export const Sonner = forwardRef<HTMLElement, SonnerToasterProps>(function Sonne
           classNames: {
             ...overrides,
             toast: cn(
-              'hx-toast hx-sonner-toast flex w-[var(--width)] items-center gap-1.5 border-2 border-transparent p-4 font-sans text-[13px] leading-[normal]',
+              'hx-toast hx-sonner-toast flex w-[var(--width)] items-center gap-1.5 border-2 border-transparent p-4 font-hx-sans text-[13px] leading-[normal]',
               overrides?.toast,
             ),
             title: cn(
-              'm-0 font-display text-sm font-bold uppercase leading-6 tracking-[0.075em]',
+              'm-0 font-hx-display text-hx-sm font-hx-bold uppercase leading-6 tracking-[0.075em]',
               overrides?.title,
             ),
             description: cn(
-              'font-sans text-sm leading-[1.1025rem] tracking-[0.02em] text-muted-foreground',
+              'font-hx-sans text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground',
               overrides?.description,
             ),
             content: cn('flex min-w-0 flex-1 flex-col gap-0.5', overrides?.content),
@@ -95,7 +95,7 @@ export const Sonner = forwardRef<HTMLElement, SonnerToasterProps>(function Sonne
                 shape: 'round',
                 thin: true,
                 className:
-                  'hx-sonner-close absolute top-0 z-10 size-[1.33rem] min-h-[1.33rem] cursor-pointer p-0',
+                  'hx-sonner-close absolute top-0 z-10 size-[calc(var(--hextech-ui-rem)*1.33)] min-h-[calc(var(--hextech-ui-rem)*1.33)] cursor-pointer p-0',
               }),
               overrides?.closeButton,
             ),

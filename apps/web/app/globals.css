@@ -6,6 +6,8 @@
 @import '@hextech-ui/tokens/base.css';
 @import '@hextech-ui/themes/hextech.css';
 @import '@hextech-ui/tokens/tailwind.css';
+/* This website intentionally applies Hextech to its full preview environment. */
+@import '@hextech-ui/tokens/tailwind-global.css';
 @import '../../../packages/react/src/styles.css';
 @source '../../../packages/react/src';
 @source '../../../registry';

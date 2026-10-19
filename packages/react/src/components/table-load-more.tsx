@@ -149,7 +149,7 @@ export function TableLoadMoreItem({
     <tr
       {...props}
       ref={row}
-      className={cn('font-sans text-sm text-foreground', className)}
+      className={cn('font-hx-sans text-hx-sm text-hx-foreground', className)}
       data-hextech-ui="table-load-more"
       data-hextech-ready={ready ? 'true' : 'false'}
       data-loading={busy || undefined}
@@ -158,7 +158,7 @@ export function TableLoadMoreItem({
       <td
         {...cellProps}
         colSpan={colSpan}
-        className={cn('border-t border-border px-4 py-3 text-center', cellProps?.className)}
+        className={cn('border-t border-hx-border px-4 py-3 text-center', cellProps?.className)}
       >
         {children}
         <Button
@@ -177,7 +177,7 @@ export function TableLoadMoreItem({
           {status}
         </span>
         {failed && hasMore ? (
-          <p id={`${id}-error`} role="alert" className="mt-2 text-xs text-destructive">
+          <p id={`${id}-error`} role="alert" className="mt-2 text-hx-xs text-hx-destructive">
             {text.error}
           </p>
         ) : null}

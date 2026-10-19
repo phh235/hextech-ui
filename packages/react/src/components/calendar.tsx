@@ -130,7 +130,7 @@ function CalendarSurface({
       {...props}
       aria-disabled={disabled || undefined}
       className={cn(
-        'hx-calendar w-fit max-w-full font-sans text-foreground outline-none aria-disabled:opacity-60',
+        'hx-calendar w-fit max-w-full font-hx-sans text-hx-foreground outline-none aria-disabled:opacity-60',
         className,
       )}
     >
@@ -155,7 +155,7 @@ function CalendarSurface({
                   `${String(year).padStart(4, '0')}-${String(Number(event.target.value) + 1).padStart(2, '0')}-01`,
                 )
               }
-              className="min-w-0 bg-transparent px-1 py-1 font-display text-sm font-bold uppercase text-foreground"
+              className="min-w-0 bg-transparent px-1 py-1 font-hx-display text-hx-sm font-hx-bold uppercase text-hx-foreground"
             >
               {Array.from({ length: 12 }, (_, index) => (
                 <option key={index} value={index}>
@@ -172,7 +172,7 @@ function CalendarSurface({
               onChange={(event) =>
                 navigateMonth(`${event.target.value.padStart(4, '0')}-${month.slice(5, 7)}-01`)
               }
-              className="bg-surface px-1 py-2 text-sm text-primary"
+              className="bg-hx-surface px-1 py-2 text-hx-sm text-hx-primary"
             >
               {years.map((value) => (
                 <option key={value} value={value}>
@@ -182,7 +182,7 @@ function CalendarSurface({
             </select>
           </div>
         ) : (
-          <h3 className="m-0 flex-1 text-center font-display text-sm font-bold uppercase tracking-[0.075em] text-foreground">
+          <h3 className="m-0 flex-1 text-center font-hx-display text-hx-sm font-hx-bold uppercase tracking-[0.075em] text-hx-foreground">
             {monthLabel}
           </h3>
         )}
@@ -203,7 +203,7 @@ function CalendarSurface({
         role="grid"
         aria-labelledby={id}
         aria-readonly={readOnly || undefined}
-        className="hx-calendar-grid w-[280px] table-fixed border-separate border-spacing-x-0 border-spacing-y-[3px] text-center text-sm"
+        className="hx-calendar-grid w-[280px] table-fixed border-separate border-spacing-x-0 border-spacing-y-[3px] text-center text-hx-sm"
       >
         <thead>
           <tr>
@@ -211,7 +211,7 @@ function CalendarSurface({
               <th
                 scope="col"
                 key={date.getUTCDay()}
-                className="pb-2 font-sans text-xs font-bold uppercase tracking-[0.05em] text-muted-foreground"
+                className="pb-2 font-hx-sans text-hx-xs font-hx-bold uppercase tracking-[0.05em] text-hx-muted-foreground"
               >
                 <abbr
                   className="no-underline"
@@ -270,7 +270,7 @@ function CalendarSurface({
                           setMonth(firstOfMonth(day));
                         }
                       }}
-                      className="hx-calendar-day relative z-0 flex items-center justify-center font-sans text-sm font-medium leading-[normal]"
+                      className="hx-calendar-day relative z-0 flex items-center justify-center font-hx-sans text-hx-sm font-hx-medium leading-[normal]"
                     >
                       {parseDay(day)!.getUTCDate()}
                     </button>
@@ -352,7 +352,7 @@ export function RangeCalendar({
         onPreview={setHover}
         onPick={pick}
       />
-      <p role="status" className="text-xs text-muted-foreground">
+      <p role="status" className="text-hx-xs text-hx-muted-foreground">
         {error || (anchor ? 'Choose an end date.' : 'Choose a start date.')}
       </p>
     </div>

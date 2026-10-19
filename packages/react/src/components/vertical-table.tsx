@@ -28,7 +28,7 @@ export function VerticalTable<T>({
         {...props}
         aria-label={label}
         className={cn(
-          'hx-vertical-table w-full border-collapse font-sans text-sm leading-[1.1025rem] tracking-[0.02em] text-muted-foreground',
+          'hx-vertical-table w-full border-collapse font-hx-sans text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground',
           className,
         )}
       >
@@ -40,7 +40,7 @@ export function VerticalTable<T>({
                 <th
                   scope="col"
                   key={recordKey(record)}
-                  className="hx-table-head px-3 py-1.5 font-display text-xs font-bold uppercase leading-4 tracking-[0.075em] text-foreground"
+                  className="hx-table-head px-3 py-1.5 font-hx-display text-hx-xs font-hx-bold uppercase leading-4 tracking-[0.075em] text-hx-foreground"
                 >
                   {recordLabel(record)}
                 </th>
@@ -53,7 +53,7 @@ export function VerticalTable<T>({
             <tr key={field.id} className="border-0">
               <th
                 scope="row"
-                className="hx-field-header w-px whitespace-nowrap px-3 py-1.5 text-left font-display text-xs font-bold uppercase leading-4 tracking-[0.075em] text-foreground"
+                className="hx-field-header w-px whitespace-nowrap px-3 py-1.5 text-left font-hx-display text-hx-xs font-hx-bold uppercase leading-4 tracking-[0.075em] text-hx-foreground"
               >
                 {field.label}
               </th>

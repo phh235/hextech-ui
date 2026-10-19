@@ -10,7 +10,7 @@ export function Card({
       {...props}
       data-animated={animated || undefined}
       className={cn(
-        'hx-frame rounded-none border-2 border-transparent font-sans text-foreground',
+        'hx-frame rounded-none border-2 border-transparent font-hx-sans text-hx-foreground',
         className,
       )}
     />
@@ -24,7 +24,7 @@ export function CardTitle({ className, ...props }: ComponentPropsWithoutRef<'h3'
     <h3
       {...props}
       className={cn(
-        'm-0 font-display text-[1.1667rem] font-bold uppercase leading-7 tracking-[0.075em] text-foreground',
+        'm-0 font-hx-display text-[length:calc(var(--hextech-ui-rem)*1.1667)] font-hx-bold uppercase leading-7 tracking-[0.075em] text-hx-foreground',
         className,
       )}
     />
@@ -32,7 +32,10 @@ export function CardTitle({ className, ...props }: ComponentPropsWithoutRef<'h3'
 }
 export function CardDescription({ className, ...props }: ComponentPropsWithoutRef<'p'>) {
   return (
-    <p {...props} className={cn('m-0 text-sm leading-relaxed text-muted-foreground', className)} />
+    <p
+      {...props}
+      className={cn('m-0 text-hx-sm leading-relaxed text-hx-muted-foreground', className)}
+    />
   );
 }
 export function CardContent({ className, ...props }: ComponentPropsWithoutRef<'div'>) {

@@ -40,12 +40,12 @@ export function PopoverContent({
         side={side}
         align={align}
         sideOffset={sideOffset}
-        className="z-50 max-w-[calc(100vw-2rem)]"
+        className="z-50 max-w-[calc(100vw_-_2*var(--hextech-ui-rem))]"
       >
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-popover grid max-w-sm border-2 border-transparent p-0.5 font-sans text-base leading-[normal] text-[var(--hextech-ui-content-foreground)] outline-none',
+            'hx-popup hx-popover grid max-w-sm border-2 border-transparent p-0.5 font-hx-sans text-hx-base leading-[normal] text-[var(--hextech-ui-content-foreground)] outline-none',
             className,
           )}
         />

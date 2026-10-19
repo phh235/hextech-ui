@@ -42,20 +42,20 @@ export function HudBlock({ className }: { className?: string }) {
       </CardHeader>
       <CardContent className="grid gap-5">
         <div
-          className="relative grid min-h-40 place-items-center overflow-hidden border border-border bg-background"
+          className="relative grid min-h-40 place-items-center overflow-hidden border border-hx-border bg-hx-background"
           aria-label="Abstract training field"
         >
           <div
             aria-hidden="true"
-            className="absolute inset-5 border border-accent/20 [transform:skewY(-8deg)]"
+            className="absolute inset-5 border border-hx-accent/20 [transform:skewY(-8deg)]"
           />
           <div
             aria-hidden="true"
-            className="relative grid size-16 rotate-45 place-items-center border-2 border-primary bg-surface shadow-panel"
+            className="relative grid size-16 rotate-45 place-items-center border-2 border-hx-primary bg-hx-surface shadow-hx-panel"
           >
-            <span className="-rotate-45 text-2xl text-primary">◇</span>
+            <span className="-rotate-45 text-hx-2xl text-hx-primary">◇</span>
           </div>
-          <span className="absolute bottom-3 left-3 font-mono text-xs text-muted-foreground">
+          <span className="absolute bottom-3 left-3 font-hx-mono text-hx-xs text-hx-muted-foreground">
             WORKSHOP / TRAINING
           </span>
         </div>
@@ -78,10 +78,10 @@ export function HudBlock({ className }: { className?: string }) {
                 setMessage(`${ability.name} activated in this local preview.`);
               }}
             >
-              <span aria-hidden="true" className="text-xl text-accent">
+              <span aria-hidden="true" className="text-hx-xl text-hx-accent">
                 {cooldowns[index] || ability.key}
               </span>
-              <span className="text-xs">{ability.name}</span>
+              <span className="text-hx-xs">{ability.name}</span>
             </Button>
           ))}
         </div>
@@ -118,7 +118,7 @@ export function HudBlock({ className }: { className?: string }) {
             Restore resources
           </Button>
         </div>
-        <p role="status" className="m-0 text-sm text-accent">
+        <p role="status" className="m-0 text-hx-sm text-hx-accent">
           {message}
         </p>
       </CardContent>

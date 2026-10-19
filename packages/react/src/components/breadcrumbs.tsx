@@ -3,7 +3,7 @@ import { cn } from '@/lib/cn';
 export function Breadcrumbs({ className, children, ...props }: ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav aria-label="Breadcrumbs" {...props} className={className}>
-      <ol className="m-0 flex list-none flex-wrap items-center gap-1 p-0 font-display text-sm font-medium uppercase leading-[normal] tracking-[0.1em]">
+      <ol className="m-0 flex list-none flex-wrap items-center gap-1 p-0 font-hx-display text-hx-sm font-hx-medium uppercase leading-[normal] tracking-[0.1em]">
         {children}
       </ol>
     </nav>
@@ -26,7 +26,7 @@ export function Breadcrumb({
         <>
           <a
             href={href}
-            className="hx-breadcrumb-link px-4 text-[var(--hextech-ui-gold-300)] no-underline hover:text-foreground"
+            className="hx-breadcrumb-link px-4 text-[var(--hextech-ui-gold-300)] no-underline hover:text-hx-foreground"
           >
             {children}
           </a>
@@ -36,7 +36,7 @@ export function Breadcrumb({
             height="11"
             viewBox="0 0 6 11"
             fill="none"
-            className="block shrink-0 text-primary"
+            className="block shrink-0 text-hx-primary"
           >
             <path d="m1 1 4 4.5L1 10" stroke="currentColor" strokeWidth="1" />
           </svg>

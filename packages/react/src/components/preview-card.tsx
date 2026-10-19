@@ -7,7 +7,9 @@ export function PreviewCardTrigger({
   className,
   ...props
 }: Omit<Primitive.Trigger.Props, 'className'> & { className?: string }) {
-  return <Primitive.Trigger {...props} className={cn('hx-preview-trigger font-sans', className)} />;
+  return (
+    <Primitive.Trigger {...props} className={cn('hx-preview-trigger font-hx-sans', className)} />
+  );
 }
 export function PreviewCardContent({
   className,
@@ -20,7 +22,7 @@ export function PreviewCardContent({
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-popover max-w-xs border-2 border-transparent p-4 font-sans text-sm text-foreground',
+            'hx-popup hx-popover max-w-xs border-2 border-transparent p-4 font-hx-sans text-hx-sm text-hx-foreground',
             className,
           )}
         />

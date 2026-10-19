@@ -20,7 +20,7 @@ export function AlertDialogContent({
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-modal relative grid w-full max-w-md gap-4 border-2 border-transparent p-6 font-sans text-foreground outline-none',
+            'hx-popup hx-modal relative grid w-full max-w-md gap-4 border-2 border-transparent p-6 font-hx-sans text-hx-foreground outline-none',
             className,
           )}
         />
@@ -36,7 +36,7 @@ export function AlertDialogTitle({
     <Primitive.Title
       {...props}
       className={cn(
-        'm-0 font-display text-[1.1667rem] font-bold uppercase leading-6 tracking-[0.075em] text-foreground',
+        'm-0 font-hx-display text-[length:calc(var(--hextech-ui-rem)*1.1667)] font-hx-bold uppercase leading-6 tracking-[0.075em] text-hx-foreground',
         className,
       )}
     />
@@ -49,7 +49,7 @@ export function AlertDialogDescription({
   return (
     <Primitive.Description
       {...props}
-      className={cn('m-0 font-sans text-sm text-muted-foreground', className)}
+      className={cn('m-0 font-hx-sans text-hx-sm text-hx-muted-foreground', className)}
     />
   );
 }

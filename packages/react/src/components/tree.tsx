@@ -342,11 +342,11 @@ export function Tree({
           data-selectable={selectionMode !== 'none' || undefined}
           data-drop={drop?.targetId === node.id ? drop.position : undefined}
           className={cn(
-            'hx-tree-row flex items-center gap-1.5 py-1.5 pr-3 data-[drop=before]:border-t-primary data-[drop=after]:border-b-primary data-[drop=inside]:border-primary',
+            'hx-tree-row flex items-center gap-1.5 py-1.5 pr-3 data-[drop=before]:border-t-primary data-[drop=after]:border-b-primary data-[drop=inside]:border-hx-primary',
             blocked(node.id) && 'hx-tree-disabled',
           )}
           style={{
-            paddingInlineStart: `calc(${level - 1} * var(--hextech-ui-tree-indent, 1.125rem) + 0.5rem)`,
+            paddingInlineStart: `calc(${level - 1} * var(--hextech-ui-tree-indent, calc(var(--hextech-ui-rem)*1.125)) + calc(var(--hextech-ui-rem)*0.5))`,
           }}
         >
           {node.children?.length ? (
@@ -360,7 +360,7 @@ export function Tree({
                 expand(node.id);
                 focus(node.id);
               }}
-              className="flex h-3 w-2 shrink-0 items-center justify-center text-primary"
+              className="flex h-3 w-2 shrink-0 items-center justify-center text-hx-primary"
             >
               <svg
                 aria-hidden="true"
@@ -410,7 +410,7 @@ export function Tree({
                   const target = items[position - 1];
                   if (target) request({ id: node.id, targetId: target.id, position: 'before' });
                 }}
-                className="size-8 text-muted-foreground"
+                className="size-8 text-hx-muted-foreground"
               >
                 ↑
               </button>
@@ -424,7 +424,7 @@ export function Tree({
                   const target = items[position + 1];
                   if (target) request({ id: node.id, targetId: target.id, position: 'after' });
                 }}
-                className="size-8 text-muted-foreground"
+                className="size-8 text-hx-muted-foreground"
               >
                 ↓
               </button>
@@ -451,7 +451,7 @@ export function Tree({
           pendingFocus.current = null;
       }}
       className={cn(
-        'grid w-full gap-2 font-sans focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus',
+        'grid w-full gap-2 font-hx-sans focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hx-focus',
         className,
       )}
     >
@@ -468,14 +468,14 @@ export function Tree({
       </ul>
       {!nodes.length && loading && <Spinner label="Loading items" />}
       {!nodes.length && !loading && (
-        <p className="m-0 p-3 text-sm text-muted-foreground">{emptyState}</p>
+        <p className="m-0 p-3 text-hx-sm text-hx-muted-foreground">{emptyState}</p>
       )}
       {onLoadMore && (
         <button
           type="button"
           disabled={loading || disabled}
           onClick={onLoadMore}
-          className="min-h-11 border border-border p-2 text-sm text-primary"
+          className="min-h-11 border border-hx-border p-2 text-hx-sm text-hx-primary"
         >
           {loading ? <Spinner size="small" label="Loading more items" /> : 'Load more items'}
         </button>
@@ -484,7 +484,7 @@ export function Tree({
         {announcement}
       </p>
       {onMove && (
-        <p className="m-0 text-xs text-muted-foreground">
+        <p className="m-0 text-hx-xs text-hx-muted-foreground">
           Use Alt + ↑ or ↓ to reorder, or the move buttons.
         </p>
       )}

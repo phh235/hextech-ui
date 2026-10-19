@@ -12,7 +12,7 @@ export function Skeleton({ animated = true, className, ...props }: SkeletonProps
       {...props}
       aria-hidden="true"
       className={cn(
-        'min-h-4 border border-border bg-muted',
+        'min-h-4 border border-hx-border bg-hx-muted',
         animated && 'motion-safe:animate-pulse',
         className,
       )}

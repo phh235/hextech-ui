@@ -81,7 +81,7 @@ export function MultipleSelect<T = string>({
           role="group"
           aria-label={tagGroupLabel || `${label} selections`}
           className={cn(
-            'hx-group flex min-h-9 flex-wrap items-center gap-1 border border-transparent p-1 font-sans text-xs',
+            'hx-group flex min-h-9 flex-wrap items-center gap-1 border border-transparent p-1 font-hx-sans text-hx-xs',
             size === 'small' && 'min-h-8',
             size === 'large' && 'min-h-10',
           )}
@@ -93,7 +93,7 @@ export function MultipleSelect<T = string>({
                     <Primitive.Chip
                       key={model.key(value)}
                       className={cn(
-                        'hx-tag hx-tag-teal inline-flex min-h-[22px] items-center rounded-full border border-transparent pl-2 pr-[0.3rem] text-xs leading-none tracking-[0.02em]',
+                        'hx-tag hx-tag-teal inline-flex min-h-[22px] items-center rounded-full border border-transparent pl-2 pr-[calc(var(--hextech-ui-rem)*0.3)] text-hx-xs leading-none tracking-[0.02em]',
                         size === 'small' && 'pl-1',
                       )}
                     >
@@ -101,7 +101,7 @@ export function MultipleSelect<T = string>({
                       <Primitive.ChipRemove
                         aria-label={`Remove ${model.label(value)}`}
                         className={cn(
-                          'hx-tag-remove inline-flex size-4 items-center justify-center outline-offset-2 focus-visible:outline-1 focus-visible:outline-focus',
+                          'hx-tag-remove inline-flex size-4 items-center justify-center outline-offset-2 focus-visible:outline-1 focus-visible:outline-hx-focus',
                           size === 'small' && 'size-4',
                         )}
                       >
@@ -116,13 +116,13 @@ export function MultipleSelect<T = string>({
             id={inputId}
             placeholder={placeholder}
             className={cn(
-              'min-h-6 min-w-24 flex-1 bg-transparent px-1 text-xs font-medium text-foreground outline-none',
+              'min-h-6 min-w-24 flex-1 bg-transparent px-1 text-hx-xs font-hx-medium text-hx-foreground outline-none',
               size === 'small' && 'min-h-5',
             )}
           />
           <Primitive.Trigger
             aria-label={`Show ${label} options`}
-            className="inline-flex size-6 shrink-0 items-center justify-center text-primary focus-visible:outline-1 focus-visible:outline-focus"
+            className="inline-flex size-6 shrink-0 items-center justify-center text-hx-primary focus-visible:outline-1 focus-visible:outline-hx-focus"
           >
             <ControlIcon name="plus" />
           </Primitive.Trigger>
@@ -130,8 +130,8 @@ export function MultipleSelect<T = string>({
       </div>
       <Primitive.Portal>
         <Primitive.Positioner {...portalTheme} sideOffset={6} className="z-50">
-          <Primitive.Popup className="hx-popup hx-select-popup min-w-[var(--anchor-width)] border p-0 font-sans text-sm">
-            <Primitive.Empty className="p-3 text-muted-foreground">{emptyState}</Primitive.Empty>
+          <Primitive.Popup className="hx-popup hx-select-popup min-w-[var(--anchor-width)] border p-0 font-hx-sans text-hx-sm">
+            <Primitive.Empty className="p-3 text-hx-muted-foreground">{emptyState}</Primitive.Empty>
             <Primitive.List className="max-h-64 overflow-y-auto">
               {(option: T) => (
                 <Primitive.Item

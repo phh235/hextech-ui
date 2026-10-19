@@ -2,14 +2,15 @@
 
 @layer hextech-ui.tokens {
   :root {
+    --hextech-ui-rem: 16px;
     --hextech-ui-font-sans: 'Spiegel', 'Barlow', Arial, sans-serif;
     --hextech-ui-font-display: 'Beaufort for LOL', 'Beaufort', 'Cinzel', Georgia, serif;
     --hextech-ui-font-mono: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', monospace;
-    --hextech-ui-text-xs: 0.75rem;
-    --hextech-ui-text-sm: 0.875rem;
-    --hextech-ui-text-base: 1rem;
-    --hextech-ui-text-lg: 1.125rem;
-    --hextech-ui-text-xl: 1.5rem;
+    --hextech-ui-text-xs: calc(var(--hextech-ui-rem) * 0.75);
+    --hextech-ui-text-sm: calc(var(--hextech-ui-rem) * 0.875);
+    --hextech-ui-text-base: calc(var(--hextech-ui-rem) * 1);
+    --hextech-ui-text-lg: calc(var(--hextech-ui-rem) * 1.125);
+    --hextech-ui-text-xl: calc(var(--hextech-ui-rem) * 1.5);
     --hextech-ui-weight-normal: 400;
     --hextech-ui-weight-medium: 500;
     --hextech-ui-weight-bold: 700;
@@ -17,15 +18,15 @@
     --hextech-ui-leading-normal: 1.65;
     --hextech-ui-tracking-normal: 0;
     --hextech-ui-tracking-wide: 0.12em;
-    --hextech-ui-space-unit: 0.25rem;
+    --hextech-ui-space-unit: calc(var(--hextech-ui-rem) * 0.25);
     --hextech-ui-border-width: 1px;
     --hextech-ui-border-strong: 2px;
-    --hextech-ui-radius-sm: 0.25rem;
-    --hextech-ui-radius-md: 0.5rem;
-    --hextech-ui-radius-lg: 0.875rem;
-    --hextech-ui-control-sm: 2rem;
-    --hextech-ui-control-md: 2.75rem;
-    --hextech-ui-control-lg: 3rem;
+    --hextech-ui-radius-sm: calc(var(--hextech-ui-rem) * 0.25);
+    --hextech-ui-radius-md: calc(var(--hextech-ui-rem) * 0.5);
+    --hextech-ui-radius-lg: calc(var(--hextech-ui-rem) * 0.875);
+    --hextech-ui-control-sm: calc(var(--hextech-ui-rem) * 2);
+    --hextech-ui-control-md: calc(var(--hextech-ui-rem) * 2.75);
+    --hextech-ui-control-lg: calc(var(--hextech-ui-rem) * 3);
     --hextech-ui-opacity-disabled: 0.5;
     --hextech-ui-duration-fast: 120ms;
     --hextech-ui-duration-normal: 200ms;

@@ -78,7 +78,7 @@ export function VirtualListbox({
     <div
       inert={!readyForInput}
       data-hextech-ready={readyForInput ? 'true' : 'false'}
-      className="grid min-w-0 gap-2 font-sans"
+      className="grid min-w-0 gap-2 font-hx-sans"
     >
       <div
         ref={root}
@@ -91,7 +91,7 @@ export function VirtualListbox({
         }
         tabIndex={disabled ? -1 : 0}
         className={cn(
-          'hx-select-popup relative w-full overflow-auto border outline-offset-4 focus-visible:outline-1 focus-visible:outline-focus',
+          'hx-select-popup relative w-full overflow-auto border outline-offset-4 focus-visible:outline-1 focus-visible:outline-hx-focus',
           disabled && 'opacity-50',
           className,
         )}
@@ -159,10 +159,10 @@ export function VirtualListbox({
                   focus(row.index);
                   select(row.index);
                 }}
-                className="hx-virtual-option absolute top-0 left-0 flex w-full items-center gap-3 border-b border-[var(--hextech-ui-grey-300)] px-2 text-sm outline-none"
+                className="hx-virtual-option absolute top-0 left-0 flex w-full items-center gap-3 border-b border-[var(--hextech-ui-grey-300)] px-2 text-hx-sm outline-none"
                 style={{ height: size, transform: `translateY(${row.start}px)` }}
               >
-                <span aria-hidden="true" className="w-4 shrink-0 text-primary">
+                <span aria-hidden="true" className="w-4 shrink-0 text-hx-primary">
                   {selected.has(item.id) ? '✓' : '◇'}
                 </span>
                 <span className="min-w-0 truncate">{item.label}</span>
@@ -171,7 +171,9 @@ export function VirtualListbox({
           })}
         </div>
       </div>
-      {!items.length && <p className="m-0 text-sm text-muted-foreground">No options found.</p>}
+      {!items.length && (
+        <p className="m-0 text-hx-sm text-hx-muted-foreground">No options found.</p>
+      )}
     </div>
   );
 }

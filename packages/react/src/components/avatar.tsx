@@ -12,7 +12,7 @@ export function Avatar({
       role={props['aria-label'] || props['aria-labelledby'] ? 'img' : undefined}
       {...props}
       className={cn(
-        'relative inline-flex size-12 shrink-0 items-center justify-center overflow-hidden border border-primary/60 bg-muted font-serif text-xl text-primary',
+        'relative inline-flex size-12 shrink-0 items-center justify-center overflow-hidden border border-hx-primary/60 bg-hx-muted font-hx-serif text-hx-xl text-hx-primary',
         className,
       )}
     />

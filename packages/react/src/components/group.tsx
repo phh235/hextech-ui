@@ -28,7 +28,7 @@ export function GroupSeparator({ className, ...props }: ComponentPropsWithoutRef
       aria-hidden="true"
       {...props}
       className={cn(
-        'flex shrink-0 items-center px-2 font-sans text-xs font-bold text-primary',
+        'flex shrink-0 items-center px-2 font-hx-sans text-hx-xs font-hx-bold text-hx-primary',
         className,
       )}
     />

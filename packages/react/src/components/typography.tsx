@@ -21,14 +21,18 @@ export function Heading({
   return createElement(as, {
     ...props,
     className: cn(
-      'm-0 font-display font-bold uppercase tracking-wide text-foreground',
+      'm-0 font-hx-display font-hx-bold uppercase tracking-hx-wide text-hx-foreground',
       {
-        'text-[1.5rem] leading-[1.8333rem] tracking-[0.05em]': size === 'sm',
-        'text-[1.9167rem] leading-[2.3333rem] tracking-[0.05em]': size === 'md',
-        'text-[2.3333rem] leading-[2.6667rem] tracking-[0.05em]': size === 'lg',
-        'text-[3.3333rem] leading-[3.5rem] tracking-[0.05em]': size === 'xl',
-        'text-primary': tone === 'gold',
-        'text-muted-foreground': tone === 'muted',
+        'text-[length:calc(var(--hextech-ui-rem)*1.5)] leading-[calc(var(--hextech-ui-rem)*1.8333)] tracking-[0.05em]':
+          size === 'sm',
+        'text-[length:calc(var(--hextech-ui-rem)*1.9167)] leading-[calc(var(--hextech-ui-rem)*2.3333)] tracking-[0.05em]':
+          size === 'md',
+        'text-[length:calc(var(--hextech-ui-rem)*2.3333)] leading-[calc(var(--hextech-ui-rem)*2.6667)] tracking-[0.05em]':
+          size === 'lg',
+        'text-[length:calc(var(--hextech-ui-rem)*3.3333)] leading-[calc(var(--hextech-ui-rem)*3.5)] tracking-[0.05em]':
+          size === 'xl',
+        'text-hx-primary': tone === 'gold',
+        'text-hx-muted-foreground': tone === 'muted',
       },
       className,
     ),
@@ -49,13 +53,13 @@ export function Text({
   return createElement(as, {
     ...props,
     className: cn(
-      'm-0 font-sans text-foreground',
+      'm-0 font-hx-sans text-hx-foreground',
       {
-        'text-sm leading-[1.1025rem] tracking-[0.02em]': size === 'sm',
-        'text-base leading-[1.24rem] tracking-[0.01em]': size === 'md',
-        'text-lg leading-[1.875rem] tracking-[0.025em]': size === 'lg',
-        'text-muted-foreground': tone === 'muted',
-        'text-accent': tone === 'accent',
+        'text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em]': size === 'sm',
+        'text-hx-base leading-[calc(var(--hextech-ui-rem)*1.24)] tracking-[0.01em]': size === 'md',
+        'text-hx-lg leading-[calc(var(--hextech-ui-rem)*1.875)] tracking-[0.025em]': size === 'lg',
+        'text-hx-muted-foreground': tone === 'muted',
+        'text-hx-accent': tone === 'accent',
       },
       className,
     ),
@@ -66,7 +70,7 @@ export function Label({ className, ...props }: ComponentPropsWithoutRef<'label'>
     <label
       {...props}
       className={cn(
-        'font-sans text-sm font-normal leading-[1.1025rem] tracking-[0.02em] text-muted-foreground',
+        'font-hx-sans text-hx-sm font-hx-normal leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground',
         className,
       )}
     />

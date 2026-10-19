@@ -8,14 +8,14 @@ export function Badge({ tone = 'gold', className, ...props }: BadgeProps) {
     <span
       {...props}
       className={cn(
-        'inline-flex items-center gap-1 border px-2 py-0.5 font-mono text-xs font-medium',
+        'inline-flex items-center gap-1 border px-2 py-0.5 font-hx-mono text-hx-xs font-hx-medium',
         {
-          'border-primary/40 bg-primary/10 text-primary': tone === 'gold',
-          'border-accent/40 bg-accent/10 text-accent': tone === 'teal',
-          'border-success/40 text-success': tone === 'success',
-          'border-warning/40 text-warning': tone === 'warning',
-          'border-destructive/40 text-destructive': tone === 'destructive',
-          'border-border bg-muted text-muted-foreground': tone === 'neutral',
+          'border-hx-primary/40 bg-hx-primary/10 text-hx-primary': tone === 'gold',
+          'border-hx-accent/40 bg-hx-accent/10 text-hx-accent': tone === 'teal',
+          'border-hx-success/40 text-hx-success': tone === 'success',
+          'border-hx-warning/40 text-hx-warning': tone === 'warning',
+          'border-hx-destructive/40 text-hx-destructive': tone === 'destructive',
+          'border-hx-border bg-hx-muted text-hx-muted-foreground': tone === 'neutral',
         },
         className,
       )}

@@ -33,7 +33,7 @@ export function SelectTrigger({
       )}
     >
       {children || <Primitive.Value />}
-      <Primitive.Icon aria-hidden className="text-primary">
+      <Primitive.Icon aria-hidden className="text-hx-primary">
         <ControlIcon name="chevron-down" />
       </Primitive.Icon>
     </Primitive.Trigger>
@@ -59,7 +59,7 @@ export function SelectContent({
         <Primitive.Popup
           {...props}
           className={cn(
-            'hx-popup hx-select-popup max-h-72 min-w-[var(--anchor-width)] overflow-y-auto border p-0 font-sans text-sm outline-none',
+            'hx-popup hx-select-popup max-h-72 min-w-[var(--anchor-width)] overflow-y-auto border p-0 font-hx-sans text-hx-sm outline-none',
             className,
           )}
         >
@@ -86,7 +86,7 @@ export function SelectItem({
       )}
     >
       <Primitive.ItemText className="flex-1">{children}</Primitive.ItemText>
-      <Primitive.ItemIndicator aria-hidden className="text-primary">
+      <Primitive.ItemIndicator aria-hidden className="text-hx-primary">
         <ControlIcon name="check" />
       </Primitive.ItemIndicator>
     </Primitive.Item>

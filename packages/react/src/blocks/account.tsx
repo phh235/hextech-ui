@@ -24,7 +24,7 @@ export function AccountBlock({ className }: { className?: string }) {
       inert={!readyForInput}
       data-hextech-ready={readyForInput ? 'true' : 'false'}
       className={cn(
-        'grid w-full min-w-0 gap-4 font-sans grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),1fr))]',
+        'grid w-full min-w-0 gap-4 font-hx-sans grid-cols-[repeat(auto-fit,minmax(min(100%,calc(var(--hextech-ui-rem)*20)),1fr))]',
         className,
       )}
     >
@@ -32,7 +32,7 @@ export function AccountBlock({ className }: { className?: string }) {
         <CardHeader>
           <div
             aria-hidden="true"
-            className="grid size-14 place-items-center border border-primary bg-secondary font-display text-xl text-primary"
+            className="grid size-14 place-items-center border border-hx-primary bg-hx-secondary font-hx-display text-hx-xl text-hx-primary"
           >
             {name.slice(0, 1).toUpperCase() || 'A'}
           </div>
@@ -42,7 +42,7 @@ export function AccountBlock({ className }: { className?: string }) {
         </CardHeader>
         <CardContent>
           <Progress label="Practice plan" value={65} />
-          <p className="m-0 mt-4 text-xs text-muted-foreground">
+          <p className="m-0 mt-4 text-hx-xs text-hx-muted-foreground">
             Fictional profile and progress. Customize these panels for your own data.
           </p>
         </CardContent>
@@ -68,7 +68,7 @@ export function AccountBlock({ className }: { className?: string }) {
                 required
                 maxLength={40}
               />
-              <label className="flex items-center gap-3 text-sm">
+              <label className="flex items-center gap-3 text-hx-sm">
                 <Switch
                   checked={updates}
                   onCheckedChange={setUpdates}
@@ -86,7 +86,7 @@ export function AccountBlock({ className }: { className?: string }) {
               <Button type="submit" variant="primary" className="whitespace-normal">
                 Save preview preferences
               </Button>
-              <p role="status" className="m-0 text-xs text-accent">
+              <p role="status" className="m-0 text-hx-xs text-hx-accent">
                 {saved}
               </p>
             </form>
@@ -102,7 +102,7 @@ export function AccountBlock({ className }: { className?: string }) {
               {notices.map((notice) => (
                 <li
                   key={notice}
-                  className="flex items-start justify-between gap-3 border-b border-border py-2 text-sm"
+                  className="flex items-start justify-between gap-3 border-b border-hx-border py-2 text-hx-sm"
                 >
                   <span>{notice}</span>
                   <Button
@@ -117,7 +117,7 @@ export function AccountBlock({ className }: { className?: string }) {
               ))}
             </ul>
             {!notices.length && (
-              <p role="status" className="m-0 text-sm text-muted-foreground">
+              <p role="status" className="m-0 text-hx-sm text-hx-muted-foreground">
                 You are all caught up.
               </p>
             )}

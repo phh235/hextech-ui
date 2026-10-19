@@ -25,7 +25,7 @@ export function CollapsibleTrigger({
         props.onBlur?.(event);
       }}
       className={cn(
-        'hx-disclosure-trigger flex w-full items-center py-2 text-left font-display text-base font-bold uppercase leading-[normal]',
+        'hx-disclosure-trigger flex w-full items-center py-2 text-left font-hx-display text-hx-base font-hx-bold uppercase leading-[normal]',
         className,
       )}
     />
@@ -38,7 +38,10 @@ export function CollapsiblePanel({
   return (
     <Primitive.Panel
       {...props}
-      className={cn('hx-disclosure overflow-hidden py-3 text-sm text-muted-foreground', className)}
+      className={cn(
+        'hx-disclosure overflow-hidden py-3 text-hx-sm text-hx-muted-foreground',
+        className,
+      )}
     />
   );
 }

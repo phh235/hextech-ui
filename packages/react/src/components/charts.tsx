@@ -38,7 +38,7 @@ export function ChartFrame({
     <figure
       {...props}
       className={cn(
-        'hx-chart-frame relative m-0 flex min-w-0 flex-col gap-3 border border-transparent px-[1.125rem] pt-4 pb-[1.125rem] font-sans',
+        'hx-chart-frame relative m-0 flex min-w-0 flex-col gap-3 border border-transparent px-[calc(var(--hextech-ui-rem)*1.125)] pt-4 pb-[calc(var(--hextech-ui-rem)*1.125)] font-hx-sans',
         className,
       )}
     >
@@ -51,11 +51,11 @@ export function ChartFrame({
       ))}
       <figcaption className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="m-0 font-display text-[1.1667rem] font-bold uppercase leading-6 tracking-[0.075em] text-foreground">
+          <p className="m-0 font-hx-display text-[length:calc(var(--hextech-ui-rem)*1.1667)] font-hx-bold uppercase leading-6 tracking-[0.075em] text-hx-foreground">
             {title}
           </p>
           {description && (
-            <p className="m-0 mt-0.5 text-sm leading-[1.1025rem] tracking-[0.02em] text-[var(--hextech-ui-gold-300)]">
+            <p className="m-0 mt-0.5 text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-[var(--hextech-ui-gold-300)]">
               {description}
             </p>
           )}
@@ -90,7 +90,7 @@ export function ChartLegend({
     <ul
       aria-label="Chart legend"
       className={cn(
-        'm-0 flex list-none flex-wrap gap-x-5 gap-y-1.5 p-0 text-sm leading-[1.1025rem] tracking-[0.02em] text-[var(--hextech-ui-gold-300)]',
+        'm-0 flex list-none flex-wrap gap-x-5 gap-y-1.5 p-0 text-hx-sm leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-[var(--hextech-ui-gold-300)]',
         className,
       )}
     >
@@ -101,7 +101,7 @@ export function ChartLegend({
               type="button"
               aria-pressed={!item.hidden}
               onClick={() => onToggle(item.id)}
-              className="flex items-center gap-2 border-0 bg-transparent p-0 outline-offset-2 focus-visible:outline-1 focus-visible:outline-focus"
+              className="flex items-center gap-2 border-0 bg-transparent p-0 outline-offset-2 focus-visible:outline-1 focus-visible:outline-hx-focus"
             >
               <span
                 aria-hidden="true"
@@ -161,7 +161,7 @@ export function HextechChart<
         definition={definition}
         onRender={rendered}
         className={cn(
-          'min-w-0 max-w-full font-sans [&_svg]:max-w-full [&_svg]:outline-offset-2 [&_svg]:focus-visible:outline-2 [&_svg]:focus-visible:outline-focus',
+          'min-w-0 max-w-full font-hx-sans [&_svg]:max-w-full [&_svg]:outline-offset-2 [&_svg]:focus-visible:outline-2 [&_svg]:focus-visible:outline-hx-focus',
           className,
         )}
       />
@@ -314,7 +314,7 @@ function Cartesian<T>({
           }}
         />
       ) : (
-        <p className="m-0 p-6 text-center text-sm text-muted-foreground">
+        <p className="m-0 p-6 text-center text-hx-sm text-hx-muted-foreground">
           {data.length ? 'All series are hidden.' : 'No chart data.'}
         </p>
       )}
@@ -333,18 +333,22 @@ function Cartesian<T>({
           }
         />
       )}
-      <details className="min-w-0 text-xs text-muted-foreground">
-        <summary className="cursor-pointer py-2 text-foreground">View chart data</summary>
+      <details className="min-w-0 text-hx-xs text-hx-muted-foreground">
+        <summary className="cursor-pointer py-2 text-hx-foreground">View chart data</summary>
         <div className="overflow-x-auto">
           <table id={`${id}-data`} className="w-full border-collapse text-start">
             <caption className="sr-only">{title} readings</caption>
             <thead>
               <tr>
-                <th scope="col" className="border-b border-border p-2 text-start">
+                <th scope="col" className="border-b border-hx-border p-2 text-start">
                   {xLabel || 'Position'}
                 </th>
                 {series.map((entry) => (
-                  <th key={entry.id} scope="col" className="border-b border-border p-2 text-start">
+                  <th
+                    key={entry.id}
+                    scope="col"
+                    className="border-b border-hx-border p-2 text-start"
+                  >
                     {entry.label}
                   </th>
                 ))}
@@ -353,11 +357,11 @@ function Cartesian<T>({
             <tbody>
               {data.map((row, index) => (
                 <tr key={index}>
-                  <th scope="row" className="border-b border-border p-2 text-start">
+                  <th scope="row" className="border-b border-hx-border p-2 text-start">
                     {x(row)}
                   </th>
                   {series.map((entry) => (
-                    <td key={entry.id} className="border-b border-border p-2">
+                    <td key={entry.id} className="border-b border-hx-border p-2">
                       {entry.value(row) ?? '—'}
                     </td>
                   ))}
@@ -440,10 +444,10 @@ export function RankingChart<T>({
           }}
         />
       ) : (
-        <p className="m-0 p-6 text-center text-sm text-muted-foreground">No ranking data.</p>
+        <p className="m-0 p-6 text-center text-hx-sm text-hx-muted-foreground">No ranking data.</p>
       )}
       <ol
-        className="m-0 grid gap-1 pl-5 text-xs text-muted-foreground"
+        className="m-0 grid gap-1 pl-5 text-hx-xs text-hx-muted-foreground"
         aria-label={`${title} values`}
       >
         {ranked.map((row, index) => (

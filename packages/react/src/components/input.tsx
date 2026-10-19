@@ -9,7 +9,7 @@ export interface InputProps extends Omit<InputPrimitive.Props, 'size' | 'classNa
 }
 export function inputVariants(size: ControlSize = 'medium', className?: string): string {
   return cn(
-    'hx-input flex w-full min-w-0 rounded-none border border-transparent px-3 py-0 font-sans text-xs font-normal leading-4 tracking-[0.025em] placeholder:text-[var(--hextech-ui-input-placeholder)] disabled:cursor-not-allowed',
+    'hx-input flex w-full min-w-0 rounded-none border border-transparent px-3 py-0 font-hx-sans text-hx-xs font-hx-normal leading-4 tracking-[0.025em] placeholder:text-[var(--hextech-ui-input-placeholder)] disabled:cursor-not-allowed',
     {
       'min-h-8': size === 'small',
       'min-h-9': size === 'medium',

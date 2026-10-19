@@ -11,7 +11,7 @@ export function Tag({ tone = 'gold', className, ...props }: TagProps) {
     <span
       {...props}
       className={cn(
-        'hx-tag inline-flex items-center gap-1 rounded-full border border-transparent font-sans text-xs leading-none tracking-[0.02em]',
+        'hx-tag inline-flex items-center gap-1 rounded-full border border-transparent font-hx-sans text-hx-xs leading-none tracking-[0.02em]',
         { 'hx-tag-teal': tone === 'teal', 'hx-tag-muted': tone === 'muted' },
         className,
       )}
@@ -123,7 +123,7 @@ export function TagGroup({
         }
       }}
       className={cn(
-        'flex flex-wrap items-center gap-1 p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus',
+        'flex flex-wrap items-center gap-1 p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hx-focus',
         className,
       )}
     >
@@ -145,7 +145,7 @@ export function TagGroup({
               aria-pressed={selected.has(item.id)}
               onClick={() => select(item.id)}
               onKeyDown={(event) => key(event, item)}
-              className="px-2 py-1 outline-offset-2 focus-visible:outline-1 focus-visible:outline-focus"
+              className="px-2 py-1 outline-offset-2 focus-visible:outline-1 focus-visible:outline-hx-focus"
             >
               {item.label}
             </Toolbar.Button>
@@ -166,14 +166,16 @@ export function TagGroup({
               disabled={disabled || item.disabled}
               onClick={() => remove(item.id)}
               onKeyDown={(event) => key(event, item)}
-              className="hx-tag-remove flex size-4 items-center justify-center border-0 p-0 outline-offset-2 focus-visible:outline-1 focus-visible:outline-focus"
+              className="hx-tag-remove flex size-4 items-center justify-center border-0 p-0 outline-offset-2 focus-visible:outline-1 focus-visible:outline-hx-focus"
             >
               <span aria-hidden="true">×</span>
             </Toolbar.Button>
           )}
         </Tag>
       ))}
-      {!items.length && <span className="text-xs text-muted-foreground">No tags selected.</span>}
+      {!items.length && (
+        <span className="text-hx-xs text-hx-muted-foreground">No tags selected.</span>
+      )}
     </Toolbar.Root>
   );
 }

@@ -18,12 +18,12 @@ export function buttonVariants({
   className,
 }: ButtonStyleOptions = {}): string {
   return cn(
-    'hx-button relative inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-none border-2 border-transparent px-4 font-display text-base font-bold uppercase leading-none tracking-[0.05em] outline-offset-2 disabled:pointer-events-none',
+    'hx-button relative inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-none border-2 border-transparent px-4 font-hx-display text-hx-base font-hx-bold uppercase leading-none tracking-[0.05em] outline-offset-2 disabled:pointer-events-none',
     {
-      'min-h-8 px-2 text-sm/none': size === 'small',
+      'min-h-8 px-2 text-hx-sm/none': size === 'small',
       'min-h-9': size === 'medium',
       'min-h-10': size === 'large',
-      'aspect-square p-0 font-black': shape !== 'normal',
+      'aspect-square p-0 font-hx-black': shape !== 'normal',
       'rounded-[9999px]': shape === 'round',
       border: thin,
       'hx-button-primary': variant === 'primary',

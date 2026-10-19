@@ -74,12 +74,12 @@ function TemporalField({
         {endAdornment}
       </div>
       {description && (
-        <p id={`${id}-description`} className="text-xs text-muted-foreground">
+        <p id={`${id}-description`} className="text-hx-xs text-hx-muted-foreground">
           {description}
         </p>
       )}
       {validationMessage && (
-        <p id={`${id}-error`} className="text-xs text-destructive" aria-live="polite">
+        <p id={`${id}-error`} className="text-hx-xs text-hx-destructive" aria-live="polite">
           {validationMessage}
         </p>
       )}

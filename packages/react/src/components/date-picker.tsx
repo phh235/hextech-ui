@@ -188,7 +188,7 @@ export function DateRangePicker({
   return (
     <Popover open={open ?? localOpen} onOpenChange={updateOpen}>
       <div className={cn('grid w-full gap-2', className)}>
-        <span className="font-sans text-sm font-normal leading-[1.1025rem] tracking-[0.02em] text-muted-foreground">
+        <span className="font-hx-sans text-hx-sm font-hx-normal leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground">
           {label}
         </span>
         <div
@@ -230,7 +230,7 @@ export function DateRangePicker({
           </PopoverTrigger>
         </div>
         {(startError || endError) && (
-          <p className="text-xs text-destructive" aria-live="polite">
+          <p className="text-hx-xs text-hx-destructive" aria-live="polite">
             {startError || endError}
           </p>
         )}

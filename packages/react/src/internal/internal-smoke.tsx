@@ -18,7 +18,7 @@ export function InternalSmoke({ disabled = false }: InternalSmokeProps) {
       onPressedChange={setPressed}
       disabled={disabled}
       className={cn(
-        'min-h-11 rounded-md border border-primary bg-surface px-5 py-2 text-foreground transition-colors data-pressed:bg-primary data-pressed:text-primary-foreground disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus',
+        'min-h-11 rounded-hx-md border border-hx-primary bg-hx-surface px-5 py-2 text-hx-foreground transition-colors data-pressed:bg-hx-primary data-pressed:text-hx-primary-foreground disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-hx-focus',
       )}
     >
       {pressed ? 'Fixture active' : 'Activate fixture'}

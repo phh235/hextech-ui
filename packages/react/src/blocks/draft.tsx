@@ -95,7 +95,7 @@ export function DraftBlock({ className }: { className?: string }) {
           connection.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-5 @2xl:grid-cols-[1fr_15rem]">
+      <CardContent className="grid gap-5 @2xl:grid-cols-[1fr_calc(var(--hextech-ui-rem)*15)]">
         <div className="grid content-start gap-4">
           <SearchField
             label="Find a character"
@@ -124,38 +124,40 @@ export function DraftBlock({ className }: { className?: string }) {
                 aria-pressed={selection === item.id}
                 disabled={locked}
                 onClick={() => setSelection(item.id)}
-                className="group grid min-h-40 content-center justify-items-center gap-3 border border-border bg-background p-3 text-center outline-offset-2 transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-focus aria-pressed:border-primary aria-pressed:bg-secondary disabled:opacity-60"
+                className="group grid min-h-40 content-center justify-items-center gap-3 border border-hx-border bg-hx-background p-3 text-center outline-offset-2 transition-colors hover:border-hx-primary focus-visible:outline-2 focus-visible:outline-hx-focus aria-pressed:border-hx-primary aria-pressed:bg-hx-secondary disabled:opacity-60"
               >
                 <span
                   aria-hidden="true"
-                  className="grid size-16 place-items-center border border-accent/40 bg-accent/5 text-4xl text-accent group-aria-pressed:text-primary"
+                  className="grid size-16 place-items-center border border-hx-accent/40 bg-hx-accent/5 text-hx-4xl text-hx-accent group-aria-pressed:text-hx-primary"
                 >
                   {item.glyph}
                 </span>
-                <span className="text-sm font-semibold text-foreground">{item.name}</span>
-                <span className="text-xs text-muted-foreground">{item.role}</span>
+                <span className="text-hx-sm font-hx-semibold text-hx-foreground">{item.name}</span>
+                <span className="text-hx-xs text-hx-muted-foreground">{item.role}</span>
               </button>
             ))}
           </div>
           {!filtered.length && (
-            <p className="m-0 text-sm text-muted-foreground">No characters match this filter.</p>
+            <p className="m-0 text-hx-sm text-hx-muted-foreground">
+              No characters match this filter.
+            </p>
           )}
         </div>
         <aside
           aria-label="Draft selection"
-          className="grid content-start gap-4 border-l border-border pl-0 @2xl:pl-5"
+          className="grid content-start gap-4 border-l border-hx-border pl-0 @2xl:pl-5"
         >
-          <p className="m-0 font-mono text-xs uppercase tracking-widest text-primary">
+          <p className="m-0 font-hx-mono text-hx-xs uppercase tracking-widest text-hx-primary">
             Your selection
           </p>
           <div
             aria-hidden="true"
-            className="grid min-h-32 place-items-center border border-primary/30 bg-secondary text-6xl text-primary"
+            className="grid min-h-32 place-items-center border border-hx-primary/30 bg-hx-secondary text-6xl text-hx-primary"
           >
             {selected?.glyph || '◇'}
           </div>
-          <p className="m-0 text-lg font-semibold">{selected?.name || 'Choose your role'}</p>
-          <p className="m-0 text-sm leading-relaxed text-muted-foreground">
+          <p className="m-0 text-hx-lg font-hx-semibold">{selected?.name || 'Choose your role'}</p>
+          <p className="m-0 text-hx-sm leading-relaxed text-hx-muted-foreground">
             {selected?.description || 'Select a card, then lock in your choice.'}
           </p>
           <Progress label={`Draft time remaining (${remaining}s)`} max={30} value={remaining} />
@@ -189,7 +191,7 @@ export function DraftBlock({ className }: { className?: string }) {
           >
             Reset draft
           </Button>
-          <p role="status" className="m-0 text-xs text-accent">
+          <p role="status" className="m-0 text-hx-xs text-hx-accent">
             {locked
               ? selected
                 ? `${selected.name} locked for this preview.`
