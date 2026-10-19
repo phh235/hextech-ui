@@ -1,6 +1,10 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { Skeleton } from '@hextech-ui/react/skeleton';
+import { Alert, AlertTitle, AlertDescription } from '@hextech-ui/react/alert';
+import { Avatar, AvatarFallback } from '@hextech-ui/react/avatar';
+import { EmptyState, EmptyStateTitle, EmptyStateDescription } from '@hextech-ui/react/empty-state';
 import { InputExample } from './input-examples';
 import { InteractionExample } from './catalog-interactions';
 import { ComplexExample } from './catalog-complex';
@@ -77,6 +81,34 @@ export function ComponentExample({
   const [checked, setChecked] = useState(false);
   const [value, setValue] = useState('top');
   switch (name) {
+    case 'skeleton':
+      return (
+        <div role="status" aria-label="Loading profile" className="grid w-full max-w-sm gap-3">
+          <Skeleton className="size-12" />
+          <Skeleton className="h-4 w-3/4" />
+          <Skeleton className="h-4 w-1/2" />
+        </div>
+      );
+    case 'alert':
+      return (
+        <Alert tone="info" className="w-full max-w-sm">
+          <AlertTitle>Your next chapter</AlertTitle>
+          <AlertDescription>Save a build before starting your next session.</AlertDescription>
+        </Alert>
+      );
+    case 'avatar':
+      return (
+        <Avatar aria-label="Starlight">
+          <AvatarFallback>S</AvatarFallback>
+        </Avatar>
+      );
+    case 'empty-state':
+      return (
+        <EmptyState className="w-full max-w-sm">
+          <EmptyStateTitle>No saved builds</EmptyStateTitle>
+          <EmptyStateDescription>Your saved builds will appear here.</EmptyStateDescription>
+        </EmptyState>
+      );
     case 'sonner':
       return <SonnerExample />;
     case 'table-load-more':

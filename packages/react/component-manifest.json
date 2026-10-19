@@ -884,5 +884,60 @@
       ["sonner.success / error / warning / info / loading / promise", "notification API", "—"]
     ],
     "registryDependencies": ["button"]
+  },
+  {
+    "name": "skeleton",
+    "title": "Skeleton",
+    "category": "Feedback",
+    "description": "Decorative loading placeholders with reduced-motion support.",
+    "exports": ["Skeleton"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["animated", "boolean", "true"],
+      ["className", "string", "—"]
+    ],
+    "upstream": null
+  },
+  {
+    "name": "alert",
+    "title": "Alert",
+    "category": "Feedback",
+    "description": "Inline notices with semantic theme colors and explicit announcement behavior.",
+    "exports": ["Alert", "AlertTitle", "AlertDescription"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["tone", "default | info | success | warning | destructive", "default"],
+      ["role", "alert | status (optional)", "—"],
+      ["className", "string on every part", "—"]
+    ],
+    "upstream": null
+  },
+  {
+    "name": "avatar",
+    "title": "Avatar",
+    "category": "Layout",
+    "description": "Profile images with a loading and error fallback.",
+    "exports": ["Avatar", "AvatarImage", "AvatarFallback"],
+    "primitive": "Base UI Avatar",
+    "api": [
+      ["src (AvatarImage)", "string", "—"],
+      ["alt (AvatarImage)", "string", "—"],
+      ["delay (AvatarFallback)", "number", "0"],
+      ["className", "string on every part", "—"]
+    ],
+    "upstream": null
+  },
+  {
+    "name": "empty-state",
+    "title": "Empty State",
+    "category": "Feedback",
+    "description": "An empty collection message with optional recovery actions.",
+    "exports": ["EmptyState", "EmptyStateTitle", "EmptyStateDescription", "EmptyStateActions"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["className", "string on every part", "—"],
+      ["children", "ReactNode", "—"]
+    ],
+    "upstream": null
   }
 ]

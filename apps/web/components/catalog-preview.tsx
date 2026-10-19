@@ -17,6 +17,10 @@ export function CatalogPreview({ name, internal = false }: { name: string; inter
   const item = manifest.find((component) => component.name === name);
   if (!item) return null;
   const staticOnly = [
+    'skeleton',
+    'alert',
+    'avatar',
+    'empty-state',
     'sonner',
     'typography',
     'badge',

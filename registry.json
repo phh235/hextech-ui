@@ -901,6 +901,55 @@
       "files": [{ "path": "packages/react/src/components/sonner.tsx", "type": "registry:ui" }]
     },
     {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Decorative loading placeholders with reduced-motion support.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/skeleton.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline notices with semantic theme colors and explicit announcement behavior.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/alert.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Profile images with a loading and error fallback.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/avatar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "An empty collection message with optional recovery actions.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/empty-state.tsx", "type": "registry:ui" }]
+    },
+    {
       "name": "auth-01",
       "type": "registry:block",
       "title": "Account access",

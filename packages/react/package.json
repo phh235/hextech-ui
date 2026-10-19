@@ -305,6 +305,26 @@
       "types": "./dist/components/sonner.d.mts",
       "import": "./dist/components/sonner.mjs",
       "default": "./dist/components/sonner.mjs"
+    },
+    "./skeleton": {
+      "types": "./dist/components/skeleton.d.mts",
+      "import": "./dist/components/skeleton.mjs",
+      "default": "./dist/components/skeleton.mjs"
+    },
+    "./alert": {
+      "types": "./dist/components/alert.d.mts",
+      "import": "./dist/components/alert.mjs",
+      "default": "./dist/components/alert.mjs"
+    },
+    "./avatar": {
+      "types": "./dist/components/avatar.d.mts",
+      "import": "./dist/components/avatar.mjs",
+      "default": "./dist/components/avatar.mjs"
+    },
+    "./empty-state": {
+      "types": "./dist/components/empty-state.d.mts",
+      "import": "./dist/components/empty-state.mjs",
+      "default": "./dist/components/empty-state.mjs"
     }
   },
   "scripts": {

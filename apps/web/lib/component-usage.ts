@@ -1,4 +1,8 @@
 export const componentUsage: Record<string, string> = {
+  skeleton: `import { Skeleton } from '@hextech-ui/react/skeleton';\n\n<div role="status" aria-label="Loading profile" className="grid w-full max-w-sm gap-3">\n  <Skeleton className="size-12" />\n  <Skeleton className="h-4 w-3/4" />\n  <Skeleton className="h-4 w-1/2" />\n</div>`,
+  alert: `import { Alert, AlertTitle, AlertDescription } from '@hextech-ui/react/alert';\n\n<Alert tone="info" className="w-full max-w-sm">\n  <AlertTitle>Your next chapter</AlertTitle>\n  <AlertDescription>Save a build before starting your next session.</AlertDescription>\n</Alert>`,
+  avatar: `import { Avatar, AvatarFallback } from '@hextech-ui/react/avatar';\n\n<Avatar aria-label="Starlight"><AvatarFallback>S</AvatarFallback></Avatar>`,
+  'empty-state': `import { EmptyState, EmptyStateTitle, EmptyStateDescription } from '@hextech-ui/react/empty-state';\n\n<EmptyState className="w-full max-w-sm">\n  <EmptyStateTitle>No saved builds</EmptyStateTitle>\n  <EmptyStateDescription>Your saved builds will appear here.</EmptyStateDescription>\n</EmptyState>`,
   button: `import { Button } from '@hextech-ui/react/button';
 
 export function Example() {
