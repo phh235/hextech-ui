@@ -1,0 +1,44 @@
+---
+title: Forms
+description: Build a validated form with Hextech UI, React Hook Form and Zod.
+---
+
+Use the canonical [Field](/docs/components/field), [Input](/docs/components/input) and [Button](/docs/components/button) components. React Hook Form owns the form values, and Zod validates the data before submission.
+
+## Install
+
+Complete [Installation](/docs/installation), then add the controls:
+
+<RegistryInstallCommand name="field" />
+<RegistryInstallCommand name="button" />
+<RegistryInstallCommand name="alert" />
+
+The Field registry item also installs Input. Add the form dependencies separately:
+
+```bash
+npm install react-hook-form @hookform/resolvers zod
+```
+
+## Profile form
+
+Submit an empty name to see client validation. Enter **taken** to simulate a server validation error. Enter another name to complete the local submission, or reset the form. No account or backend is connected.
+
+<UsagePreview name="form-profile" />
+
+## Values and validation
+
+`Controller` supplies the Input value, change handler, blur handler and focus ref. Keep a default value for every controlled field. Avoid registering the same input with both `Controller` and `register`.
+
+Pass the external error state to `Field` with `invalid`, and render the message through `FieldError`. `FieldLabel` and `FieldDescription` remain associated with the input. The canonical Field keeps an 8px label-to-control gap in both themes.
+
+## Submission and server errors
+
+Replace the local delay with your own request. Validate the data again on the server. Use `setError` to show a returned field error and `shouldFocus` to focus its input. Catch network failures and show a clear form-level message; retain the user's values so they can retry.
+
+The submit Button uses `loading={form.formState.isSubmitting}` to prevent repeated activation and announce pending work. Keep other destructive or reset actions disabled while submitting. Show success only after the request succeeds.
+
+## Reset
+
+`form.reset()` restores the declared defaults and clears form errors and dirty state. Reset any separate success message at the same time. When loading another record, supply its values to `reset(record)` instead of switching between controlled and uncontrolled input state.
+
+See the official [React Hook Form documentation](https://react-hook-form.com/docs/usecontroller/controller), [Zod guide](https://zod.dev/basics) and [Base UI forms handbook](https://base-ui.com/react/handbook/forms) for the underlying contracts.

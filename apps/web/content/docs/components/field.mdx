@@ -3,8 +3,28 @@ title: Field
 description: 'Associated labels, descriptions, validation errors, forms, and a ready-to-use TextField.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="field" />
 
 ## Installation
 
 <RegistryInstallCommand name="field" />
+
+## API reference
+
+These are the main Field options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                  | Type                          | Default |
+| --------------------- | ----------------------------- | ------- |
+| `label`               | `string (TextField required)` | `—`     |
+| `description / error` | `string (TextField)`          | `—`     |
+| `name / invalid`      | `Base UI field props`         | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Validation and forms
+
+Use `FieldLabel`, `FieldDescription` and `FieldError` inside `Field` so labels and messages remain associated with the control. Set `invalid` for an external validation error. The default label-to-control gap is 8px.
+
+See [Forms](/docs/forms) for a complete React Hook Form and Zod example with submission, reset and server errors.

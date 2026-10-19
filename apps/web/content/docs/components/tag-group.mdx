@@ -3,8 +3,28 @@ title: Tags
 description: 'Selectable and removable tag collections with roving focus and keyboard removal.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="tag-group" />
 
 ## Installation
 
 <RegistryInstallCommand name="tag-group" />
+
+## API reference
+
+These are the main Tags options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop            | Type                         | Default |
+| --------------- | ---------------------------- | ------- |
+| `label`         | `string (required)`          | `—`     |
+| `items`         | `readonly TagItem[]`         | `—`     |
+| `selectionMode` | `none \| single \| multiple` | `none`  |
+| `onRemove`      | `(ids: string[]) => void`    | `—`     |
+| `tone`          | `gold \| teal \| muted`      | `gold`  |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Use stable item IDs, a descriptive label and an explicit selectionMode. Handle onRemove by updating the application collection. Keep focus on a remaining item after removal.

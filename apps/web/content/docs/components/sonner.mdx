@@ -3,8 +3,28 @@ title: Sonner
 description: 'Imperative notifications with status icons, actions, promises and dismiss controls.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="sonner" />
 
 ## Installation
 
 <RegistryInstallCommand name="sonner" />
+
+## API reference
+
+These are the main Sonner options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                                                          | Type                                                                                  | Default        |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------- |
+| `position`                                                    | `top-left \| top-center \| top-right \| bottom-left \| bottom-center \| bottom-right` | `bottom-right` |
+| `duration`                                                    | `number (milliseconds)`                                                               | `4000`         |
+| `closeButton`                                                 | `boolean`                                                                             | `false`        |
+| `theme`                                                       | `light \| dark \| system`                                                             | `inherited`    |
+| `sonner.success / error / warning / info / loading / promise` | `notification API`                                                                    | `—`            |
+
+{/* END GENERATED REFERENCE */}
+
+## Notification status
+
+Mount Sonner once for the relevant application region. Call the matching status helper and provide text explaining the outcome. Status icons inherit semantic colors in both themes. Promise messages should describe the actual pending action and its result.

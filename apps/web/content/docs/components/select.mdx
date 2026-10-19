@@ -3,8 +3,26 @@ title: Select
 description: 'Composable single and multiple selection with typed values, focus management, and keyboard typeahead.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="select" />
 
 ## Installation
 
 <RegistryInstallCommand name="select" />
+
+## API reference
+
+These are the main Select options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                 | Default |
+| ---------------------- | -------------------- | ------- |
+| `value / defaultValue` | `Value \| Value[]`   | `—`     |
+| `multiple`             | `boolean`            | `false` |
+| `value`                | `Value (SelectItem)` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Selection and forms
+
+Use `value` with `onValueChange` for controlled selection, or `defaultValue` for uncontrolled selection. Give SelectTrigger an accessible name and set `name` on Select for form submission. SelectContent propagates the current theme into its portal.

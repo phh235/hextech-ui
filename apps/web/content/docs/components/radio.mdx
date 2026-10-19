@@ -3,8 +3,27 @@ title: Radio Group
 description: 'Labeled radio groups with native form participation and arrow-key selection.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="radio" />
 
 ## Installation
 
 <RegistryInstallCommand name="radio" />
+
+## API reference
+
+These are the main Radio Group options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                                             | Default        |
+| ---------------------- | ------------------------------------------------ | -------------- |
+| `value / defaultValue` | `string (group)`                                 | `—`            |
+| `value`                | `string (radio)`                                 | `—`            |
+| `onValueChange`        | `(value, details) => void`                       | `—`            |
+| `Radio.children`       | `managed indicator/track; use an external label` | `not accepted` |
+
+{/* END GENERATED REFERENCE */}
+
+## Group selection
+
+Set `value` and `onValueChange` on RadioGroup for controlled selection, or `defaultValue` for local state. Each Radio needs a distinct value and a visible label. Give the group an accessible name; arrow keys move between options.

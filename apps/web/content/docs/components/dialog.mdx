@@ -3,8 +3,26 @@ title: Dialog
 description: 'Gold-framed modal dialogs with focus containment, escape dismissal, and focus restoration.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="dialog" />
 
 ## Installation
 
 <RegistryInstallCommand name="dialog" />
+
+## API reference
+
+These are the main Dialog options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                 | Type                                  | Default |
+| -------------------- | ------------------------------------- | ------- |
+| `open / defaultOpen` | `boolean (Dialog)`                    | `false` |
+| `onOpenChange`       | `(open, details) => void`             | `—`     |
+| `container`          | `HTMLElement \| null (DialogContent)` | `body`  |
+
+{/* END GENERATED REFERENCE */}
+
+## Open state and focus
+
+Use `open` with `onOpenChange` for controlled visibility, or `defaultOpen` for an initial local state. Include DialogTitle and an appropriate description. Escape dismisses a normal dialog; focus returns to its trigger. Portal content inherits the scoped theme.

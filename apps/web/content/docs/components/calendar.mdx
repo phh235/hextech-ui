@@ -3,8 +3,28 @@ title: Calendar
 description: 'Single-date and date-range selection with keyboard navigation.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="calendar" />
 
 ## Installation
 
 <RegistryInstallCommand name="calendar" />
+
+## API reference
+
+These are the main Calendar options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                                                   | Default                   |
+| ---------------------- | ------------------------------------------------------ | ------------------------- |
+| `value / defaultValue` | `ISO day string (Calendar); DateRange (RangeCalendar)` | `—`                       |
+| `referenceDate`        | `ISO day (recommended for SSR)`                        | `UTC current day`         |
+| `min / max`            | `ISO day strings`                                      | `0001-01-01 / 9999-12-31` |
+| `weekStartsOn`         | `0 \| 1`                                               | `1`                       |
+| `header`               | `heading \| picker`                                    | `heading`                 |
+
+{/* END GENERATED REFERENCE */}
+
+## Date values
+
+Values use Gregorian ISO days. Choose `min`, `max`, and `isDateUnavailable` according to the task. Own selection with `value` and `onValueChange`, or seed it with `defaultValue`. Arrow keys navigate days; Page Up/Down changes months.

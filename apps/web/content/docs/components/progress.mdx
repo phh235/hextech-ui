@@ -3,8 +3,26 @@ title: Progress
 description: 'Determinate and indeterminate progress with an associated label and accessible value text.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="progress" />
 
 ## Installation
 
 <RegistryInstallCommand name="progress" />
+
+## API reference
+
+These are the main Progress options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop    | Type             | Default   |
+| ------- | ---------------- | --------- |
+| `value` | `number \| null` | `0`       |
+| `max`   | `number`         | `100`     |
+| `label` | `string`         | `Loading` |
+
+{/* END GENERATED REFERENCE */}
+
+## Determinate and indeterminate
+
+Provide a label and a value between zero and `max`. Use `value={null}` when completion cannot be measured. Do not invent a percentage for unknown progress. Announce the task outcome separately when it completes.

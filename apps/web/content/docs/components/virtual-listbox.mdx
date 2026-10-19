@@ -3,8 +3,27 @@ title: Virtualized Listbox
 description: 'Large keyed collections with a mounted active descendant, keyboard navigation and single or multiple selection.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="virtual-listbox" />
 
 ## Installation
 
 <RegistryInstallCommand name="virtual-listbox" />
+
+## API reference
+
+These are the main Virtualized Listbox options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                                           | Default    |
+| ---------------------- | ---------------------------------------------- | ---------- |
+| `label / items`        | `string / readonly VirtualOption[] (required)` | `—`        |
+| `value / defaultValue` | `readonly string[]`                            | `[]`       |
+| `multiple`             | `boolean`                                      | `false`    |
+| `height / rowHeight`   | `number`                                       | `240 / 44` |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Provide stable keys and a visible label. Match rowHeight to the actual option geometry. Controlled selections pair value with onValueChange; the active option stays mounted for keyboard and assistive-technology navigation.

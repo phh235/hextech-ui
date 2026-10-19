@@ -3,8 +3,35 @@ title: Button
 description: 'Gold-framed actions with six tones, three sizes, shapes, and a guarded loading state.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="button" />
 
 ## Installation
 
 <RegistryInstallCommand name="button" />
+
+## API reference
+
+These are the main Button options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop      | Type                                                               | Default     |
+| --------- | ------------------------------------------------------------------ | ----------- |
+| `variant` | `primary \| secondary \| text \| hextech \| dimmed \| destructive` | `secondary` |
+| `size`    | `small \| medium \| large`                                         | `medium`    |
+| `shape`   | `normal \| square \| round`                                        | `normal`    |
+| `loading` | `boolean`                                                          | `false`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Loading
+
+Set `loading` while an action is pending. The button announces its busy state and prevents repeated activation. Keep a readable action label.
+
+<UsagePreview name="button-loading" />
+
+## Sizes
+
+Choose a size for the surrounding layout; all tones use the same size contract.
+
+<UsagePreview name="button-sizes" />

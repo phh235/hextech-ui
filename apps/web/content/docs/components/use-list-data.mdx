@@ -3,8 +3,26 @@ title: Local List Data
 description: 'Keyed collection updates, filtering and selection.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="use-list-data" />
 
 ## Installation
 
 <RegistryInstallCommand name="use-list-data" />
+
+## API reference
+
+These are the main Local List Data options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop           | Type                             | Default |
+| -------------- | -------------------------------- | ------- |
+| `getKey`       | `(item: T) => string (required)` | `—`     |
+| `initialItems` | `readonly T[]`                   | `[]`    |
+| `filter`       | `(item, query) => boolean`       | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Use stable unique keys and immutable collection updates. Separate the visible search text from a debounced filter callback. Keep selection consistent when records are replaced or removed.

@@ -3,8 +3,27 @@ title: Date Pickers
 description: 'Editable dates with single-date and range calendar popovers.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="date-picker" />
 
 ## Installation
 
 <RegistryInstallCommand name="date-picker" />
+
+## API reference
+
+These are the main Date Pickers options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                                                | Default |
+| ---------------------- | --------------------------------------------------- | ------- |
+| `value / defaultValue` | `ISO day (DatePicker); DateRange (DateRangePicker)` | `—`     |
+| `label`                | `string (required)`                                 | `—`     |
+| `open / defaultOpen`   | `boolean`                                           | `false` |
+| `isDateUnavailable`    | `(ISO day) => boolean`                              | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Selection and popup
+
+Use `value` and `onValueChange` for controlled dates and `open` with `onOpenChange` when controlling the popup. Use ISO Gregorian dates and mark unavailable days explicitly. The calendar popup keeps the surrounding light or dark theme.

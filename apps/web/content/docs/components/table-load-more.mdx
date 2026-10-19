@@ -3,8 +3,31 @@ title: Table Load More
 description: 'Visibility-triggered row loading with progress keys, abortable requests and an accessible manual retry.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="table-load-more" />
 
 ## Installation
 
 <RegistryInstallCommand name="table-load-more" />
+
+## API reference
+
+These are the main Table Load More options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                          | Type                                                 | Default          |
+| ----------------------------- | ---------------------------------------------------- | ---------------- |
+| `onLoadMore`                  | `({ signal: AbortSignal }) => void \| Promise<void>` | `required`       |
+| `loadKey`                     | `string \| number`                                   | `0`              |
+| `autoLoad / hasMore`          | `boolean`                                            | `true`           |
+| `loading / disabled`          | `boolean`                                            | `false`          |
+| `colSpan`                     | `number`                                             | `1`              |
+| `root / rootMargin`           | `Element \| Document \| null / CSS margin string`    | `null / 0px`     |
+| `labels`                      | `Partial<TableLoadMoreLabels>`                       | `English labels` |
+| `cellProps / buttonClassName` | `native td props / string`                           | `—`              |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Change loadKey when the underlying collection resets. Respect the supplied AbortSignal, handle failed loads and prevent duplicate pages. Choose manual loading when automatic loading is inappropriate; keep the load button keyboard accessible.

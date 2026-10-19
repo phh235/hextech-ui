@@ -3,8 +3,31 @@ title: Autocomplete
 description: 'Free text with optional typed suggestions, keyboard completion and native text submission.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="autocomplete" />
 
 ## Installation
 
 <RegistryInstallCommand name="autocomplete" />
+
+## API reference
+
+These are the main Autocomplete options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                               | Type                                              | Default            |
+| ---------------------------------- | ------------------------------------------------- | ------------------ |
+| `label`                            | `string (required)`                               | `—`                |
+| `options`                          | `readonly T[]`                                    | `required`         |
+| `value / defaultValue`             | `string`                                          | `—`                |
+| `onValueChange`                    | `(text, details) => void`                         | `—`                |
+| `getOptionKey / itemToStringValue` | `suggestion identity and text getters`            | `id/value + label` |
+| `mode`                             | `list \| both \| inline \| none`                  | `list`             |
+| `renderOption / isOptionDisabled`  | `renderer / predicate`                            | `—`                |
+| `clearOnEscape`                    | `boolean; closed Escape clears only when enabled` | `false`            |
+
+{/* END GENERATED REFERENCE */}
+
+## Text and options
+
+Autocomplete owns free text; it is not a selected-record Combobox. Use `value` and `onValueChange` for controlled editing. Give object options stable keys and string values. Use [Combobox](/docs/components/combobox) when choosing a record rather than completing text.

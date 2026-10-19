@@ -3,8 +3,26 @@ title: Menu
 description: 'Action menus with nested submenus, grouped labels, and checkbox items.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="menu" />
 
 ## Installation
 
 <RegistryInstallCommand name="menu" />
+
+## API reference
+
+These are the main Menu options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                 | Type                  | Default          |
+| -------------------- | --------------------- | ---------------- |
+| `open / defaultOpen` | `boolean`             | `false`          |
+| `side / align`       | `positioning options` | `bottom / start` |
+| `disabled`           | `boolean (item)`      | `false`          |
+
+{/* END GENERATED REFERENCE */}
+
+## Actions and submenus
+
+Use menu items for actions and explicit links for navigation. Set `open` with `onOpenChange` only when the application owns visibility. Keep submenu triggers and selection indicators supplied by the component; Escape closes the menu and restores focus.

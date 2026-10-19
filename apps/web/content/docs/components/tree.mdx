@@ -3,8 +3,29 @@ title: Tree
 description: 'Hierarchical selection, expansion, typeahead and immutable drag or keyboard reordering.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="tree" />
 
 ## Installation
 
 <RegistryInstallCommand name="tree" />
+
+## API reference
+
+These are the main Tree options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                          | Type                         | Default        |
+| ----------------------------- | ---------------------------- | -------------- |
+| `label`                       | `string (required)`          | `—`            |
+| `nodes`                       | `readonly TreeNodeData[]`    | `—`            |
+| `expandedKeys / selectedKeys` | `readonly string[]`          | `uncontrolled` |
+| `selectionMode`               | `none \| single \| multiple` | `single`       |
+| `onMove`                      | `(move: TreeMove) => void`   | `—`            |
+| `loading / onLoadMore`        | `boolean / callback`         | `false / —`    |
+
+{/* END GENERATED REFERENCE */}
+
+## Dynamic collections
+
+Give every node a unique stable ID. Own expanded and selected keys when the application needs to persist them. Keyboard moves use the separate `onMove` contract; no drag-and-drop API is distributed.

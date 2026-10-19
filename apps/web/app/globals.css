@@ -94,7 +94,8 @@
     background: var(--color-fd-background);
     color: var(--color-fd-foreground);
   }
-  .preview-stage {
+  .preview-stage,
+  .usage-stage {
     display: grid;
     min-height: 280px;
     align-items: center;
@@ -105,7 +106,8 @@
     font-size: 16px;
     line-height: normal;
   }
-  .preview-viewport {
+  .preview-viewport,
+  .usage-viewport {
     min-width: 0;
     width: 100%;
     margin-inline: auto;

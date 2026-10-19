@@ -3,8 +3,25 @@ title: Alert Dialog
 description: 'Confirmation dialogs that require an explicit choice.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="alert-dialog" />
 
 ## Installation
 
 <RegistryInstallCommand name="alert-dialog" />
+
+## API reference
+
+These are the main Alert Dialog options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                 | Type                      | Default |
+| -------------------- | ------------------------- | ------- |
+| `open / defaultOpen` | `boolean`                 | `false` |
+| `onOpenChange`       | `(open, details) => void` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Confirmation
+
+Use for a decision that needs an explicit response. Provide a title, consequence and clearly labeled cancel/confirm actions. Use `open` with `onOpenChange` to own visibility. Keep focus restoration intact after either choice.

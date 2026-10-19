@@ -1,0 +1,30 @@
+---
+title: Alert
+description: 'Inline notices with semantic theme colors and explicit announcement behavior.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="alert" />
+
+## Installation
+
+<RegistryInstallCommand name="alert" />
+
+## API reference
+
+These are the main Alert options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop        | Type                                                   | Default   |
+| ----------- | ------------------------------------------------------ | --------- |
+| `tone`      | `default \| info \| success \| warning \| destructive` | `default` |
+| `role`      | `alert \| status (optional)`                           | `—`       |
+| `className` | `string on every part`                                 | `—`       |
+
+{/* END GENERATED REFERENCE */}
+
+## Tones
+
+Use text to describe the outcome as well as color. Static notices do not announce themselves. For a newly inserted urgent error, explicitly set `role="alert"`; use `role="status"` for a non-urgent update.
+
+<UsagePreview name="alert-tones" />

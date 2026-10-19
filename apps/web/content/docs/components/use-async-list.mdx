@@ -3,8 +3,25 @@ title: Async List Data
 description: 'Abortable filtering, pagination, reloads and stale-response protection.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="use-async-list" />
 
 ## Installation
 
 <RegistryInstallCommand name="use-async-list" />
+
+## API reference
+
+These are the main Async List Data options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop     | Type                                                             | Default    |
+| -------- | ---------------------------------------------------------------- | ---------- |
+| `load`   | `async ({ signal, cursor, filterText, sortDescriptor }) => page` | `required` |
+| `getKey` | `(item: T) => string (required)`                                 | `—`        |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+The load callback receives filter, cursor and AbortSignal. Pass the signal to your request and return the next cursor only when more results exist. Use debounced SearchField.onSearch for filtering; preserve loading and error states.

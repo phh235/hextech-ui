@@ -17,6 +17,7 @@ import { InstallCommand, RegistryInstallCommand } from '@/components/copy-button
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { CatalogPreview } from '@/components/catalog-preview';
+import { UsagePreview } from '@/components/usage-preview';
 import { ComponentGallery } from '@/components/component-gallery';
 import { BlockGallery } from '@/components/block-gallery';
 import { BlockPreview } from '@/components/block-preview';
@@ -84,6 +85,7 @@ export default async function DocumentationPage({
             Tab,
             Tabs,
             CatalogPreview,
+            UsagePreview,
             ComponentGallery,
             BlockGallery,
             BlockPreview,

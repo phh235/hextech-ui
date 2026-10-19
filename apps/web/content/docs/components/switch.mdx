@@ -3,8 +3,26 @@ title: Switch
 description: 'Gold-edged tracks and overhanging thumbs, controlled or uncontrolled.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="switch" />
 
 ## Installation
 
 <RegistryInstallCommand name="switch" />
+
+## API reference
+
+These are the main Switch options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                       | Type                                             | Default        |
+| -------------------------- | ------------------------------------------------ | -------------- |
+| `checked / defaultChecked` | `boolean`                                        | `false`        |
+| `onCheckedChange`          | `(checked, details) => void`                     | `—`            |
+| `children`                 | `managed indicator/track; use an external label` | `not accepted` |
+
+{/* END GENERATED REFERENCE */}
+
+## Checked state
+
+Use `checked` with `onCheckedChange`, or `defaultChecked` for local state. Place a visible label outside Switch. Use it for an immediately applied setting; keep form submission behavior explicit through `name`.

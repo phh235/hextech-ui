@@ -3,8 +3,25 @@ title: Textarea
 description: 'Multiline text inputs with matching field styles.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="textarea" />
 
 ## Installation
 
 <RegistryInstallCommand name="textarea" />
+
+## API reference
+
+These are the main Textarea options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                  | Type      | Default |
+| --------------------- | --------- | ------- |
+| `rows`                | `number`  | `2`     |
+| `disabled / required` | `boolean` | `false` |
+
+{/* END GENERATED REFERENCE */}
+
+## Editing and validation
+
+Use a visible label associated with `id`. Use `value` and `onChange` to own the text, or `defaultValue` for local editing. Compose with [Field](/docs/components/field) for descriptions and errors; `required` participates in native form validation.

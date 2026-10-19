@@ -3,8 +3,26 @@ title: Number Field
 description: 'Locale-aware numeric editing with step controls, bounds, form submission, and keyboard support.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="number-field" />
 
 ## Installation
 
 <RegistryInstallCommand name="number-field" />
+
+## API reference
+
+These are the main Number Field options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                | Default            |
+| ---------------------- | ------------------- | ------------------ |
+| `label`                | `string (required)` | `—`                |
+| `value / defaultValue` | `number \| null`    | `—`                |
+| `min / max / step`     | `number`            | `Base UI defaults` |
+
+{/* END GENERATED REFERENCE */}
+
+## Numeric state
+
+Use `value` and `onValueChange` for controlled editing, or `defaultValue` for local state. Set bounds with `min` and `max` and choose `step` for increment buttons. Native form submission uses `name`. The visible label remains 8px above the control.

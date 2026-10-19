@@ -3,8 +3,34 @@ title: Data Table
 description: 'Sortable, selectable, resizable and reorderable rows with pagination and optional cell navigation.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="data-table" />
 
 ## Installation
 
 <RegistryInstallCommand name="data-table" />
+
+## API reference
+
+These are the main Data Table options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                     | Type                                    | Default        |
+| ------------------------ | --------------------------------------- | -------------- |
+| `data / columns`         | `readonly T[] / DataColumn<T>[]`        | `—`            |
+| `getRowId / rowLabel`    | `(row: T) => string (required)`         | `—`            |
+| `selectionMode`          | `none \| single \| multiple`            | `none`         |
+| `keyboardNavigation`     | `tab \| cell`                           | `tab`          |
+| `resizable`              | `boolean`                               | `false`        |
+| `onReorder`              | `(id, target, before \| after) => void` | `—`            |
+| `pageSize`               | `positive integer`                      | `10`           |
+| `onLoadMore`             | `({ signal }) => void \| Promise<void>` | `—`            |
+| `autoLoadMore / hasMore` | `boolean`                               | `false / true` |
+| `loadKey`                | `string \| number`                      | `data.length`  |
+| `scrollAreaClassName`    | `string`                                | `—`            |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Supply stable getRowId values and meaningful rowLabel text. Keep sorting, selection and loading ownership explicit. Rich table controls remain on this optional subpath; use the basic Table for static records.

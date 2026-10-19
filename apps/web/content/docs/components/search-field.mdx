@@ -3,8 +3,27 @@ title: Search Field
 description: 'Labeled search editing with controlled state, clear action, Escape clearing, and form participation.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="search-field" />
 
 ## Installation
 
 <RegistryInstallCommand name="search-field" />
+
+## API reference
+
+These are the main Search Field options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                    | Type                               | Default  |
+| ----------------------- | ---------------------------------- | -------- |
+| `label`                 | `string (required)`                | `—`      |
+| `value / defaultValue`  | `string`                           | `empty`  |
+| `onValueChange`         | `(value: string) => void`          | `—`      |
+| `onSearch / debounceMs` | `(value: string) => void / number` | `300 ms` |
+
+{/* END GENERATED REFERENCE */}
+
+## Debounced search
+
+`onValueChange` updates editing immediately. Use `onSearch` for filtering or requests and set `debounceMs` to delay that callback. Keep `value` paired with `onValueChange` for controlled text, or use `defaultValue`. Cancel stale requests in your data layer.

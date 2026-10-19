@@ -3,8 +3,25 @@ title: Collapsible
 description: 'Single disclosure sections with accessible expanded state and associated panels.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="collapsible" />
 
 ## Installation
 
 <RegistryInstallCommand name="collapsible" />
+
+## API reference
+
+These are the main Collapsible options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                 | Type                      | Default |
+| -------------------- | ------------------------- | ------- |
+| `open / defaultOpen` | `boolean`                 | `false` |
+| `onOpenChange`       | `(open, details) => void` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Expanded state
+
+Use `open` with `onOpenChange` to control expansion, or `defaultOpen` for local state. Keep the trigger visible and label it by the content it reveals. A collapsible does not replace dialog focus management.

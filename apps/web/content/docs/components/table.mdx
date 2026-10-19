@@ -3,8 +3,25 @@ title: Table Primitives
 description: 'Semantic table parts. Use Data Table for sorting, selection and row reordering.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="table" />
 
 ## Installation
 
 <RegistryInstallCommand name="table" />
+
+## API reference
+
+These are the main Table Primitives options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop        | Type                     | Default |
+| ----------- | ------------------------ | ------- |
+| `scope`     | `col \| row (TableHead)` | `col`   |
+| `className` | `string on each part`    | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Table semantics
+
+Provide a caption or accessible name and use header cells with appropriate scope. Keep action controls individually labeled. Horizontal overflow should stay inside the table container on small screens.

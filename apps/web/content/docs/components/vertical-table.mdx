@@ -3,8 +3,27 @@ title: Vertical Table
 description: 'Read-only field-by-field record comparisons with genuine row and column headers.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="vertical-table" />
 
 ## Installation
 
 <RegistryInstallCommand name="vertical-table" />
+
+## API reference
+
+These are the main Vertical Table options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop        | Type                      | Default    |
+| ----------- | ------------------------- | ---------- |
+| `label`     | `string (required)`       | `—`        |
+| `records`   | `readonly T[]`            | `required` |
+| `fields`    | `VerticalTableField<T>[]` | `required` |
+| `recordKey` | `(record: T) => Key`      | `required` |
+
+{/* END GENERATED REFERENCE */}
+
+## Records and fields
+
+Give the table a label. Use a stable recordKey and readable field labels. Keep each cell understandable without depending only on its color or position.

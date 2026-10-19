@@ -3,8 +3,28 @@ title: Inline Token Field
 description: 'Inline text and atomic mention tokens sharing one caret, with undo, controlled values, safe text editing, and form validation.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="token-field" />
 
 ## Installation
 
 <RegistryInstallCommand name="token-field" />
+
+## API reference
+
+These are the main Inline Token Field options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                               | Default             |
+| ---------------------- | ---------------------------------- | ------------------- |
+| `label`                | `string (required)`                | `—`                 |
+| `value / defaultValue` | `TokenFieldValue`                  | `empty`             |
+| `onValueChange`        | `(value: TokenFieldValue) => void` | `—`                 |
+| `required / maxLength` | `native validation bridge`         | `false / unlimited` |
+| `serialization`        | `text \| json`                     | `text`              |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Use TokenFieldValue for text and atomic tokens. Pair value with onValueChange for controlled editing. Define serialization intentionally for form submission; raw HTML is not the value format.

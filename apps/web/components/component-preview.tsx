@@ -15,6 +15,7 @@ export interface PreviewVariant {
   code?: string;
 }
 export interface ComponentPreviewProps {
+  secondary?: boolean;
   internal?: boolean;
   title: string;
   code: string;
@@ -29,6 +30,7 @@ export function ComponentPreview({
   fileName,
   variants,
   internal = false,
+  secondary = false,
 }: ComponentPreviewProps) {
   const id = useId();
   const [variant, setVariant] = useState(0);
@@ -36,7 +38,7 @@ export function ComponentPreview({
   const currentCode = variants[variant]?.code ?? code;
   return (
     <section
-      className="component-preview not-prose"
+      className={secondary ? 'usage-preview not-prose' : 'component-preview not-prose'}
       aria-label={title}
       inert={!ready}
       data-preview-ready={ready || undefined}
@@ -66,12 +68,14 @@ export function ComponentPreview({
             </div>
           )}
           <fieldset disabled={!ready} className="m-0 min-w-0 border-0 p-0">
-            <div className="preview-stage">
-              <div className="preview-viewport">{variants[variant]?.content}</div>
+            <div className={secondary ? 'usage-stage' : 'preview-stage'}>
+              <div className={secondary ? 'usage-viewport' : 'preview-viewport'}>
+                {variants[variant]?.content}
+              </div>
             </div>
           </fieldset>
         </Tab>
-        <Tab value="Code" className="preview-code">
+        <Tab value="Code" className={secondary ? 'usage-code' : 'preview-code'}>
           <DynamicCodeBlock
             lang="tsx"
             options={codeHighlightOptions}

@@ -3,8 +3,26 @@ title: Accordion
 description: 'Grouped disclosures with keyboard navigation and optional multiple expanded items.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="accordion" />
 
 ## Installation
 
 <RegistryInstallCommand name="accordion" />
+
+## API reference
+
+These are the main Accordion options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type            | Default |
+| ---------------------- | --------------- | ------- |
+| `value / defaultValue` | `string[]`      | `—`     |
+| `multiple`             | `boolean`       | `false` |
+| `value`                | `string (item)` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Expanded items
+
+Use `value` and `onValueChange` to own expanded values, or `defaultValue`. Set `multiple` when several panels can remain open. Put meaningful text in each trigger and keep nested controls out of the trigger button.

@@ -3,8 +3,29 @@ title: Charts
 description: 'Optional line, area, grouped bar and ranking plots with keyboard point exploration, legends, data tables and original semantic colors.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="charts" />
 
 ## Installation
 
 <RegistryInstallCommand name="charts" />
+
+## API reference
+
+These are the main Charts options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                | Type                                                  | Default  |
+| ------------------- | ----------------------------------------------------- | -------- |
+| `title`             | `string (required)`                                   | `—`      |
+| `data / x / series` | `readonly T[] / category accessor / ChartSeries<T>[]` | `—`      |
+| `height`            | `number`                                              | `260`    |
+| `curve`             | `linear \| smooth \| step`                            | `linear` |
+| `points / legend`   | `boolean`                                             | `true`   |
+| `onSelect`          | `(row, seriesId) => void`                             | `—`      |
+
+{/* END GENERATED REFERENCE */}
+
+## Usage notes
+
+Provide a meaningful title and readable data. Keep a tabular alternative available. Import charts from the optional subpath so a basic control does not require the chart engine.

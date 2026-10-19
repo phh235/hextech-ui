@@ -3,8 +3,26 @@ title: Checkbox
 description: 'Checkboxes with checked, unchecked and mixed states.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="checkbox" />
 
 ## Installation
 
 <RegistryInstallCommand name="checkbox" />
+
+## API reference
+
+These are the main Checkbox options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                       | Type                         | Default |
+| -------------------------- | ---------------------------- | ------- |
+| `checked / defaultChecked` | `boolean`                    | `false` |
+| `indeterminate`            | `boolean`                    | `false` |
+| `onCheckedChange`          | `(checked, details) => void` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Checked state
+
+Use `checked` with `onCheckedChange`, or `defaultChecked` for local state. Keep a visible label beside the control. Indeterminate is a mixed visual state, so explain what the parent selection represents.

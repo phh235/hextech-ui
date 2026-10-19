@@ -3,8 +3,26 @@ title: Date & Time Fields
 description: 'Native segmented date and time editing with labels, descriptions, and custom native validity.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="date-field" />
 
 ## Installation
 
 <RegistryInstallCommand name="date-field" />
+
+## API reference
+
+These are the main Date & Time Fields options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                             | Default |
+| ---------------------- | -------------------------------- | ------- |
+| `label`                | `string (required)`              | `—`     |
+| `value / defaultValue` | `ISO date or local HH:mm string` | `—`     |
+| `validationMessage`    | `string`                         | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Dates and times
+
+DateField uses ISO day strings; TimeField uses HH:mm strings. Native segment appearance follows the browser and locale. Use `value` and `onValueChange` for controlled editing. Supply `validationMessage` for an external error; keep the visible label and description.

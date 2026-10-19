@@ -3,8 +3,26 @@ title: Toast
 description: 'Provider-based notifications with actions and promise management, built on Base UI.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="toast" />
 
 ## Installation
 
 <RegistryInstallCommand name="toast" />
+
+## API reference
+
+These are the main Toast options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop           | Type                    | Default |
+| -------------- | ----------------------- | ------- |
+| `timeout`      | `number (milliseconds)` | `5000`  |
+| `limit`        | `number`                | `3`     |
+| `toastManager` | `caller-owned manager`  | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Notifications
+
+Mount ToastProvider around controls that use `useToast`. Choose the status type to match the outcome; default/warning icons are gold, success/info blue and errors destructive red. Use inline validation for field errors rather than relying on transient notifications.

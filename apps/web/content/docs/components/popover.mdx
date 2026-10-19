@@ -3,8 +3,26 @@ title: Popover
 description: 'Positioned, interactive popups with a native trigger and accessible content.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="popover" />
 
 ## Installation
 
 <RegistryInstallCommand name="popover" />
+
+## API reference
+
+These are the main Popover options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop         | Type                             | Default  |
+| ------------ | -------------------------------- | -------- |
+| `side`       | `top \| bottom \| left \| right` | `bottom` |
+| `align`      | `start \| center \| end`         | `center` |
+| `sideOffset` | `number`                         | `10`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Placement and dismissal
+
+Compose a trigger and content inside Popover. Set `open` with `onOpenChange` when visibility is controlled. Position content with `side`, `align` and `sideOffset`; Escape dismisses it and portal content retains the current theme.

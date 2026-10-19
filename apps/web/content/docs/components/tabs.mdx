@@ -3,8 +3,26 @@ title: Tabs
 description: 'Roving-focus tabs with semantic associations and persistent controlled selection.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="tabs" />
 
 ## Installation
 
 <RegistryInstallCommand name="tabs" />
+
+## API reference
+
+These are the main Tabs options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                      | Default      |
+| ---------------------- | ------------------------- | ------------ |
+| `value / defaultValue` | `string`                  | `—`          |
+| `orientation`          | `horizontal \| vertical`  | `horizontal` |
+| `value`                | `string (Tab / TabPanel)` | `—`          |
+
+{/* END GENERATED REFERENCE */}
+
+## Active tab
+
+Use `value` and `onValueChange` for a controlled active tab, or `defaultValue`. Tab values must match their panels. Keep labels concise and use the orientation that matches your visual layout. Arrow keys move within the tab list.

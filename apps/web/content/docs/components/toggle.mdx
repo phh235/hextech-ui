@@ -3,8 +3,26 @@ title: Toggle
 description: 'Pressed actions and roving-focus single/multiple toggle groups.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="toggle" />
 
 ## Installation
 
 <RegistryInstallCommand name="toggle" />
+
+## API reference
+
+These are the main Toggle options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                       | Type                     | Default |
+| -------------------------- | ------------------------ | ------- |
+| `pressed / defaultPressed` | `boolean (Toggle)`       | `false` |
+| `value / defaultValue`     | `string[] (ToggleGroup)` | `—`     |
+| `multiple`                 | `boolean (group)`        | `false` |
+
+{/* END GENERATED REFERENCE */}
+
+## Pressed state
+
+Use `pressed` and `onPressedChange` for a standalone controlled toggle. ToggleGroup owns selected values with `value` and `onValueChange`, or `defaultValue`; use `multiple` when more than one option may be active.

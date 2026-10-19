@@ -3,8 +3,27 @@ title: Slider
 description: 'Single and range sliders with keyboard control, original diamond thumbs, and visible value output.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="slider" />
 
 ## Installation
 
 <RegistryInstallCommand name="slider" />
+
+## API reference
+
+These are the main Slider options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                 | Default                |
+| ---------------------- | -------------------- | ---------------------- |
+| `label`                | `string (required)`  | `—`                    |
+| `value / defaultValue` | `number \| number[]` | `0`                    |
+| `thumbLabels`          | `string[]`           | `Generated from label` |
+| `min / max / step`     | `number`             | `0 / 100 / 1`          |
+
+{/* END GENERATED REFERENCE */}
+
+## Values and labels
+
+Use `value` and `onValueChange` for controlled values, or `defaultValue` for local state. Supply `thumbLabels` for a multi-thumb range so each handle has a distinct name. Keep the minimum, maximum and step consistent with the displayed units.

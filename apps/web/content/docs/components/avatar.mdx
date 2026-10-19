@@ -1,0 +1,31 @@
+---
+title: Avatar
+description: 'Profile images with a loading and error fallback.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="avatar" />
+
+## Installation
+
+<RegistryInstallCommand name="avatar" />
+
+## API reference
+
+These are the main Avatar options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                     | Type                   | Default |
+| ------------------------ | ---------------------- | ------- |
+| `src (AvatarImage)`      | `string`               | `—`     |
+| `alt (AvatarImage)`      | `string`               | `—`     |
+| `delay (AvatarFallback)` | `number`               | `0`     |
+| `className`              | `string on every part` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Image and fallback
+
+Avatar uses Base UI to replace an unavailable image with its fallback. Use initials or original artwork. Give the profile one accessible name; use `alt=""` when the containing Avatar is already named. The brand asset below belongs to this website; supply your own image URL when copying.
+
+<UsagePreview name="avatar-fallback" />

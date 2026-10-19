@@ -3,8 +3,32 @@ title: Multiple Select
 description: 'Typed multi-selection of strings or object records with stable chips, filtering and native ID submission.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="multiple-select" />
 
 ## Installation
 
 <RegistryInstallCommand name="multiple-select" />
+
+## API reference
+
+These are the main Multiple Select options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                               | Type                                              | Default                   |
+| ---------------------------------- | ------------------------------------------------- | ------------------------- |
+| `label`                            | `string (required)`                               | `—`                       |
+| `options`                          | `readonly T[]`                                    | `required`                |
+| `getOptionKey / itemToStringLabel` | `identity and display getters`                    | `string/id/value + label` |
+| `value / defaultValue`             | `readonly T[]`                                    | `—`                       |
+| `renderOption / renderValue`       | `custom option / chip content`                    | `—`                       |
+| `isOptionDisabled`                 | `(option: T) => boolean`                          | `—`                       |
+| `emptyState / emptySelection`      | `ReactNode`                                       | `no matches / —`          |
+| `size`                             | `small \| medium \| large`                        | `medium`                  |
+| `clearOnEscape`                    | `boolean; closed Escape clears only when enabled` | `false`                   |
+
+{/* END GENERATED REFERENCE */}
+
+## Object records
+
+Use stable `getOptionKey` values and readable `itemToStringLabel` text for object options. Own selections with `value` and `onValueChange`, or seed local state with `defaultValue`. Use `isOptionDisabled` for unavailable choices and keep the label visible.

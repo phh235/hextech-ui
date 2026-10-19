@@ -44,7 +44,8 @@ body,
 .install-command code {
   font-family: var(--hextech-docs-font-mono);
 }
-.preview-stage {
+.preview-stage,
+.usage-stage {
   font-family: var(--hextech-ui-font-sans);
 }
 .docs-site .shiki pre,

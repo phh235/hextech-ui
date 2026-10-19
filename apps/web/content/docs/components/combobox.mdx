@@ -3,8 +3,33 @@ title: Combobox
 description: 'Typed string or object selection with stable keys, custom rows, keyboard filtering and clearing.'
 ---
 
+{/* BEGIN GENERATED REFERENCE */}
+
 <CatalogPreview name="combobox" />
 
 ## Installation
 
 <RegistryInstallCommand name="combobox" />
+
+## API reference
+
+These are the main Combobox options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                              | Type                                              | Default           |
+| --------------------------------- | ------------------------------------------------- | ----------------- |
+| `label`                           | `string (required)`                               | `—`               |
+| `options`                         | `readonly T[]`                                    | `required`        |
+| `getOptionKey`                    | `(option: T) => string \| number`                 | `string/id/value` |
+| `itemToStringLabel`               | `(option: T) => string`                           | `string/label`    |
+| `renderOption / isOptionDisabled` | `row renderer / disabled predicate`               | `—`               |
+| `value / defaultValue`            | `T \| null`                                       | `—`               |
+| `clearOnEscape`                   | `boolean; closed Escape clears only when enabled` | `false`           |
+| `size`                            | `small \| medium \| large`                        | `medium`          |
+
+{/* END GENERATED REFERENCE */}
+
+## Controlled object selection
+
+Keep the selected record in React state. Provide stable keys and a readable string label when options are objects; do not use the object index as its identity. Use `defaultValue` when the component should own selection.
+
+<UsagePreview name="combobox-controlled" />
