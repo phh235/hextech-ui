@@ -35,7 +35,7 @@ function LocalList({ disabled }: { disabled: boolean }) {
         {list.items.map((item) => (
           <li
             key={item.id}
-            className="flex items-center justify-between gap-2 border border-border p-2"
+            className="flex items-center justify-between gap-2 border border-hx-border p-2"
           >
             <span>{item.name}</span>
             <Button
@@ -103,18 +103,18 @@ function AsyncList({ disabled }: { disabled: boolean }) {
       <div aria-busy={list.isLoading}>
         <ul className="m-0 grid list-none gap-2 p-0">
           {list.items.map((item) => (
-            <li key={item.id} className="border border-border p-2">
+            <li key={item.id} className="border border-hx-border p-2">
               {item.name}
             </li>
           ))}
         </ul>
       </div>
       {list.error && (
-        <p role="alert" className="m-0 text-sm text-destructive">
+        <p role="alert" className="m-0 text-hx-sm text-hx-destructive">
           {list.error.message}
         </p>
       )}
-      <p role="status" className="m-0 text-xs text-muted-foreground">
+      <p role="status" className="m-0 text-hx-xs text-hx-muted-foreground">
         {list.isLoading ? 'Loading local demo data…' : `${list.items.length} names loaded`}
       </p>
       <div className="flex gap-2">
@@ -135,7 +135,7 @@ function AsyncList({ disabled }: { disabled: boolean }) {
           Reload names
         </Button>
       </div>
-      <p className="m-0 text-xs text-muted-foreground">
+      <p className="m-0 text-hx-xs text-hx-muted-foreground">
         Simulated local data. Try “slow” followed quickly by “Avery” to exercise stale-request
         cancellation.
       </p>

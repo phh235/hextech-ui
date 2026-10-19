@@ -87,7 +87,7 @@ export function InteractionExample({
           <DialogContent>
             <DialogTitle>Edit profile</DialogTitle>
             <DialogDescription>Choose a display name for this local example.</DialogDescription>
-            <label className="grid gap-2 text-sm">
+            <label className="grid gap-2 text-hx-sm">
               Display name
               <Input defaultValue="Starlight" />
             </label>
@@ -129,7 +129,7 @@ export function InteractionExample({
           <PopoverTrigger disabled={disabled}>Party details</PopoverTrigger>
           <PopoverContent>
             <PopoverBody>
-              <PopoverTitle className="font-display text-lg text-primary">
+              <PopoverTitle className="font-hx-display text-hx-lg text-hx-primary">
                 A little more context.
               </PopoverTitle>
               <PopoverDescription>
@@ -226,7 +226,7 @@ export function InteractionExample({
     case 'select':
       return (
         <div className="grid w-full max-w-xs gap-2">
-          <span id={`${id}-role-label`} className="text-sm">
+          <span id={`${id}-role-label`} className="text-hx-sm">
             Preferred role
           </span>
           <Select

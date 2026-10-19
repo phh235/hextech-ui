@@ -18,10 +18,10 @@ export default function VirtualExample({ disabled = false }: { disabled?: boolea
         onValueChange={setValue}
         disabled={disabled}
       />
-      <p role="status" className="m-0 text-xs text-muted-foreground">
+      <p role="status" className="m-0 text-hx-xs text-hx-muted-foreground">
         Selected builds: {value.join(', ') || 'none'}
       </p>
-      <p className="m-0 text-xs text-muted-foreground">
+      <p className="m-0 text-hx-xs text-hx-muted-foreground">
         1,000 local options; only the visible range and active option are mounted. Use arrows,
         Home/End, and Space.
       </p>

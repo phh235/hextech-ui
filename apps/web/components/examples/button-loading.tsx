@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@hextech-ui/react/button';
 
-export default function ButtonLoadingExample() {
+export default function ButtonLoadingDemo() {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState('');
   async function save() {
@@ -22,7 +22,7 @@ export default function ButtonLoadingExample() {
       <Button variant="primary" loading={pending} onClick={save}>
         {pending ? 'Saving build' : 'Save build'}
       </Button>
-      <p role="status" className="text-sm text-muted-foreground">
+      <p role="status" className="text-hx-sm text-hx-muted-foreground">
         {message}
       </p>
     </div>

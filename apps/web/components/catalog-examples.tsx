@@ -3,7 +3,7 @@
 import { useId, useState } from 'react';
 import { Skeleton } from '@hextech-ui/react/skeleton';
 import { Alert, AlertTitle, AlertDescription } from '@hextech-ui/react/alert';
-import { Avatar, AvatarFallback } from '@hextech-ui/react/avatar';
+import { Avatar, AvatarImage, AvatarFallback } from '@hextech-ui/react/avatar';
 import { EmptyState, EmptyStateTitle, EmptyStateDescription } from '@hextech-ui/react/empty-state';
 import { InputExample } from './input-examples';
 import { InteractionExample } from './catalog-interactions';
@@ -15,26 +15,30 @@ import { AutocompleteExample } from './selection-examples';
 import dynamic from 'next/dynamic';
 const SonnerExample = dynamic(
   () => import('./sonner-example').then((module) => module.SonnerExample),
-  { loading: () => <p className="text-sm text-muted-foreground">Loading notification preview…</p> },
+  {
+    loading: () => (
+      <p className="text-hx-sm text-hx-muted-foreground">Loading notification preview…</p>
+    ),
+  },
 );
 const TokenExample = dynamic(() => import('./token-example'), {
   ssr: false,
-  loading: () => <p className="text-sm text-muted-foreground">Loading inline editor…</p>,
+  loading: () => <p className="text-hx-sm text-hx-muted-foreground">Loading inline editor…</p>,
 });
 const DataTableExample = dynamic(() => import('./data-table-example'), {
-  loading: () => <p className="text-sm text-muted-foreground">Loading data table…</p>,
+  loading: () => <p className="text-hx-sm text-hx-muted-foreground">Loading data table…</p>,
 });
 const DataTableLoadingExample = dynamic(
   () => import('./data-table-example').then((module) => module.DataTableLoadingExample),
   {
-    loading: () => <p className="text-sm text-muted-foreground">Loading data table…</p>,
+    loading: () => <p className="text-hx-sm text-hx-muted-foreground">Loading data table…</p>,
   },
 );
 const ChartExamples = dynamic(() => import('./chart-examples'), {
-  loading: () => <p className="text-sm text-muted-foreground">Loading charts…</p>,
+  loading: () => <p className="text-hx-sm text-hx-muted-foreground">Loading charts…</p>,
 });
 const VirtualExample = dynamic(() => import('./virtual-example'), {
-  loading: () => <p className="text-sm text-muted-foreground">Loading collection…</p>,
+  loading: () => <p className="text-hx-sm text-hx-muted-foreground">Loading collection…</p>,
 });
 import {
   Button,
@@ -99,7 +103,8 @@ export function ComponentExample({
     case 'avatar':
       return (
         <Avatar aria-label="Starlight">
-          <AvatarFallback>S</AvatarFallback>
+          <AvatarImage src="/icon.svg" alt="" className="object-contain p-2" />
+          <AvatarFallback>H</AvatarFallback>
         </Avatar>
       );
     case 'empty-state':
@@ -292,7 +297,7 @@ export function ComponentExample({
             <Checkbox indeterminate disabled={disabled} />
             Some roles selected
           </label>
-          <p className="text-xs text-muted-foreground" role="status">
+          <p className="text-hx-xs text-hx-muted-foreground" role="status">
             {checked ? 'Updates enabled' : 'Updates disabled'}
           </p>
         </div>
@@ -319,7 +324,7 @@ export function ComponentExample({
           <Switch checked={checked} onCheckedChange={setChecked} disabled={disabled} />
           <span>
             Party invitations{' '}
-            <span className="block text-xs text-muted-foreground">
+            <span className="block text-hx-xs text-hx-muted-foreground">
               {checked ? 'Open to invites' : 'Invite only'}
             </span>
           </span>

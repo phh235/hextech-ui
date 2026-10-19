@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { format, resolveConfig } from 'prettier';
-import { componentExampleCode } from '../apps/web/lib/component-usage.ts';
+import { componentExampleCode, componentDemoName } from '../apps/web/lib/component-usage.ts';
 import { updateComponentDoc } from './lib/component-docs.mjs';
 async function writeIfChanged(file, content) {
   try {
@@ -12,10 +12,17 @@ async function writeIfChanged(file, content) {
 }
 const manifest = JSON.parse(await readFile('packages/react/component-manifest.json', 'utf8'));
 await mkdir('apps/web/content/docs/components', { recursive: true });
+await mkdir('apps/web/.generated', { recursive: true });
 const formattedExamples = {};
+const demoImports = [];
+const demoMap = [];
 for (const item of manifest) {
+  const demoName = componentDemoName(item.name);
+  const authoredSource = await readFile(`apps/web/components/demos/${item.name}-demo.tsx`, 'utf8');
+  demoImports.push(`import { ${demoName} } from '../components/demos/${item.name}-demo';`);
+  demoMap.push(`'${item.name}': ${demoName}`);
   formattedExamples[item.name] = await format(
-    componentExampleCode(item.name, item.kind, 'registry'),
+    componentExampleCode(item.name, item.kind, 'registry', authoredSource),
     { parser: 'typescript', singleQuote: true, printWidth: 80 },
   );
   const destination = 'apps/web/content/docs/components/' + item.name + '.mdx';
@@ -48,7 +55,11 @@ await writeIfChanged(
     2,
   ) + '\n',
 );
-console.log(`Generated ${manifest.length} component reference pages.`);
+await writeIfChanged(
+  'apps/web/.generated/catalog-demos.tsx',
+  `${demoImports.join('\n')}\nexport const catalogDemos = {${demoMap.join(',\n')}};\n`,
+);
+console.log(`Generated ${manifest.length} component reference pages and live demos.`);
 
 // The runnable file is also the copyable source: no separately maintained snippets.
 const usageExamples = {};

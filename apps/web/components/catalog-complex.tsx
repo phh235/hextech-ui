@@ -44,7 +44,7 @@ export function ComplexExample({ name, disabled = false }: { name: string; disab
             placeholder="Type a name…"
             disabled={disabled}
           />
-          <p role="status" className="text-xs text-muted-foreground">
+          <p role="status" className="text-hx-xs text-hx-muted-foreground">
             {filter ? `Filtering by ${filter}` : 'Showing all local builds'}
           </p>
         </div>
@@ -66,7 +66,9 @@ export function ComplexExample({ name, disabled = false }: { name: string; disab
         <PreviewCard>
           <PreviewCardTrigger href="/docs/theming">Explore the Hextech theme</PreviewCardTrigger>
           <PreviewCardContent>
-            <h4 className="mb-2 font-display text-lg text-primary">One visual language.</h4>
+            <h4 className="mb-2 font-hx-display text-hx-lg text-hx-primary">
+              One visual language.
+            </h4>
             <p>Semantic CSS variables let you change the details without duplicating behavior.</p>
           </PreviewCardContent>
         </PreviewCard>

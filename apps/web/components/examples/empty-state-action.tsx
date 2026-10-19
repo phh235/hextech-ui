@@ -8,7 +8,7 @@ import {
   EmptyStateActions,
 } from '@hextech-ui/react/empty-state';
 
-export default function EmptyStateActionExample() {
+export default function EmptyStateActionDemo() {
   const [created, setCreated] = useState(false);
   return created ? (
     <div className="grid gap-3">

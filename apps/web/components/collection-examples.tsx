@@ -43,7 +43,7 @@ export function DynamicTreeExample() {
         defaultSelectedKeys={['draft']}
         onSelectionChange={setSelection}
       />
-      <p role="status" className="m-0 text-xs text-accent">
+      <p role="status" className="m-0 text-hx-xs text-hx-accent">
         Selected IDs: {selection.join(', ') || 'none'}
       </p>
       <div className="flex flex-wrap gap-2">
@@ -79,7 +79,7 @@ export function DynamicTreeExample() {
           Restore tree
         </Button>
       </div>
-      <p className="m-0 text-xs text-muted-foreground">
+      <p className="m-0 text-hx-xs text-hx-muted-foreground">
         Local data updates preserve focus inside the tree. Focus stays with these controls when you
         use them.
       </p>
@@ -113,14 +113,14 @@ export function ControlledTagExample() {
           else remove(ids);
         }}
       />
-      <p role="status" className="m-0 text-xs text-accent">
+      <p role="status" className="m-0 text-hx-xs text-hx-accent">
         Selected IDs: {selected.join(', ') || 'none'}
       </p>
-      <label className="flex items-center gap-2 text-sm">
+      <label className="flex items-center gap-2 text-hx-sm">
         <input type="checkbox" checked={keep} onChange={(event) => setKeep(event.target.checked)} />
         Preserve tags on removal
       </label>
-      <label className="flex items-center gap-2 text-sm">
+      <label className="flex items-center gap-2 text-hx-sm">
         <input
           type="checkbox"
           checked={queue}
@@ -144,7 +144,7 @@ export function ControlledTagExample() {
           Restore tags
         </Button>
       </div>
-      <p className="m-0 text-xs text-muted-foreground">
+      <p className="m-0 text-hx-xs text-hx-muted-foreground">
         Removal is a request. Selection changes after the owner actually removes the records. All
         changes stay in this local example.
       </p>
@@ -178,7 +178,7 @@ export function CollectionExample({
           disabled={disabled}
           onMove={(move) => setNodes((value) => moveTreeNode(value, move))}
         />
-        <p className="m-0 text-xs text-muted-foreground">{selected.length} selected</p>
+        <p className="m-0 text-hx-xs text-hx-muted-foreground">{selected.length} selected</p>
         <Button
           disabled={disabled}
           variant="dimmed"
@@ -226,7 +226,7 @@ export function CollectionExample({
         >
           Restore tags
         </Button>
-        <p className="m-0 text-xs text-muted-foreground">
+        <p className="m-0 text-hx-xs text-hx-muted-foreground">
           Arrow keys move between controls. Space selects; Delete removes selected tags.
         </p>
       </div>

@@ -88,7 +88,7 @@ export function SonnerExample({ kind }: { kind?: SonnerExampleKind }) {
         )}
       </div>
       {outcome && (
-        <p role="status" className="text-sm text-muted-foreground">
+        <p role="status" className="text-hx-sm text-hx-muted-foreground">
           {outcome}
         </p>
       )}

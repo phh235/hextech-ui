@@ -6,7 +6,7 @@ const members = [
   { id: 'avery', name: 'Avery' },
   { id: 'rowan', name: 'Rowan' },
 ];
-export default function ComboboxControlledExample() {
+export default function ComboboxControlledDemo() {
   const [member, setMember] = useState<(typeof members)[number] | null>(members[0]!);
   return (
     <div className="grid w-full max-w-sm gap-3">
@@ -18,7 +18,7 @@ export default function ComboboxControlledExample() {
         getOptionKey={(option) => option.id}
         itemToStringLabel={(option) => option.name}
       />
-      <p role="status" className="text-sm text-muted-foreground">
+      <p role="status" className="text-hx-sm text-hx-muted-foreground">
         Owner ID: {member?.id ?? 'none'}
       </p>
     </div>

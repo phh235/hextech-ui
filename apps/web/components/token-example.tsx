@@ -58,7 +58,7 @@ export default function TokenExample({ disabled = false }: { disabled?: boolean 
           Clear message
         </Button>
       </div>
-      <p role="status" className="m-0 text-xs text-muted-foreground">
+      <p role="status" className="m-0 text-hx-xs text-hx-muted-foreground">
         {submitted ? `Saved locally: ${submitted}` : 'Local demo only. No message is sent.'}
       </p>
     </form>

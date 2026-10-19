@@ -35,12 +35,12 @@ export function TableLoadMoreExample({
   }, []);
   return (
     <section aria-label="Table loading demo" className="w-full min-w-0 space-y-4">
-      <p className="text-sm text-muted-foreground">
+      <p className="text-hx-sm text-hx-muted-foreground">
         Local example. Rows are generated in your browser; nothing is requested from a server.
       </p>
       {advanced ? (
-        <fieldset disabled={disabled} className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          <legend className="mb-2 font-medium">Try loading states</legend>
+        <fieldset disabled={disabled} className="flex flex-wrap gap-x-4 gap-y-2 text-hx-sm">
+          <legend className="mb-2 font-hx-medium">Try loading states</legend>
           <label className="flex gap-2">
             <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} />
             Automatic loading
@@ -92,23 +92,23 @@ export function TableLoadMoreExample({
         role="region"
         aria-label="Practice notes scroll area"
         tabIndex={0}
-        className={`${automatic ? 'max-h-64' : 'max-h-80'} overflow-auto rounded border border-border bg-surface outline-offset-2 focus-visible:outline-2 focus-visible:outline-focus`}
+        className={`${automatic ? 'max-h-64' : 'max-h-80'} overflow-auto rounded border border-hx-border bg-hx-surface outline-offset-2 focus-visible:outline-2 focus-visible:outline-hx-focus`}
       >
-        <table className="w-full border-collapse text-left text-sm">
-          <caption className="p-3 text-left font-medium text-primary">Practice notes</caption>
+        <table className="w-full border-collapse text-left text-hx-sm">
+          <caption className="p-3 text-left font-hx-medium text-hx-primary">Practice notes</caption>
           <thead>
             <tr>
-              <th scope="col" className="border-b border-border px-4 py-2">
+              <th scope="col" className="border-b border-hx-border px-4 py-2">
                 Number
               </th>
-              <th scope="col" className="border-b border-border px-4 py-2">
+              <th scope="col" className="border-b border-hx-border px-4 py-2">
                 Note
               </th>
             </tr>
           </thead>
           <tbody>
             {Array.from({ length: count }, (_, index) => (
-              <tr key={index} className="border-b border-border">
+              <tr key={index} className="border-b border-hx-border">
                 <td className="px-4 py-3">{index + 1}</td>
                 <td className="px-4 py-3">Plan {index + 1}</td>
               </tr>
@@ -151,7 +151,7 @@ export function TableLoadMoreExample({
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-hx-xs text-hx-muted-foreground">
         <output data-row-count>{count}</output> rows ·{' '}
         <output data-load-requests>{requests}</output> requests
         {advanced ? (

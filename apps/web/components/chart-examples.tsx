@@ -46,7 +46,7 @@ export default function ChartExamples() {
         series={series}
         onSelect={(row, id) => setSelected(`Selected ${id} at minute ${row.minute}`)}
       />
-      <p role="status" className="m-0 text-xs text-muted-foreground">
+      <p role="status" className="m-0 text-hx-xs text-hx-muted-foreground">
         {selected}
       </p>
       <AreaChart title="Resource growth" data={data} x={x} series={series} curve="smooth" />

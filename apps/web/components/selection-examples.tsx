@@ -46,7 +46,7 @@ export function RecordSelectionExample({
     renderOption: (item: Member) => (
       <span className="grid gap-1">
         <span>{item.name}</span>
-        <span className="text-xs text-muted-foreground">{item.role}</span>
+        <span className="text-hx-xs text-hx-muted-foreground">{item.role}</span>
       </span>
     ),
     disabled,
@@ -64,14 +64,14 @@ export function RecordSelectionExample({
         setSaved(values.join(', '));
       }}
     >
-      <div className="flex flex-wrap items-center gap-3 text-xs">
+      <div className="flex flex-wrap items-center gap-3 text-hx-xs">
         <label className="grid gap-2">
           Control size
           <select
             aria-label="Record control size"
             value={size}
             onChange={(event) => setSize(event.target.value as ControlSize)}
-            className="border border-border bg-background p-2"
+            className="border border-hx-border bg-hx-background p-2"
           >
             <option value="small">Small</option>
             <option value="medium">Medium</option>
@@ -93,7 +93,7 @@ export function RecordSelectionExample({
           value={members}
           onValueChange={setMembers}
           emptySelection={
-            <span className="text-xs text-muted-foreground">No party members selected</span>
+            <span className="text-hx-xs text-hx-muted-foreground">No party members selected</span>
           }
           emptyState="No matching party members."
         />
@@ -126,7 +126,7 @@ export function RecordSelectionExample({
           Refresh option records
         </Button>
       </div>
-      <p role="status" className="m-0 text-xs text-accent">
+      <p role="status" className="m-0 text-hx-xs text-hx-accent">
         {saved
           ? `Submitted IDs: ${saved}`
           : 'Object records use stable IDs for native form values.'}
@@ -178,7 +178,7 @@ export function AutocompleteExample({ disabled = false }: { disabled?: boolean }
       <Button type="submit" disabled={disabled}>
         Use query
       </Button>
-      <p role="status" className="m-0 text-xs text-accent">
+      <p role="status" className="m-0 text-hx-xs text-hx-accent">
         {submitted ? `Query: ${submitted}` : 'Suggestions are optional. Free text is retained.'}
       </p>
     </form>

@@ -83,7 +83,7 @@ export function DataTableLoadingExample() {
   ];
   return (
     <section aria-label="Data table loading demo" className="w-full min-w-0 space-y-3">
-      <p className="text-sm text-muted-foreground">
+      <p className="text-hx-sm text-hx-muted-foreground">
         Scroll to load generated local rows. No server request or account is involved.
       </p>
       <DataTable
@@ -123,7 +123,7 @@ export function DataTableLoadingExample() {
           ]);
         }}
       />
-      <p className="text-xs text-muted-foreground">
+      <p className="text-hx-xs text-hx-muted-foreground">
         <output data-roster-count>{rows.length}</output> rows ·{' '}
         <output data-roster-requests>{requests}</output> requests
       </p>

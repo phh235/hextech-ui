@@ -1,7 +1,7 @@
 'use client';
 import { Alert, AlertTitle, AlertDescription } from '@hextech-ui/react/alert';
 
-export default function AlertTonesExample() {
+export default function AlertTonesDemo() {
   return (
     <div className="grid w-full gap-3">
       <Alert tone="success">

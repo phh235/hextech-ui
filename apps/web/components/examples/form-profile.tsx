@@ -18,7 +18,7 @@ const profileSchema = z.object({
 });
 type Profile = z.infer<typeof profileSchema>;
 
-export default function FormProfileExample() {
+export default function FormProfileDemo() {
   const [saved, setSaved] = useState(false);
   const form = useForm<Profile>({
     resolver: zodResolver(profileSchema),
