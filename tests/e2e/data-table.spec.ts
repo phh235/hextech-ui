@@ -1,8 +1,9 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('rich table sorts, selects pages and paginates', async ({ page }) => {
-  await openPage(page, '/docs/components/data-table');
+  await openPage(page, '/internal/components/data-table');
   const grid = page.getByRole('grid', { name: 'Practice roster' });
   await expect(grid.getByRole('row')).toHaveCount(4);
   await grid.getByRole('columnheader', { name: /Score/ }).getByRole('button').click();
@@ -23,7 +24,7 @@ test('rich table sorts, selects pages and paginates', async ({ page }) => {
 test('rich table navigates cells, edits without stealing arrows, resizes and reorders', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/data-table');
+  await openPage(page, '/internal/components/data-table');
   const grid = page.getByRole('grid', { name: 'Practice roster' });
   const first = grid.getByRole('row').nth(1).getByRole('gridcell').nth(1);
   await first.focus();

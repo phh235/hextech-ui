@@ -32,7 +32,7 @@ for (const mode of ['dark', 'light'] as const) {
     page,
   }) => {
     await openPage(page, '/docs/forms');
-    const preview = page.locator('.usage-preview');
+    const preview = page.getByRole('region', { name: 'Profile form', exact: true });
     await expect(preview).toHaveAttribute('data-preview-ready', 'true');
     await setMode(page, mode);
     const form = page.getByRole('form', { name: 'Profile form', exact: true });
@@ -107,7 +107,7 @@ test('machine-readable docs retain the API and every named example', async ({ re
   expect(button.ok()).toBe(true);
   const text = await button.text();
   expect(text).toContain('API reference');
-  expect(text).toContain('ButtonLoadingExample');
+  expect(text).toContain('ButtonLoadingDemo');
   expect(text).toContain('setPending');
   expect(text).not.toContain('<UsagePreview');
   expect(text).not.toContain('GENERATED REFERENCE');

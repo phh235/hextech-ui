@@ -118,7 +118,7 @@ test('disabled labels ignore hover, and Switch paints held Space without repeate
   const radioLabel = page.locator('.hx-radio-label').first();
   await radioLabel.hover();
   await expect(radioLabel).toHaveCSS('color', 'rgb(91, 90, 86)');
-  await openPage(page, '/docs/components/switch');
+  await openPage(page, '/internal/components/switch');
   const control = page.getByRole('switch');
   await control.focus();
   await page.keyboard.down('Space');
@@ -132,7 +132,7 @@ test('disabled labels ignore hover, and Switch paints held Space without repeate
 test('textarea padding and progress fill use the measured content-box geometry', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/textarea');
+  await openPage(page, '/internal/components/textarea');
   await expect(page.locator('textarea')).toHaveCSS('height', '50px');
   await expect(page.locator('textarea')).toHaveCSS('padding-top', '8px');
   await openPage(page, '/docs/components/progress');

@@ -1,10 +1,11 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { selectExample } from './select-example';
 import { test, expect } from '@playwright/test';
 import { openPage } from './navigation';
 
 test('switch thumb follows pointer and keyboard checked state', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/switch');
+  await openPage(page, '/internal/components/switch');
   const control = page.getByRole('switch').first();
   await control.setChecked(true);
   const offset = () =>
@@ -26,7 +27,7 @@ test('switch thumb follows pointer and keyboard checked state', async ({ page })
 test('selected dimmed toggle keeps its measured blue text when hovered and held', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/toggle');
+  await openPage(page, '/internal/components/toggle');
   await selectExample(page, { label: 'Storybook · Dimmed Selected' });
   const toggle = page.locator('[data-reference-story="buttons-togglebutton--dimmed-selected"]');
   await expect(toggle).toHaveAttribute('aria-pressed', 'true');
@@ -46,7 +47,7 @@ test('selected dimmed toggle keeps its measured blue text when hovered and held'
 });
 
 test('spinner uses the reference size, teal fade and one-second rotation', async ({ page }) => {
-  await openPage(page, '/docs/components/spinner');
+  await openPage(page, '/internal/components/spinner');
   const spinner = page.getByRole('status', { name: '' }).filter({ hasText: 'Loading' });
   await expect(spinner).toHaveCSS('width', '48px');
   await expect(spinner).toHaveCSS('height', '48px');
@@ -67,7 +68,7 @@ test('spinner uses the reference size, teal fade and one-second rotation', async
 });
 
 test('input uses the measured Storybook geometry and gradient focus states', async ({ page }) => {
-  await openPage(page, '/docs/components/input');
+  await openPage(page, '/internal/components/input');
   const input = page.getByRole('textbox', { name: 'Text input', exact: true });
   await expect(input).toHaveCSS('min-height', '36px');
   await expect(input).toHaveCSS('font-size', '12px');
@@ -106,7 +107,7 @@ test('input uses the measured Storybook geometry and gradient focus states', asy
 });
 
 test('pressing a button does not translate its position', async ({ page, isMobile }) => {
-  await openPage(page, '/docs/components/button');
+  await openPage(page, '/internal/components/button');
   const button = page.getByRole('button', { name: /^Queue up/ });
   if (!isMobile) {
     const resting = await button.boundingBox();
@@ -138,12 +139,12 @@ test('pressing a button does not translate its position', async ({ page, isMobil
 test('documentation tables and lists do not restyle live calendar and tree geometry', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/calendar');
+  await openPage(page, '/internal/components/calendar');
   const calendar = page.getByRole('group', { name: 'Session date', exact: true });
   const day = calendar.getByRole('gridcell').first();
   await expect(day).toHaveCSS('border-bottom-width', '0px');
   await expect(day).toHaveCSS('text-align', 'center');
-  await openPage(page, '/docs/components/tree');
+  await openPage(page, '/internal/components/tree');
   await expect(page.getByRole('treeitem', { name: 'Frontline', exact: true })).toHaveCSS(
     'margin-top',
     '0px',
@@ -152,7 +153,7 @@ test('documentation tables and lists do not restyle live calendar and tree geome
 test('focus, hover, disabled and reduced-motion effects have visible distinct states', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/button');
+  await openPage(page, '/internal/components/button');
   const button = page.getByRole('button', { name: 'Queue up', exact: true });
   await button.hover();
   await expect(button).toHaveCSS('box-shadow', 'none');
@@ -171,7 +172,7 @@ test('focus, hover, disabled and reduced-motion effects have visible distinct st
     path: `.artifacts/screenshots/button-disabled-${test.info().project.name}.png`,
     animations: 'disabled',
   });
-  await openPage(page, '/docs/components/card');
+  await openPage(page, '/internal/components/card');
   const frame = page.locator('.preview-viewport .hx-frame');
   await frame.evaluate((node) => node.setAttribute('data-animated', 'true'));
   expect(await frame.evaluate((node) => getComputedStyle(node, '::before').animationName)).toBe(

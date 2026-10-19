@@ -1,10 +1,11 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('charts provide keyboard selection, toggleable series and complete readable data', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/charts');
+  await openPage(page, '/internal/components/charts');
   const chart = page.locator('svg[tabindex="0"]').first();
   await expect(page.locator('[data-hextech-chart-ready]').first()).toHaveAttribute(
     'data-hextech-chart-ready',

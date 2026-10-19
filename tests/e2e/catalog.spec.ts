@@ -16,7 +16,7 @@ for (let offset = 0; offset < manifest.length; offset += 12) {
       await openPage(page, `/docs/components/${item.name}`);
       await expect(page.locator('h1')).toHaveText(item.title);
       await expect(page.getByRole('region', { name: item.title, exact: true })).toBeVisible();
-      await expect(page.locator('.preview-viewport > *').first()).toBeVisible();
+      await expect(page.locator('.preview-viewport > :visible').first()).toBeVisible();
       expect(
         (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
           .violations,
@@ -56,10 +56,10 @@ test('button labels stay unchanged after activation, loading stays disabled, and
   await expect(code).not.toContainText('setCount');
 });
 
-test('controlled checkbox, radio, switch, and toggle preserve keyboard semantics', async ({
+test('internal controlled checkbox, radio, switch, and toggle preserve keyboard semantics', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/checkbox');
+  await openPage(page, '/internal/components/checkbox');
   const checkbox = page.getByRole('checkbox', { name: 'Send me build updates' });
   await checkbox.focus();
   await page.keyboard.press('Space');
@@ -68,16 +68,16 @@ test('controlled checkbox, radio, switch, and toggle preserve keyboard semantics
     'aria-checked',
     'mixed',
   );
-  await openPage(page, '/docs/components/radio');
+  await openPage(page, '/internal/components/radio');
   await page.getByRole('radio', { name: 'top', exact: true }).focus();
   await page.keyboard.press('ArrowDown');
   await expect(page.getByRole('radio', { name: 'jungle', exact: true })).toBeChecked();
-  await openPage(page, '/docs/components/switch');
+  await openPage(page, '/internal/components/switch');
   const toggle = page.getByRole('switch');
   await toggle.focus();
   await page.keyboard.press('Space');
   await expect(toggle).toBeChecked();
-  await openPage(page, '/docs/components/toggle');
+  await openPage(page, '/internal/components/toggle');
   await page.getByRole('button', { name: 'Favorite setup' }).click();
   await expect(page.getByRole('button', { name: 'Favorite setup' })).toHaveAttribute(
     'aria-pressed',
@@ -88,6 +88,7 @@ test('controlled checkbox, radio, switch, and toggle preserve keyboard semantics
 test('field labels, disabled previews, and the A–Z component index work', async ({ page }) => {
   await openPage(page, '/docs/components/field');
   await page.getByRole('textbox', { name: 'Profile name' }).fill('Starlight');
+  await openPage(page, '/internal/components/field');
   await expect(page.getByRole('textbox', { name: 'Invite code' })).toHaveAttribute(
     'aria-invalid',
     'true',

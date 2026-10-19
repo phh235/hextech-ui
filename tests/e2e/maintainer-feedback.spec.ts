@@ -4,7 +4,7 @@ import { setMode } from './set-mode';
 
 for (const mode of ['dark', 'light'] as const) {
   test(`${mode}: Select popup stays below the trigger with a visible frame`, async ({ page }) => {
-    await openPage(page, '/docs/components/select');
+    await openPage(page, '/internal/components/select');
     await setMode(page, mode);
     const trigger = page.getByRole('combobox', { name: 'Preferred role' });
     const initial = await trigger.boundingBox();
@@ -31,12 +31,12 @@ for (const mode of ['dark', 'light'] as const) {
     await expect(plus.locator('svg')).toHaveCSS('width', '16px');
     await plus.click();
     await expect(page.getByRole('textbox', { name: 'Party size' })).toHaveValue('4');
-    await openPage(page, '/docs/components/multiple-select');
+    await openPage(page, '/internal/components/multiple-select');
     await setMode(page, mode);
     await expect(
       page.getByRole('button', { name: 'Show Preferred roles options' }).locator('svg'),
     ).toHaveCSS('width', '16px');
-    await openPage(page, '/docs/components/menu');
+    await openPage(page, '/internal/components/menu');
     await setMode(page, mode);
     const trigger = page.getByRole('button', { name: 'Build actions', exact: true });
     await expect(trigger.locator('svg')).toHaveCount(1);
@@ -53,7 +53,7 @@ for (const mode of ['dark', 'light'] as const) {
 test('search echoes typing immediately, debounces the result and cancels pending work on clear', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/search-field');
+  await openPage(page, '/internal/components/search-field');
   const field = page.getByRole('searchbox', { name: 'Search builds' });
   const status = page.getByRole('status').filter({ hasText: 'Showing all local builds' });
   await page.clock.install();
@@ -116,7 +116,7 @@ test('docs separate installation from named demo source and GitHub links have on
   await expect(github).toBeVisible();
   await expect(github).toHaveText('');
   await expect(github.locator('[data-github-icon]')).toHaveCount(1);
-  await openPage(page, '/docs/components/preview-card');
+  await openPage(page, '/internal/components/preview-card');
   await expect(
     page.getByRole('link', { name: 'Explore the Hextech theme', exact: true }),
   ).toBeVisible();

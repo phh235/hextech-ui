@@ -1,3 +1,4 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { selectExample } from './select-example';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -5,7 +6,7 @@ import { openPage } from './navigation';
 test('object combobox uses IDs, custom content, disabled options and refreshed identities', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/combobox');
+  await openPage(page, '/internal/components/combobox');
   await selectExample(page, { label: 'Object records' });
   const input = page.getByRole('combobox', { name: 'Party leader', exact: true });
   await expect(input).toHaveValue('Avery');
@@ -32,7 +33,7 @@ test('object combobox uses IDs, custom content, disabled options and refreshed i
 test('object multiple selection preserves stable chips and serializes every selected ID', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/multiple-select');
+  await openPage(page, '/internal/components/multiple-select');
   await selectExample(page, { label: 'Object records' });
   await page.getByRole('button', { name: 'Refresh option records' }).click();
   await expect(
@@ -55,7 +56,7 @@ test('object multiple selection preserves stable chips and serializes every sele
 test('autocomplete retains free text, accepts optional suggestions and submits text', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/autocomplete');
+  await openPage(page, '/internal/components/autocomplete');
   const input = page.getByRole('combobox', { name: 'Build query', exact: true });
   await input.fill('A completely custom build');
   await page.keyboard.press('Escape');
@@ -77,7 +78,7 @@ test('autocomplete retains free text, accepts optional suggestions and submits t
 });
 
 test('selection sizes differ and closed Escape clearing is explicitly opt-in', async ({ page }) => {
-  await openPage(page, '/docs/components/multiple-select');
+  await openPage(page, '/internal/components/multiple-select');
   await selectExample(page, { label: 'Object records' });
   const chips = page.getByRole('group', { name: 'Party members selections' });
   const size = page.getByRole('combobox', { name: 'Record control size' });
@@ -100,7 +101,7 @@ test('selection sizes differ and closed Escape clearing is explicitly opt-in', a
 });
 
 test('preserving closed Escape values still dismisses a parent dialog', async ({ page }) => {
-  await openPage(page, '/docs/components/combobox');
+  await openPage(page, '/internal/components/combobox');
   await selectExample(page, { label: 'Object records' });
   await page.getByRole('button', { name: 'Try selection in a dialog' }).click();
   const dialog = page.getByRole('dialog', { name: 'Party leader dialog' });

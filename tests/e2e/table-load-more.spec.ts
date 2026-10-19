@@ -1,3 +1,4 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { selectExample } from './select-example';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -19,7 +20,7 @@ test('manual loading remains usable by keyboard and touch until exhaustion', asy
   page,
   isMobile,
 }) => {
-  await openPage(page, '/docs/components/table-load-more');
+  await openPage(page, '/internal/components/table-load-more');
   const demo = page.getByRole('region', { name: 'Table loading demo', exact: true });
   const action = demo.getByRole('button', { name: 'Load more rows', exact: true });
   if (isMobile) await action.tap();
@@ -43,7 +44,7 @@ test('manual loading remains usable by keyboard and touch until exhaustion', asy
 test('fresh intersection samples prevent extra loading after appended rows move the sentinel away', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/table-load-more');
+  await openPage(page, '/internal/components/table-load-more');
   const demo = await variant(page, 'Automatic');
   const scroll = demo.getByRole('region', { name: 'Practice notes scroll area' });
   await settle(page);
@@ -70,7 +71,7 @@ test('fresh intersection samples prevent extra loading after appended rows move 
 test('pending, stalled, failed, disabled and aborted loading states recover without duplicate requests', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/table-load-more');
+  await openPage(page, '/internal/components/table-load-more');
   const demo = await variant(page, 'Async states');
   const count = demo.locator('[data-load-requests]');
   const complete = () =>
@@ -142,7 +143,7 @@ test('pending, stalled, failed, disabled and aborted loading states recover with
 test('rich DataTable composes the canonical loading row with correct grid counts', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/data-table');
+  await openPage(page, '/internal/components/data-table');
   await selectExample(page, { label: 'Load more' });
   const demo = page.getByRole('region', { name: 'Data table loading demo', exact: true });
   const viewport = demo.getByRole('region', { name: 'Loading practice roster scroll area' });

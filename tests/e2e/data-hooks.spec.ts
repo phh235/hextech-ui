@@ -1,7 +1,8 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 test('local list updates and filters without losing its canonical data', async ({ page }) => {
-  await openPage(page, '/docs/components/use-list-data');
+  await openPage(page, '/internal/components/use-list-data');
   const demo = page.getByRole('region', { name: 'Local list demo' });
   await demo.getByRole('button', { name: 'Add Sage' }).click();
   await demo.getByRole('searchbox').fill('Sage');
@@ -15,7 +16,7 @@ test('async list appends pages, ignores stale completion and recovers after erro
   page,
 }) => {
   await page.clock.install();
-  await openPage(page, '/docs/components/use-async-list');
+  await openPage(page, '/internal/components/use-async-list');
   const demo = page.getByRole('region', { name: 'Async list demo' });
   await expect(demo.getByRole('listitem')).toHaveCount(2);
   await demo.getByRole('button', { name: 'Load more names' }).click();

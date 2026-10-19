@@ -26,7 +26,7 @@ const cases = [
 for (const name of cases)
   test(`${name} retains its reviewed default geometry`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await openPage(page, `/docs/components/${name}`);
+    await openPage(page, `/internal/components/${name}`);
     await page.evaluate(() => document.fonts.ready);
     if (name === 'token-field')
       await expect(page.getByRole('textbox', { name: 'Message', exact: true })).toHaveAttribute(
@@ -44,7 +44,7 @@ for (const name of cases)
   });
 test('input focus and disabled frames retain their reference styling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/input');
+  await openPage(page, '/internal/components/input');
   const input = page.getByRole('textbox', { name: 'Text input', exact: true });
   await input.focus();
   await input.evaluate((node: HTMLInputElement) =>
@@ -58,7 +58,7 @@ test('input focus and disabled frames retain their reference styling', async ({ 
 
 test('button focus and disabled states retain their visual hierarchy', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/button');
+  await openPage(page, '/internal/components/button');
   await page.keyboard.press('Tab');
   await page.getByRole('button', { name: 'Queue up', exact: true }).focus();
   await expect(page.locator('.preview-viewport')).toHaveScreenshot('button-focus.png');
@@ -67,7 +67,7 @@ test('button focus and disabled states retain their visual hierarchy', async ({ 
 });
 test('scoped dark dialog retains portal theme and layout', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/dialog');
+  await openPage(page, '/internal/components/dialog');
   await page.getByRole('button', { name: 'Edit profile', exact: true }).click();
   await page.mouse.move(0, 0);
   await expect(page.getByRole('dialog')).toHaveScreenshot('dialog-dark-portal.png');
@@ -75,7 +75,7 @@ test('scoped dark dialog retains portal theme and layout', async ({ page }) => {
 for (const name of ['combobox', 'multiple-select'])
   test(`${name} object records retain layout and custom option content`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await openPage(page, `/docs/components/${name}`);
+    await openPage(page, `/internal/components/${name}`);
     await selectExample(page, { label: 'Object records' });
     await page.getByRole('button', { name: 'Refresh option records' }).click();
     if (name === 'combobox') {
@@ -89,7 +89,7 @@ for (const name of ['combobox', 'multiple-select'])
 
 test('table loading retains keyboard focus and its pending appearance', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/table-load-more');
+  await openPage(page, '/internal/components/table-load-more');
   await selectExample(page, { label: 'Async states' });
   const demo = page.getByRole('region', { name: 'Table loading demo', exact: true });
   await demo.getByLabel('Automatic loading', { exact: true }).uncheck();

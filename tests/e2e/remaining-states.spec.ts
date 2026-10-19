@@ -1,3 +1,4 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { selectExample } from './select-example';
 import { test, expect } from '@playwright/test';
 import { openPage } from './navigation';
@@ -7,7 +8,7 @@ test('calendar hover, held press and keyboard focus remain distinct in both mode
   page,
 }) => {
   for (const mode of ['dark', 'light'] as const) {
-    await openPage(page, '/docs/components/calendar');
+    await openPage(page, '/internal/components/calendar');
     await setMode(page, mode);
     const calendar = page.getByRole('group', { name: 'Session date', exact: true });
     const day = calendar.getByRole('button', { name: 'Tuesday, October 20, 2026', exact: true });
@@ -30,7 +31,7 @@ test('calendar hover, held press and keyboard focus remain distinct in both mode
 });
 
 test('range selection is one continuous band with rounded outer caps', async ({ page }) => {
-  await openPage(page, '/docs/components/calendar');
+  await openPage(page, '/internal/components/calendar');
   const range = page.getByRole('group', { name: 'Training window', exact: true });
   const cells = range.locator('.hx-calendar-day[data-in-range]');
   await expect(cells).toHaveCount(4);
@@ -61,7 +62,7 @@ test('autocomplete options use the shared selection row and keyboard navigation'
   page,
   browserName,
 }) => {
-  await openPage(page, '/docs/components/autocomplete');
+  await openPage(page, '/internal/components/autocomplete');
   await page.getByRole('button', { name: 'Show Build query suggestions', exact: true }).click();
   const option = page.locator('.hx-select-popup').getByRole('option').nth(1);
   await expect(option).toHaveCSS('font-size', '14px');
@@ -84,7 +85,7 @@ test('autocomplete options use the shared selection row and keyboard navigation'
 });
 
 test('disabled inline editor retains its disabled frame and cannot be edited', async ({ page }) => {
-  await openPage(page, '/docs/components/token-field');
+  await openPage(page, '/internal/components/token-field');
   await selectExample(page, { label: 'Disabled' });
   const editor = page.getByRole('textbox', { name: 'Message', exact: true });
   await expect(editor).toHaveAttribute('aria-disabled', 'true');
@@ -99,7 +100,7 @@ test('toast status icons share Sonner colors and keep keyboard dismissal in both
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openPage(page, '/docs/components/toast');
+  await openPage(page, '/internal/components/toast');
   for (const mode of ['dark', 'light'] as const) {
     await setMode(page, mode);
     for (const [label, type] of [
@@ -155,12 +156,12 @@ test('toast status icons share Sonner colors and keep keyboard dismissal in both
 });
 
 test('popover body spacing and date-popup surface compose independently', async ({ page }) => {
-  await openPage(page, '/docs/components/popover');
+  await openPage(page, '/internal/components/popover');
   await page.getByRole('button', { name: 'Party details', exact: true }).click();
   await expect(page.locator('.hx-popover')).toHaveCSS('padding', '2px');
   await expect(page.locator('.hx-popover > div')).toHaveCSS('padding', '16px');
   await page.keyboard.press('Escape');
-  await openPage(page, '/docs/components/date-picker');
+  await openPage(page, '/internal/components/date-picker');
   await page.getByRole('button', { name: 'Open Session date calendar', exact: true }).click();
   await expect(page.locator('.hx-date-popup')).toHaveCSS('padding', '12px');
   await expect(
@@ -169,7 +170,7 @@ test('popover body spacing and date-popup surface compose independently', async 
 });
 
 test('disabled ButtonLink keeps the reference appearance and cannot activate', async ({ page }) => {
-  await openPage(page, '/docs/components/link');
+  await openPage(page, '/internal/components/link');
   await selectExample(page, { label: 'Storybook · Disabled' });
   const location = page.url();
   const link = page.getByRole('link', { name: 'League of Legends', exact: true });
@@ -190,7 +191,7 @@ test('disabled ButtonLink keeps the reference appearance and cannot activate', a
 test('table rows select on mouse press once and leave embedded controls independent', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/data-table');
+  await openPage(page, '/internal/components/data-table');
   const row = page.locator('tbody .hx-table-row').first();
   const name = row.getByRole('gridcell').nth(1);
   await name.hover();
@@ -214,7 +215,7 @@ test('table rows select on mouse press once and leave embedded controls independ
 });
 
 test('disabled virtual options retain their idle background on hover', async ({ page }) => {
-  await openPage(page, '/docs/components/virtual-listbox');
+  await openPage(page, '/internal/components/virtual-listbox');
   await selectExample(page, { label: 'Disabled' });
   const option = page
     .getByRole('listbox', { name: 'Practice builds', exact: true })

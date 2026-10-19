@@ -1,8 +1,9 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('calendar roving focus, month navigation, and range selection work', async ({ page }) => {
-  await openPage(page, '/docs/components/calendar');
+  await openPage(page, '/internal/components/calendar');
   const calendar = page.getByRole('group', { name: 'Session date', exact: true });
   const selected = calendar.getByRole('button', {
     name: 'Saturday, October 17, 2026',
@@ -28,7 +29,7 @@ test('calendar roving focus, month navigation, and range selection work', async 
 test('date picker focuses its selected day, updates the native field and restores focus', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/date-picker');
+  await openPage(page, '/internal/components/date-picker');
   const trigger = page.getByRole('button', { name: 'Open Session date calendar', exact: true });
   await trigger.click();
   const calendar = page.getByRole('group', { name: 'Session date calendar', exact: true });
@@ -49,7 +50,7 @@ test('date picker focuses its selected day, updates the native field and restore
 test('date range editing preserves invalid drafts and blocks invalid native form values', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/date-picker');
+  await openPage(page, '/internal/components/date-picker');
   const start = page.getByLabel('Training start', { exact: true });
   const end = page.getByLabel('Training end', { exact: true });
   await end.fill('2026-10-10');
@@ -62,13 +63,13 @@ test('date range editing preserves invalid drafts and blocks invalid native form
   expect(await end.evaluate((element: HTMLInputElement) => element.checkValidity())).toBe(true);
 });
 test('search clear restores focus and toast notifications can be dismissed', async ({ page }) => {
-  await openPage(page, '/docs/components/search-field');
+  await openPage(page, '/internal/components/search-field');
   const search = page.getByRole('searchbox', { name: 'Search builds' });
   await search.fill('Balanced');
   await page.getByRole('button', { name: 'Clear Search builds' }).click();
   await expect(search).toHaveValue('');
   await expect(search).toBeFocused();
-  await openPage(page, '/docs/components/toast');
+  await openPage(page, '/internal/components/toast');
   await page.getByRole('button', { name: 'Success' }).click();
   await expect(page.getByText('Build saved', { exact: true })).toBeVisible();
   // Base UI exposes toast actions to keyboard users after entering the viewport.

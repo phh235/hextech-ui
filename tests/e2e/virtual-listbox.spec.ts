@@ -1,10 +1,11 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('virtualized list keeps active descendants mounted, navigates far rows and selects', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/virtual-listbox');
+  await openPage(page, '/internal/components/virtual-listbox');
   const list = page.getByRole('listbox', { name: 'Practice builds' });
   await list.focus();
   expect(await list.getByRole('option').count()).toBeLessThan(30);

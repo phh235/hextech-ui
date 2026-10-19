@@ -1,8 +1,9 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('inline tokens share editing flow and delete atomically', async ({ page }) => {
-  await openPage(page, '/docs/components/token-field');
+  await openPage(page, '/internal/components/token-field');
   const editor = page.getByRole('textbox', { name: 'Message', exact: true });
   await expect(editor).toHaveAttribute('aria-busy', 'false');
   await expect(editor.locator('.hx-inline-token')).toHaveText('@Avery');
@@ -18,7 +19,7 @@ test('inline tokens share editing flow and delete atomically', async ({ page }) 
   await expect(editor).toHaveText('Start ');
 });
 test('required validation targets the editor and form data stays local', async ({ page }) => {
-  await openPage(page, '/docs/components/token-field');
+  await openPage(page, '/internal/components/token-field');
   const editor = page.getByRole('textbox', { name: 'Message', exact: true });
   await expect(editor).toHaveAttribute('aria-busy', 'false');
   await page.getByRole('button', { name: 'Clear message', exact: true }).click();
@@ -42,7 +43,7 @@ test('undo and plain-text clipboard preserve safe editor behavior', async ({
 }) => {
   if (browserName === 'chromium')
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await openPage(page, '/docs/components/token-field');
+  await openPage(page, '/internal/components/token-field');
   const editor = page.getByRole('textbox', { name: 'Message', exact: true });
   await expect(editor).toHaveAttribute('aria-busy', 'false');
   await editor.focus();

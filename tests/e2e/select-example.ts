@@ -5,5 +5,9 @@ import { openPage } from './navigation';
 export async function selectExample(page: Page, choice: string | { label: string }) {
   const component = new URL(page.url()).pathname.match(/^\/docs\/components\/([^/]+)$/)?.[1];
   if (component) await openPage(page, '/internal/components/' + component);
+  await page
+    .locator('.component-preview')
+    .getByRole('tab', { name: 'Preview', exact: true })
+    .click();
   await page.getByRole('combobox', { name: 'Example', exact: true }).selectOption(choice);
 }

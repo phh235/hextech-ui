@@ -1,3 +1,4 @@
+// Rich behavioral states use internal fixtures; catalog/composition suites verify public demos and copied source.
 import { selectExample } from './select-example';
 import { openPage } from './navigation';
 import { test, expect } from '@playwright/test';
@@ -6,7 +7,7 @@ import AxeBuilder from '@axe-core/playwright';
 test('tree supports roving focus, expansion, selection, typeahead and disabled rows', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/tree');
+  await openPage(page, '/internal/components/tree');
   const tree = page.getByRole('tree', { name: 'Build library' });
   const builds = tree.getByRole('treeitem', { name: 'Builds', exact: true });
   const frontline = tree.getByRole('treeitem', { name: 'Frontline', exact: true });
@@ -37,7 +38,7 @@ test('tree supports roving focus, expansion, selection, typeahead and disabled r
 });
 
 test('tree reorders by keyboard and preserves moved-node focus', async ({ page }) => {
-  await openPage(page, '/docs/components/tree');
+  await openPage(page, '/internal/components/tree');
   const tree = page.getByRole('tree', { name: 'Build library' });
   const frontline = tree.getByRole('treeitem', { name: 'Frontline', exact: true });
   await frontline.focus();
@@ -58,7 +59,7 @@ test('tree reorders by keyboard and preserves moved-node focus', async ({ page }
 test('tag collection removes selected tags and restores focus to a surviving control', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/tag-group');
+  await openPage(page, '/internal/components/tag-group');
   const tags = page.getByRole('toolbar', { name: 'Build tags' });
   const ranked = tags.getByRole('button', { name: 'Ranked', exact: true });
   await ranked.focus();
@@ -85,7 +86,7 @@ test('tag collection removes selected tags and restores focus to a surviving con
 test('external tree moves retain focus on a visible ancestor and respect outside controls', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/tree');
+  await openPage(page, '/internal/components/tree');
   const tree = page.getByRole('tree', { name: 'Build library' });
   await tree.getByRole('treeitem', { name: 'Frontline', exact: true }).focus();
   // A native click dispatches the owner's data update without moving focus first.
@@ -105,7 +106,7 @@ test('external tree moves retain focus on a visible ancestor and respect outside
 test('tree refreshes reconcile removed selection, hidden focus and an empty collection', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/tree');
+  await openPage(page, '/internal/components/tree');
   await selectExample(page, { label: 'Dynamic data' });
   const tree = page.getByRole('tree', { name: 'Dynamic build library' });
   const draft = tree.getByRole('treeitem', { name: 'Draft plan', exact: true });
@@ -155,7 +156,7 @@ test('tree refreshes reconcile removed selection, hidden focus and an empty coll
 });
 
 test('controlled tag selection changes only after the owner removes records', async ({ page }) => {
-  await openPage(page, '/docs/components/tag-group');
+  await openPage(page, '/internal/components/tag-group');
   await selectExample(page, { label: 'Dynamic data' });
   const tags = page.getByRole('toolbar', { name: 'Controlled build tags' });
   const ranked = tags.getByRole('button', { name: 'Ranked', exact: true });
@@ -195,7 +196,7 @@ test('controlled tag selection changes only after the owner removes records', as
 test('deferred tag removal preserves focus after the user leaves the collection', async ({
   page,
 }) => {
-  await openPage(page, '/docs/components/tag-group');
+  await openPage(page, '/internal/components/tag-group');
   await selectExample(page, { label: 'Dynamic data' });
   const tags = page.getByRole('toolbar', { name: 'Controlled build tags' });
   await page.getByRole('checkbox', { name: 'Queue removal' }).check();

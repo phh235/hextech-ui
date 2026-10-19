@@ -14,7 +14,7 @@ for (const name of [
 ]) {
   test(`light: ${name} default frame`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await openPage(page, `/docs/components/${name}`);
+    await openPage(page, `/internal/components/${name}`);
     await setMode(page, 'light');
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator('.preview-viewport')).toHaveScreenshot(`${name}-light.png`);
@@ -25,7 +25,7 @@ for (const mode of ['light', 'dark'] as const) {
   for (const name of ['toast', 'sonner']) {
     test(`${mode}: ${name} notification`, async ({ page }) => {
       await page.emulateMedia({ reducedMotion: 'reduce' });
-      await openPage(page, `/docs/components/${name}`);
+      await openPage(page, `/internal/components/${name}`);
       await setMode(page, mode);
       await page.evaluate(() => document.fonts.ready);
       await page
@@ -42,7 +42,19 @@ for (const mode of ['light', 'dark'] as const) {
       await expect(notification).toHaveScreenshot(`${name}-${mode}.png`);
     });
   }
-  for (const name of ['skeleton', 'alert', 'avatar', 'empty-state']) {
+  for (const name of [
+    'skeleton',
+    'alert',
+    'avatar',
+    'empty-state',
+    'fieldset',
+    'checkbox-group',
+    'input-group',
+    'button-group',
+    'meter',
+    'avatar-group',
+    'item',
+  ]) {
     test(`${mode}: ${name} default frame`, async ({ page }) => {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await openPage(page, `/docs/components/${name}`);
@@ -54,7 +66,7 @@ for (const mode of ['light', 'dark'] as const) {
   for (const name of ['select', 'menu']) {
     test(`${mode}: ${name} open popup`, async ({ page }) => {
       await page.emulateMedia({ reducedMotion: 'reduce' });
-      await openPage(page, `/docs/components/${name}`);
+      await openPage(page, `/internal/components/${name}`);
       await setMode(page, mode);
       await page.evaluate(() => document.fonts.ready);
       await page
@@ -71,7 +83,7 @@ for (const mode of ['light', 'dark'] as const) {
   test(`${mode}: validated form`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await openPage(page, '/docs/forms');
-    const preview = page.locator('.usage-preview');
+    const preview = page.getByRole('region', { name: 'Profile form', exact: true });
     await expect(preview).toHaveAttribute('data-preview-ready', 'true');
     await setMode(page, mode);
     await page.getByRole('button', { name: 'Save profile', exact: true }).click();
