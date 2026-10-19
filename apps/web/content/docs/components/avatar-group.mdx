@@ -1,0 +1,29 @@
+---
+title: 'Avatar Group'
+description: 'Named groups of profile avatars with an optional overflow count.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="avatar-group" />
+
+## Installation
+
+<RegistryInstallCommand name="avatar-group" />
+
+## API reference
+
+These are the main Avatar Group options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                            | Type                                 | Default |
+| ------------------------------- | ------------------------------------ | ------- |
+| `label`                         | `string (required)`                  | `—`     |
+| `aria-label (AvatarGroupCount)` | `string describing the extra people` | `—`     |
+
+{/* END GENERATED REFERENCE */}
+
+## Composition notes
+
+Give the group a name and name individual avatars. Overflow count text should describe how many people are omitted with aria-label. The group composes existing Avatar parts; it does not fetch people or manage selection.
+
+The preview uses Hextech brand marks and [shadcn�s GitHub avatar](https://github.com/shadcn.png). Replace the image URLs with your own assets when copying this example. Initials appear only if an image cannot load.
