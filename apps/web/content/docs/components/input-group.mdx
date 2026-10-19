@@ -1,0 +1,28 @@
+---
+title: 'Input Group'
+description: 'Inputs and textareas composed with addons, text and canonical buttons.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="input-group" />
+
+## Installation
+
+<RegistryInstallCommand name="input-group" />
+
+## API reference
+
+These are the main Input Group options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                         | Type                                                     | Default        |
+| ---------------------------- | -------------------------------------------------------- | -------------- |
+| `align (InputGroupAddon)`    | `inline-start \| inline-end \| block-start \| block-end` | `inline-start` |
+| `size (InputGroupButton)`    | `small \| medium \| large`                               | `small`        |
+| `variant (InputGroupButton)` | `ButtonVariant`                                          | `text`         |
+
+{/* END GENERATED REFERENCE */}
+
+## Composition notes
+
+Compose InputGroupInput with inline addons, or InputGroupTextarea with block addons. Keep the input before addon actions in DOM order; align controls only the visual position. Use a real Button for actions, and keep a visible field label outside the group. The implementation reuses Group, Input, Textarea and Button.
