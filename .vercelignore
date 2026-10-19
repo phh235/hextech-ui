@@ -1,0 +1,13 @@
+.artifacts/
+.codex/
+.claude/
+.aws/
+docs/audits/
+docs/research/
+test-results/
+playwright-report/
+blob-report/
+coverage/
+**/*.log
+**/.env*
+!**/.env.example

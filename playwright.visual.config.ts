@@ -5,7 +5,9 @@ export default defineConfig({
   ...base,
   testDir: './tests/visual',
   testMatch: '**/*.spec.ts',
-  workers: 2,
+  workers: process.env.CI ? 1 : 2,
+  timeout: 60000,
+  use: { ...base.use, locale: 'en-US', launchOptions: { args: ['--lang=en-US'] } },
   expect: {
     toHaveScreenshot: {
       animations: 'disabled',

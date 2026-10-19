@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FeaturedComponents } from '@/components/featured-components';
-import { ButtonLink } from '@hextech-ui/react/link';
+import { HeroButtonLink as ButtonLink } from '@/components/hero-button-link';
 import { StructuredData } from '@/components/structured-data';
 import { pageMetadata, siteName, siteTitle, siteDescription } from '@/lib/seo';
 import { repositoryUrl, siteUrl } from '@/lib/site';

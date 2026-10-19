@@ -76,6 +76,7 @@ test('search echoes typing immediately, debounces the result and cancels pending
 
 test('docs separate installation from named demo source and GitHub links have only the icon', async ({
   page,
+  isMobile,
 }) => {
   for (const name of ['button', 'input', 'sonner']) {
     await openPage(page, `/docs/components/${name}`);
@@ -93,19 +94,23 @@ test('docs separate installation from named demo source and GitHub links have on
   await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).not.toContainText(
     'Terminal',
   );
-  const sidebar = page.locator('[data-docs-controls] a');
-  if (await sidebar.isVisible()) {
-    await expect(sidebar).toHaveAccessibleName('GitHub');
-    await expect(sidebar).toHaveText('');
-    await expect(sidebar.locator('[data-github-icon]')).toHaveCount(1);
-  }
+  if (isMobile) await page.getByRole('button', { name: 'Open Sidebar', exact: true }).click();
+  const controls = page
+    .locator(isMobile ? '#nd-sidebar-mobile' : '#nd-sidebar')
+    .locator('[data-docs-controls]');
+  const sidebar = controls.getByRole('link', { name: 'GitHub', exact: true });
+  await expect(sidebar).toBeVisible();
+  await expect(sidebar).toHaveText('');
+  await expect(sidebar.locator('[data-github-icon]')).toHaveCount(1);
+  await expect(
+    controls.getByRole('link', { name: 'Support on Ko-fi', exact: true }),
+  ).toHaveAttribute('href', 'https://ko-fi.com/phh235');
   await openPage(page, '/');
-  const github = page.locator('a:has([data-github-icon]):visible').first();
-  if (await github.isVisible()) {
-    await expect(github).toHaveAccessibleName('GitHub');
-    await expect(github).toHaveText('');
-    await expect(github.locator('[data-github-icon]')).toHaveCount(1);
-  }
+  if (isMobile) await page.getByRole('button', { name: 'Toggle Menu', exact: true }).click();
+  const github = page.locator('#nd-nav').getByRole('link', { name: 'GitHub', exact: true });
+  await expect(github).toBeVisible();
+  await expect(github).toHaveText('');
+  await expect(github.locator('[data-github-icon]')).toHaveCount(1);
   await openPage(page, '/docs/components/preview-card');
   await expect(
     page.getByRole('link', { name: 'Explore the Hextech theme', exact: true }),

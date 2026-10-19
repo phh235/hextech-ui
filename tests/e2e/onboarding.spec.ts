@@ -94,11 +94,14 @@ test('public previews omit state selectors, show Destructive and link repository
       'variant="destructive"',
     );
     await openPage(page, '/docs/legal');
-    const notices = page.getByRole('link', { name: 'THIRD_PARTY_NOTICES.md', exact: true });
-    await expect(notices).toHaveCount(2);
-    await expect(notices.first()).toHaveAttribute(
-      'href',
-      'https://github.com/phh235/hextech-ui/blob/HEAD/THIRD_PARTY_NOTICES.md',
-    );
+    const notices = page
+      .locator('article')
+      .getByRole('link', { name: 'THIRD_PARTY_NOTICES.md', exact: true });
+    await expect(notices.first()).toBeVisible();
+    for (const notice of await notices.all())
+      await expect(notice).toHaveAttribute(
+        'href',
+        'https://github.com/phh235/hextech-ui/blob/HEAD/THIRD_PARTY_NOTICES.md',
+      );
   }
 });

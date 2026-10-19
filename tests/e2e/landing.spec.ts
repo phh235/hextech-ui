@@ -2,6 +2,32 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openPage } from './navigation';
 import { setMode } from './set-mode';
+
+for (const [name, destination, heading] of [
+  ['Browse Components', '/docs/components', 'Components'],
+  ['Get Started', '/docs/installation', 'Installation'],
+] as const) {
+  test(`${name} uses client navigation without reloading the document`, async ({ page }) => {
+    await openPage(page, '/');
+    const ready = page.getByRole('checkbox', { name: 'Ready to play', exact: true });
+    await ready.click();
+    await expect(ready).not.toBeChecked();
+    await page.evaluate(() => {
+      document.documentElement.dataset.navigationProbe = 'same-document';
+    });
+    const documents: string[] = [];
+    page.on('request', (request) => {
+      if (request.resourceType() === 'document' && request.frame() === page.mainFrame())
+        documents.push(request.url());
+    });
+    await page.getByRole('link', { name, exact: true }).click();
+    await expect(page).toHaveURL(destination);
+    await expect(page.getByRole('heading', { name: heading, exact: true, level: 1 })).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('data-navigation-probe', 'same-document');
+    expect(documents).toEqual([]);
+  });
+}
+
 for (const mode of ['dark', 'light'] as const) {
   test('Fumadocs home with the Hextech hero stays interactive in ' + mode, async ({ page }) => {
     await openPage(page, '/');
