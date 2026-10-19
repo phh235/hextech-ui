@@ -38,7 +38,9 @@ Registry and package builds share canonical source. Library modules must not imp
 ## Product rules
 
 - Use native Fumadocs layouts, navigation, buttons, tabs, search and code blocks for the website. Hextech controls belong in component previews and copied examples. The maintainer-approved homepage hero also uses canonical Hextech ButtonLink controls and gold/teal gradient headings; keep the surrounding website chrome native.
+- Use existing Hextech brand images for demo/profile avatars; the approved external example is `https://github.com/shadcn.png`. Initials belong only in an image-error fallback. Do not replace brand assets with letter placeholders in the default preview.
 - Support light and dark modes, including portal content. Keep the docs shell full width and its reading column bounded and centered.
+- Keep generated screenshots and platform-specific visual baselines local under ignored `.artifacts/visual-baselines/`. Do not add them to Git. Keep visual test source and contributor instructions for generating local baselines.
 - Public component pages have Preview/Code only; no Example/State/Width selector toolbar. Variant controls may exist in explicit noindex internal verification fixtures.
 - Keep Foundation immediately after Get Started and component navigation alphabetical. Avoid duplicate sidebar menus.
 - Installation is a concise consumer setup guide. Contributor, packaging and audit commands belong in maintainer documentation.

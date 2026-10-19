@@ -54,7 +54,7 @@ Review license declarations against the installed lockfile and preserve the orig
 
 Consumer reports include source digests where implemented so stale install evidence is not presented as current. Tarballs must install without workspace links. Do not infer tree shaking from export metadata: the bundle check builds both root and subpath imports with optional peers absent.
 
-Preview clipboard, generated docs and installed/packed examples use the same complete client-module factory. Compile against actual installed artifacts, then exercise representative recipes through a Next server/client boundary in JS and TS. A passing JSX parse alone does not prove runtime behavior. Check syntax contrast in both color modes, including comments and object property names.
+Preview clipboard, generated docs and installed/packed examples use the same maintained demo modules. Compile against actual installed artifacts, then exercise representative recipes through a Next server/client boundary in JS and TS. A passing JSX parse alone does not prove runtime behavior. Check syntax contrast in both color modes, including comments and object property names.
 
 When changing asynchronous data or table loading contracts, retain rejected/stalled/aborted cases and actual pointer/keyboard/touch behavior. Automatic loading must require fresh visibility after progress. Keep old failed logs and image hashes when regenerating evidence. Do not update runtime sources during an aggregate verification run.
 
@@ -68,10 +68,28 @@ Follow `RELEASE_CHECKLIST.md`. Keep publication guards until the final approval.
 
 `pnpm catalog:docs` updates only the marked generated reference in existing component pages. Keep authored usage sections outside those markers; regeneration preserves them. The API table comes from the canonical component manifest. Update it whenever the public contract changes.
 
+The generator also refreshes title/description without deleting custom frontmatter. `pnpm catalog:validate` checks documented exports and main prop names against canonical TypeScript types; the normal typecheck command includes it. Compile consumer examples as well: this check does not infer every human-readable type label or default value.
+
+Public demos are maintained TSX files in `apps/web/components/demos/`. The generator creates only the ignored import map in `apps/web/.generated/` and the formatted copied source; it does not maintain a second implementation. Root and web build/dev/typecheck commands generate the map on a fresh clone. Public previews receive one demo only; richer state fixtures stay under the noindex internal routes. Public catalog/composition tests and internal behavior tests cover those distinct surfaces explicitly.
+
 Named examples live in `apps/web/components/examples/`. The generator copies their actual source into `usage-example-sources.json`, translating package imports to registry paths. Render them with UsagePreview and register the component in its example map. Do not maintain separate snippets. Markdown export uses the same source and retains authored guidance.
+
+Copyable primary examples export a descriptive `<Component>Demo` function, such as `RadioDemo` or `DatePickerDemo`. Named scenarios use names such as `ButtonLoadingDemo`; keep consumer imports and copied-source verification aligned with those exports. Do not expose a generic `Example` export in documentation snippets.
 
 ## Local verification and release
 
-GitHub Actions workflows have been removed at the maintainer’s request. Run `pnpm check` locally before a release, plus `pnpm test:visual` on Windows when reviewing screenshots. Issue and PR templates collect reproducible reports and real validation outcomes; they do not trigger remote jobs. Keep existing screenshot baselines unless an intentional reviewed change requires an update.
+GitHub Actions workflows have been removed at the maintainer’s request. Run `pnpm check` locally before a release, plus local visual comparisons when reviewing screenshots. Baselines are intentionally excluded from Git: after building a fresh clone, use `pnpm test:visual:update` to capture and inspect images in `.artifacts/visual-baselines/`, then `pnpm test:visual` to compare subsequent changes on the same OS/browser. Issue and PR templates collect reproducible reports and real validation outcomes; they do not trigger remote jobs. Keep existing screenshot baselines unless an intentional reviewed change requires an update.
 
 Packages remain private and publishing stays blocked. Prepare release metadata only after the source, registry, tarballs and deployment pass their checks. The missing upstream LoL Math copyright/permission notice remains a release requirement; do not invent that notice or treat attribution alone as confirmation.
+
+## Theme coexistence
+
+Canonical controls use `hx-` Tailwind utility tokens. The default bridge must not redefine host color/font/type aliases. The global bridge is opt-in. `--hextech-ui-rem` supplies the default 16px Hextech scale independently of the host root font; scopes keep their own spacing and container metrics, including portals. Custom token overrides still pass through ThemeScope.
+
+Run `pnpm coexistence:smoke` after building, with port 3000 free. It installs real shadcn components, hashes existing host files, installs Hextech into separate aliases, restores the host configuration, compiles both phases and compares actual computed styles and interactions. It also verifies dark/light portal scope and focus restoration. Verification consumers under ignored directories need explicit Tailwind source scanning. Preserve failed evidence and restore the project development preview afterward.
+
+## Website sounds and analytics
+
+Interaction audio is a website adapter in `apps/web/lib/interaction-sounds.ts` and `apps/web/components/interaction-sounds.tsx`. It follows Hextech controls (including popup portals), leaving Fumadocs controls silent. The header/sidebar toggle stores `hextech-ui-sound-enabled`; audio is enabled by default, fetched lazily on interaction and stops when muted or the tab is hidden. Browser autoplay policy can defer hover audio until a user gesture. Maintainer-supplied OGG files and their provenance statement live in `apps/web/public/sounds/`; they are not shipped in npm packages or the source registry. Preserve disabled/loading behavior and test touch, keyboard, popup selection and mute persistence after changing the adapter.
+
+Vercel Web Analytics uses `@vercel/analytics/next` once in the root layout, which supports client navigation. Enable Web Analytics for the Vercel project and deploy to activate its hosted collection endpoints; local compilation does not prove events reached the dashboard. No Analytics secret or extra environment variable is required. See the [official setup guide](https://vercel.com/docs/analytics/quickstart).

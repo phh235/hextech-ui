@@ -33,3 +33,11 @@ Escape closes an open popup. Closed Escape preserves committed values/text by de
 The previous Drag and Drop hook was removed from source distribution, exports and documentation. Historical transfer results do not describe a current public API.
 
 Copied component recipes are complete TypeScript client modules. Registry component files are converted for JavaScript by the actual shadcn CLI. In the tested JavaScript Next fixture, recipe types are erased separately while JSX is retained; do the equivalent when adapting a TypeScript recipe to JavaScript.
+
+# Isolated Tailwind utilities
+
+Hextech controls now use names such as `text-hx-primary`, `text-hx-sm` and `font-hx-sans`. The default `hextech-tailwind.css` adds these utilities without replacing the host app's normal aliases. Component APIs and the shared class override helper remain available.
+
+Existing projects that intentionally use normal utilities for a full Hextech theme can also import the installed `hextech-tailwind-global.css`. This is an explicit compatibility/global-theme option; omit it for a mixed shadcn/Hextech app. Update copied Hextech component files together with their styles, then follow [Using with shadcn](../apps/web/content/docs/shadcn.mdx) for separate directories and scoped themes.
+
+The default Hextech length scale is the configurable `--hextech-ui-rem: 16px`, so a host font change does not silently change control geometry. Adjust the token explicitly when a region should scale; ThemeScope passes explicit custom variables into its portals.
