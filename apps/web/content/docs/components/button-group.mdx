@@ -1,0 +1,27 @@
+---
+title: 'Button Group'
+description: 'Related actions grouped horizontally or vertically without toolbar keyboard behavior.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="button-group" />
+
+## Installation
+
+<RegistryInstallCommand name="button-group" />
+
+## API reference
+
+These are the main Button Group options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop          | Type                             | Default      |
+| ------------- | -------------------------------- | ------------ |
+| `orientation` | `horizontal \| vertical`         | `horizontal` |
+| `aria-label`  | `string (accessible group name)` | `—`          |
+
+{/* END GENERATED REFERENCE */}
+
+## Composition notes
+
+Supply an accessible group name. Each child remains a real Button or Link and stays in normal Tab order. Use Toolbar when arrow-key navigation is part of the interaction. ButtonGroupSeparator derives its orientation from its parent.
