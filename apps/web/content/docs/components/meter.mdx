@@ -1,0 +1,30 @@
+---
+title: 'Meter'
+description: 'A labeled measurement within a known range, such as health or energy.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="meter" />
+
+## Installation
+
+<RegistryInstallCommand name="meter" />
+
+## API reference
+
+These are the main Meter options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop               | Type                                | Default   |
+| ------------------ | ----------------------------------- | --------- |
+| `label`            | `string (required)`                 | `—`       |
+| `value`            | `number (required)`                 | `—`       |
+| `min / max`        | `number`                            | `0 / 100` |
+| `tone`             | `gold \| teal \| destructive`       | `teal`    |
+| `getAriaValueText` | `(formattedValue, value) => string` | `—`       |
+
+{/* END GENERATED REFERENCE */}
+
+## Composition notes
+
+Meter describes a measurement within a known range; Progress describes task completion. Supply a visible label, a numeric value and meaningful min/max bounds. getAriaValueText can describe units such as health or energy. Tone supplements the number rather than replacing it.
