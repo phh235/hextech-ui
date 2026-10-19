@@ -19,13 +19,14 @@ export function SiteShell({ children, footer }: { children: ReactNode; footer: R
         {
           type: 'custom',
           on: 'nav',
+          secondary: true,
           children: (
             <li>
               <SoundToggle />
             </li>
           ),
         },
-        { type: 'custom', on: 'menu', children: <SoundToggle /> },
+        { type: 'custom', on: 'menu', secondary: true, children: <SoundToggle /> },
         ...(repositoryUrl
           ? [
               {
