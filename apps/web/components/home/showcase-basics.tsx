@@ -54,13 +54,13 @@ export function ProfileShowcase() {
       <div className="flex items-center gap-3">
         <span
           aria-hidden="true"
-          className="grid size-12 shrink-0 place-items-center border border-primary/50 bg-primary/10"
+          className="grid size-12 shrink-0 place-items-center border border-hx-primary/50 bg-hx-primary/10"
         >
           <Image src="/icon.svg" alt="" width={32} height={32} />
         </span>
         <div className="min-w-0">
-          <p className="m-0 truncate text-lg font-medium">{profile}</p>
-          <p className="m-0 text-sm text-muted-foreground">Support main. Team player.</p>
+          <p className="m-0 truncate text-hx-lg font-hx-medium">{profile}</p>
+          <p className="m-0 text-hx-sm text-hx-muted-foreground">Support main. Team player.</p>
         </div>
       </div>
       <Dialog
@@ -111,8 +111,8 @@ export function ProgressShowcase() {
       description="A little closer with every game."
     >
       <div>
-        <p className="m-0 font-display text-4xl font-bold text-primary">1,280</p>
-        <p className="m-0 mt-1 text-sm text-muted-foreground">of 2,000 season points</p>
+        <p className="m-0 font-hx-display text-hx-4xl font-hx-bold text-hx-primary">1,280</p>
+        <p className="m-0 mt-1 text-hx-sm text-hx-muted-foreground">of 2,000 season points</p>
       </div>
       <Progress
         label="Season progress"
@@ -120,14 +120,14 @@ export function ProgressShowcase() {
         value={64}
         className="w-full"
       />
-      <dl className="m-0 grid grid-cols-2 gap-4 border-t border-border pt-4 text-sm">
+      <dl className="m-0 grid grid-cols-2 gap-4 border-t border-hx-border pt-4 text-hx-sm">
         <div>
-          <dt className="text-muted-foreground">Games played</dt>
-          <dd className="m-0 mt-1 text-lg">24</dd>
+          <dt className="text-hx-muted-foreground">Games played</dt>
+          <dd className="m-0 mt-1 text-hx-lg">24</dd>
         </div>
         <div>
-          <dt className="text-muted-foreground">Best streak</dt>
-          <dd className="m-0 mt-1 text-lg text-accent">5 wins</dd>
+          <dt className="text-hx-muted-foreground">Best streak</dt>
+          <dd className="m-0 mt-1 text-hx-lg text-hx-accent">5 wins</dd>
         </div>
       </dl>
     </ShowcaseCard>
@@ -147,8 +147,8 @@ export function PreferencesShowcase() {
         {preferences.map((item) => (
           <label key={item.label} className="flex items-center justify-between gap-3">
             <span className="grid gap-1">
-              <span className="text-sm font-medium">{item.label}</span>
-              <span className="text-xs text-muted-foreground">{item.description}</span>
+              <span className="text-hx-sm font-hx-medium">{item.label}</span>
+              <span className="text-hx-xs text-hx-muted-foreground">{item.description}</span>
             </span>
             <Switch aria-label={item.label} defaultChecked={item.checked} />
           </label>

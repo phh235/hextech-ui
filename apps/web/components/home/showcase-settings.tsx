@@ -30,11 +30,11 @@ export function PlaystyleShowcase() {
     >
       <RadioGroup aria-label="Playstyle" defaultValue="balanced" className="gap-4">
         {playstyles.map((playstyle) => (
-          <label key={playstyle.value} className="flex cursor-pointer items-start gap-3 text-sm">
+          <label key={playstyle.value} className="flex cursor-pointer items-start gap-3 text-hx-sm">
             <Radio value={playstyle.value} className="mt-0.5" />
             <span className="grid gap-1">
               <span>{playstyle.label}</span>
-              <span className="text-xs text-muted-foreground">{playstyle.description}</span>
+              <span className="text-hx-xs text-hx-muted-foreground">{playstyle.description}</span>
             </span>
           </label>
         ))}

@@ -65,7 +65,7 @@ export function PartyShowcase() {
         <Button type="submit" variant="primary" className="w-full">
           Save settings
         </Button>
-        <p role="status" className="m-0 min-h-4 text-xs text-accent">
+        <p role="status" className="m-0 min-h-4 text-hx-xs text-hx-accent">
           {saved ? 'Settings updated.' : ''}
         </p>
       </form>
@@ -107,7 +107,10 @@ export function CalendarShowcase() {
         referenceDate="2026-10-19"
         className="w-full [&_.hx-calendar-grid]:w-full"
       />
-      <p role="status" className="m-0 border-t border-border pt-3 text-sm text-muted-foreground">
+      <p
+        role="status"
+        className="m-0 border-t border-hx-border pt-3 text-hx-sm text-hx-muted-foreground"
+      >
         Next session ·{' '}
         {new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(
           new Date(`${day}T00:00:00Z`),

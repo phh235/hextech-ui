@@ -34,18 +34,18 @@ export function BuildShowcase() {
             <Badge>Ability power</Badge>
             <Badge tone="teal">Burst</Badge>
           </div>
-          <dl className="m-0 grid gap-3 text-sm">
+          <dl className="m-0 grid gap-3 text-hx-sm">
             <div className="flex justify-between gap-3">
-              <dt className="text-muted-foreground">Focus</dt>
+              <dt className="text-hx-muted-foreground">Focus</dt>
               <dd className="m-0">Adaptive force</dd>
             </div>
             <div className="flex justify-between gap-3">
-              <dt className="text-muted-foreground">Playstyle</dt>
+              <dt className="text-hx-muted-foreground">Playstyle</dt>
               <dd className="m-0">Make an opening</dd>
             </div>
           </dl>
           {notes && (
-            <p className="m-0 text-sm text-muted-foreground">
+            <p className="m-0 text-hx-sm text-hx-muted-foreground">
               A balanced starting point for your next game.
             </p>
           )}
@@ -55,7 +55,7 @@ export function BuildShowcase() {
             <Badge tone="teal">Sorcery</Badge>
             <Badge>Inspiration</Badge>
           </div>
-          <p className="m-0 text-sm text-muted-foreground">
+          <p className="m-0 text-hx-sm text-hx-muted-foreground">
             Choose the details that fit your playstyle.
           </p>
         </TabPanel>
