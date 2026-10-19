@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { repositoryUrl, supportUrl } from '@/lib/site';
 import { GitHubButton } from './github-button';
+import { SoundToggle } from './interaction-sounds';
 import { Brand } from './wordmark';
 
 function SidebarControls() {
@@ -32,7 +33,10 @@ function SidebarControls() {
           Support
         </Link>
       </div>
-      <ThemeSwitch mode="light-dark" />
+      <div className="flex items-center gap-1">
+        <SoundToggle />
+        <ThemeSwitch mode="light-dark" />
+      </div>
     </div>
   );
 }

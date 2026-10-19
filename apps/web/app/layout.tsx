@@ -1,3 +1,4 @@
+import { InteractionSounds } from '@/components/interaction-sounds';
 import { SiteFooter } from '@/components/site-footer';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             hotKey: false,
           }}
         >
+          <InteractionSounds />
           <a className="skip-link" href="#main-content">
             Skip to content
           </a>

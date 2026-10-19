@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation';
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import type { ReactNode } from 'react';
+import { SoundToggle } from './interaction-sounds';
 import { Brand } from './wordmark';
 import { GitHubIcon } from './github-button';
 import { repositoryUrl } from '@/lib/site';
@@ -15,6 +16,16 @@ export function SiteShell({ children, footer }: { children: ReactNode; footer: R
         { text: 'Docs', url: '/docs' },
         { text: 'Components', url: '/docs/components' },
         { text: 'Themes', url: '/docs/theming' },
+        {
+          type: 'custom',
+          on: 'nav',
+          children: (
+            <li>
+              <SoundToggle />
+            </li>
+          ),
+        },
+        { type: 'custom', on: 'menu', children: <SoundToggle /> },
         ...(repositoryUrl
           ? [
               {
