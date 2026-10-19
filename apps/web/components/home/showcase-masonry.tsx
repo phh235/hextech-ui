@@ -1,8 +1,8 @@
 'use client';
 
-import { useLayoutEffect, useRef, type ReactNode } from 'react';
+import { Children, useLayoutEffect, useRef, type ReactNode } from 'react';
 
-/** Keep natural card heights, extending only the final card in shorter columns. */
+/** Size owned wrappers, never the markup inside a child's streaming Suspense boundary. */
 export function ShowcaseMasonry({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -14,7 +14,7 @@ export function ShowcaseMasonry({ children }: { children: ReactNode }) {
     let disposed = false;
 
     function balance() {
-      const cards = container.querySelectorAll<HTMLElement>(':scope > .showcase-card');
+      const cards = container.querySelectorAll<HTMLElement>(':scope > .showcase-item');
       container.style.removeProperty('height');
       container.style.removeProperty('column-fill');
       cards.forEach((card) => card.style.removeProperty('min-height'));
@@ -52,7 +52,7 @@ export function ShowcaseMasonry({ children }: { children: ReactNode }) {
     function observeCards() {
       resize.disconnect();
       resize.observe(container);
-      container.querySelectorAll(':scope > .showcase-card').forEach((card) => resize.observe(card));
+      container.querySelectorAll(':scope > .showcase-item').forEach((card) => resize.observe(card));
       schedule();
     }
     const childrenChanged = new MutationObserver(observeCards);
@@ -70,7 +70,9 @@ export function ShowcaseMasonry({ children }: { children: ReactNode }) {
 
   return (
     <div ref={ref} className="showcase-grid columns-1 gap-5 md:columns-2 xl:columns-3">
-      {children}
+      {Children.map(children, (child) => (
+        <div className="showcase-item mb-5 grid min-w-0 break-inside-avoid">{child}</div>
+      ))}
     </div>
   );
 }

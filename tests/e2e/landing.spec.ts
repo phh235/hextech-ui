@@ -45,7 +45,7 @@ for (const mode of ['dark', 'light'] as const) {
     await expect(browse).toHaveCSS('outline-style', 'solid');
     await page.mouse.move(0, 0);
     await expect(page.locator('.showcase-card')).toHaveCount(12);
-    await expect(page.locator('.showcase-grid > .showcase-card')).toHaveCount(12);
+    await expect(page.locator('.showcase-grid > .showcase-item > .showcase-card')).toHaveCount(12);
     const cards = await page.locator('.showcase-card').evaluateAll((elements) =>
       elements.map((element) => {
         const rect = element.getBoundingClientRect();
@@ -165,5 +165,82 @@ for (const mode of ['dark', 'light'] as const) {
     await page.getByRole('button', { name: 'Dismiss notification', exact: true }).click();
     await expect(page.getByText('Build saved', { exact: true })).toHaveCount(0);
     expect(errors).toEqual([]);
+  });
+}
+
+for (const mode of ['dark', 'light'] as const) {
+  test(`masonry stays aligned without hydration mismatches when notifications arrive late: ${mode}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.addInitScript((mode) => localStorage.setItem('hextech-ui-color-mode', mode), mode);
+    const hydrationErrors: string[] = [];
+    page.on('console', (message) => {
+      if (message.type() === 'error' && /hydrat|server rendered HTML/i.test(message.text()))
+        hydrationErrors.push(message.text());
+    });
+    page.on('pageerror', (error) => hydrationErrors.push(error.message));
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    let blocked = false;
+    await page.route(/\.js(?:\?|$)/, async (route) => {
+      if (
+        !route
+          .request()
+          .url()
+          .startsWith(new URL(test.info().project.use.baseURL || 'http://127.0.0.1:3100').origin)
+      )
+        return route.continue();
+      const response = await route.fetch();
+      const body = await response.text();
+      if (body.includes('home-success') && body.includes('home-info')) {
+        blocked = true;
+        await gate;
+      }
+      await route.fulfill({ response, body });
+    });
+    try {
+      await page.goto('/', { waitUntil: 'commit' });
+      await expect.poll(() => blocked).toBe(true);
+      await expect
+        .poll(() =>
+          page
+            .locator('.showcase-grid')
+            .evaluate((element: HTMLElement) => parseFloat(element.style.height) || 0),
+        )
+        .toBeGreaterThan(0);
+      // The parent can balance while the SSR notification boundary is still dehydrated.
+      await expect(page.locator('.showcase-card[style]')).toHaveCount(0);
+    } finally {
+      release();
+    }
+    await expect(
+      page
+        .getByRole('region', { name: 'A little heads-up', exact: true })
+        .getByRole('button', { name: 'Success', exact: true }),
+    ).toBeVisible();
+    await page
+      .getByRole('region', { name: 'A little heads-up', exact: true })
+      .getByRole('button', { name: 'Success', exact: true })
+      .click();
+    await expect(page.locator('[data-sonner-toast]').first()).toBeVisible();
+    await expect
+      .poll(() =>
+        page.locator('.showcase-card').evaluateAll((cards) => {
+          const bottoms = new Map<number, number>();
+          for (const card of cards) {
+            const rect = card.getBoundingClientRect();
+            bottoms.set(
+              Math.round(rect.left),
+              Math.max(bottoms.get(Math.round(rect.left)) || 0, rect.bottom),
+            );
+          }
+          return Math.max(...bottoms.values()) - Math.min(...bottoms.values());
+        }),
+      )
+      .toBeLessThanOrEqual(1);
+    expect(hydrationErrors).toEqual([]);
   });
 }
