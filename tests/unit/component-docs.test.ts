@@ -34,4 +34,27 @@ describe('component documentation generation', () => {
       updateComponentDoc('{/* BEGIN GENERATED REFERENCE */}\nAuthored content', item),
     ).toThrow();
   });
+  it('refreshes generated metadata without erasing custom frontmatter or authored examples', () => {
+    const first =
+      updateComponentDoc('', item).replace('---\n\n', 'toc: false\n---\n\n') +
+      '\n## Tips\nKeep this section.\n';
+    const next = updateComponentDoc(first, {
+      ...item,
+      title: 'Updated Button',
+      description: 'Updated description.',
+    });
+    expect(next).toContain('title: "Updated Button"');
+    expect(next).toContain('description: "Updated description."');
+    expect(next).toContain('toc: false');
+    expect(next).toContain('Keep this section.');
+  });
+  it('retains custom frontmatter on a legacy page during its first migration', () => {
+    const legacy =
+      '---\ntitle: Old title\ntoc: false\ndescription: |\n  Old multiline description.\n---\n\n## Notes\nKeep this content.\n';
+    const result = updateComponentDoc(legacy, item);
+    expect(result).toContain('title: "Button"');
+    expect(result).toContain('toc: false');
+    expect(result).not.toContain('Old multiline description.');
+    expect(result).toContain('Keep this content.');
+  });
 });
