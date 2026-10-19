@@ -1,0 +1,16 @@
+name: Feature request
+description: Propose a component improvement or documentation addition.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior and alternatives
+      description: Include keyboard, mobile, light/dark and source distribution considerations where relevant.
+    validations:
+      required: true

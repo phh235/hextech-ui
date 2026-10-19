@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible component or documentation problem.
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include a minimal example or repository and steps to reproduce. Do not include credentials or personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, React/framework version, and registry or package installation.
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Affected theme
+      options:
+        - Both
+        - Dark
+        - Light
