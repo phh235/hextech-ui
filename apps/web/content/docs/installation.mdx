@@ -5,6 +5,8 @@ description: Add Hextech UI to your React project.
 
 Use React 19 and Tailwind CSS v4. The shadcn CLI adds editable components to your source.
 
+This setup applies Hextech to the whole app. For an existing shadcn app with a separate Hextech region, follow [Using with shadcn](/docs/shadcn).
+
 <Steps>
 <Step>
 
@@ -27,7 +29,7 @@ Run this from your app directory:
 
 <RegistryInstallCommand name="button" />
 
-This installs the Button source, its dependencies and four theme stylesheets. For JavaScript, set `"tsx": false` in `components.json`; the CLI converts the source to JSX/JS.
+This installs the Button source, its dependencies and theme stylesheets, including an optional global bridge. For JavaScript, set `"tsx": false` in `components.json`; the CLI converts the source to JSX/JS. For an existing shadcn app, follow [Using with shadcn](/docs/shadcn) to keep component files and theme settings separate.
 
 </Step>
 <Step>
@@ -45,6 +47,7 @@ Add these imports after Tailwind in your global stylesheet. These paths assume y
 @import '../styles/hextech-theme.css';
 @import '../styles/hextech-tailwind.css';
 @import '../styles/hextech-components.css';
+@import '../styles/hextech-tailwind-global.css';
 ```
 
 </Tab>
@@ -56,12 +59,15 @@ Add these imports after Tailwind in your global stylesheet. These paths assume y
 @import './styles/hextech-theme.css';
 @import './styles/hextech-tailwind.css';
 @import './styles/hextech-components.css';
+@import './styles/hextech-tailwind-global.css';
 ```
 
 </Tab>
 </Tabs>
 
 Keep your app's existing CSS imports and variables. If your directories differ, adjust the relative paths to the installed `styles/` folder.
+
+The last import intentionally applies Hextech values to ordinary Tailwind utilities across the app. Omit it when using scoped Hextech regions beside existing shadcn components.
 
 </Step>
 <Step>

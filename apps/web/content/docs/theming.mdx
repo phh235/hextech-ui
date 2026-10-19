@@ -5,6 +5,8 @@ description: Light and dark modes, shared colors and typography.
 
 ## Color mode
 
+For an existing shadcn app, start with [Using with shadcn](/docs/shadcn) and a scoped region. The default utility bridge uses names such as `text-hx-primary` and `font-hx-sans`; it leaves ordinary Tailwind theme aliases untouched. `hextech-tailwind-global.css` is an explicit opt-in for applying Hextech values to shared app utilities.
+
 Set `data-hextech-ui-theme="hextech"` on the root element and choose a color mode:
 
 <Tabs items={['Dark', 'Light']}>
@@ -47,13 +49,13 @@ Use `ThemeScope` to give one area its own mode. The same scope passes its mode a
 
 <RegistryInstallCommand name="dialog" />
 
-```tsx title="example.tsx"
+```tsx title="scoped-theme-demo.tsx"
 'use client';
 
 import { ThemeScope } from '@/lib/theme-scope';
 import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
-export function Example() {
+export function ScopedThemeDemo() {
   return (
     <ThemeScope colorMode="light">
       <Dialog>

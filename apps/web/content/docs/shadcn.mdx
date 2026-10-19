@@ -1,0 +1,77 @@
+---
+title: Using with shadcn
+description: Keep your existing shadcn components and add Hextech in a separate themed region.
+---
+
+Hextech uses Base UI and Tailwind CSS v4. Its `hx-` utilities use dedicated Hextech tokens, so the normal `text-primary`, `font-sans` and spacing settings in your existing app keep their meaning.
+
+## Keep component files separate
+
+Both libraries have files named `button`, `input` and `field`. Install Hextech into its own directory. Before the Hextech installation, temporarily set these aliases in your existing `components.json`, preserving its other settings:
+
+```json title="components.json"
+{
+  "aliases": {
+    "components": "@/components/hextech",
+    "ui": "@/components/hextech",
+    "utils": "@/lib/hextech/cn",
+    "lib": "@/lib/hextech",
+    "hooks": "@/hooks/hextech"
+  }
+}
+```
+
+Review the CLI's proposed changes with `--dry-run` first. Run the component's installation command, then restore your original aliases before installing more standard shadcn components. Keep your existing files; do not overwrite an existing shadcn Button or Input.
+
+<RegistryInstallCommand name="dialog" />
+<RegistryInstallCommand name="input-group" />
+
+With these aliases, import Hextech controls from `@/components/hextech` and helpers from `@/lib/hextech`. Other component pages show the default fresh-project paths; adjust them to your installation.
+
+## Import the isolated theme
+
+Import the installed styles after your app's Tailwind styles. Keep the app's existing shadcn variables and imports. The following paths assume `src/app/globals.css`:
+
+```css title="src/app/globals.css"
+@import 'tailwindcss';
+@import '../styles/hextech-tokens.css';
+@import '../styles/hextech-theme.css';
+@import '../styles/hextech-tailwind.css';
+@import '../styles/hextech-components.css';
+```
+
+## Theme a region
+
+Leave your existing root theme attributes in place. Wrap only the Hextech region with `ThemeScope`:
+
+```tsx title="hextech-region.tsx"
+'use client';
+
+import { ThemeScope } from '@/lib/hextech/theme-scope';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/components/hextech/dialog';
+
+export function HextechRegion() {
+  return (
+    <ThemeScope colorMode="dark">
+      <Dialog>
+        <DialogTrigger>Open Hextech panel</DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Hextech settings</DialogTitle>
+        </DialogContent>
+      </Dialog>
+    </ThemeScope>
+  );
+}
+```
+
+Use `colorMode="light"` for a light region. The scope carries its mode and explicit token overrides into library portals. Numeric spacing uses Hextech's 4px unit inside that region; the host app's spacing remains in force outside it. Keep controls that should retain the host theme outside the Hextech scope.
+
+## Theme the whole app
+
+For a Hextech-first app, set `data-hextech-ui-theme="hextech"` and `data-color-mode` on the root element, as shown in [Theming](/docs/theming). If you also want ordinary Tailwind color, font and size utilities throughout the app to use Hextech values, explicitly add the global bridge:
+
+```css
+@import '../styles/hextech-tailwind-global.css';
+```
+
+The global bridge intentionally changes shared utilities. Keep it out of a mixed-theme installation. See [Installation](/docs/installation) for a fresh project.
