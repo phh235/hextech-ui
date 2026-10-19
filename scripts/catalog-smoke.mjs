@@ -8,6 +8,10 @@ import { createFixture } from './fixture.mjs';
 import { registrySourceDigest } from './source-digest.mjs';
 import { componentExampleCode } from '../apps/web/lib/component-usage.ts';
 const sourceDigest = await registrySourceDigest();
+const usageExamples = JSON.parse(
+  await readFile(path.join(root, 'apps/web/lib/usage-example-sources.json'), 'utf8'),
+);
+const webPackage = JSON.parse(await readFile(path.join(root, 'apps/web/package.json'), 'utf8'));
 const notice = await readFile(path.join(root, 'THIRD_PARTY_NOTICES.md'), 'utf8');
 
 const manifest = JSON.parse(
@@ -31,6 +35,14 @@ try {
       vite: '8.3.4',
       '@tailwindcss/vite': '4.3.3',
       tailwindcss: '4.3.3',
+      ...(tsx
+        ? Object.fromEntries(
+            ['react-hook-form', '@hookform/resolvers', 'zod'].map((name) => [
+              name,
+              webPackage.dependencies[name],
+            ]),
+          )
+        : {}),
     });
     await writeFile(path.join(dir, 'src/globals.css'), '@import "tailwindcss";\n');
     await writeFile(
@@ -97,6 +109,8 @@ try {
           path.join(dir, `src/examples/${item.name}.tsx`),
           componentExampleCode(item.name, item.kind, 'registry'),
         );
+      for (const [name, code] of Object.entries(usageExamples))
+        await writeFile(path.join(dir, `src/examples/usage-${name}.tsx`), code);
     }
     await run(process.execPath, [
       path.join(root, 'node_modules/typescript/bin/tsc'),

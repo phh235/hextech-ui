@@ -144,10 +144,10 @@ test('toast status icons share Sonner colors and keep keyboard dismissal in both
       await expect(toast).toHaveCount(0);
     }
   }
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
-  await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-    "type: 'error'",
-  );
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
+  await expect(
+    page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+  ).toContainText("type: 'error'");
   await selectExample(page, { label: 'Disabled' });
   for (const label of ['Default', 'Success', 'Info', 'Warning', 'Error']) {
     await expect(page.getByRole('button', { name: label, exact: true })).toBeDisabled();

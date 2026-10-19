@@ -35,7 +35,8 @@
     "next:smoke": "node scripts/next-smoke.mjs",
     "bundle:smoke": "node scripts/bundle-smoke.mjs",
     "test:cross-browser": "playwright test --config playwright.cross.config.ts",
-    "registry:prepare-directory": "node scripts/prepare-directory.mjs"
+    "registry:prepare-directory": "node scripts/prepare-directory.mjs",
+    "test:visual": "playwright test --config playwright.visual.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

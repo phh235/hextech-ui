@@ -48,8 +48,10 @@ test('button labels stay unchanged after activation, loading stays disabled, and
   await expect(page.getByRole('button', { name: 'Preparing', exact: true })).toBeDisabled();
   await selectExample(page, '1');
   await expect(page.getByRole('button', { name: /^Queue up/ })).toBeDisabled();
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
-  const code = page.getByRole('tabpanel', { name: 'Code', exact: true });
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
+  const code = page
+    .locator('.component-preview')
+    .getByRole('tabpanel', { name: 'Code', exact: true });
   await expect(code).toContainText('Button');
   await expect(code).not.toContainText('setCount');
 });

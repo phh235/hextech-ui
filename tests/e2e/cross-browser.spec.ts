@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { setMode } from './set-mode';
 test('complete code examples retain readable comments in both modes', async ({ page }) => {
   await openPage(page, '/docs/components/table-load-more');
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   const code = page.locator('.preview-code pre').first();
   await page.locator('.preview-code figure.shiki code span[style]').first().waitFor();
   await expect(code).toContainText('Local demo data; replace this with your own data source.');

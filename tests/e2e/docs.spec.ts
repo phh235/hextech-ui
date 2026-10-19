@@ -46,7 +46,9 @@ test('Fumadocs shell exposes the catalog, ordered navigation and live preview', 
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Edit profile', exact: true })).toBeFocused();
   await expect(page.getByRole('tab', { name: 'Preview', exact: true })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Code', exact: true })).toBeVisible();
+  await expect(
+    page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }),
+  ).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-color-mode', 'dark');
   await expect(page.getByRole('button', { name: /Switch to .* mode/ })).toHaveCount(0);
 });
@@ -103,7 +105,7 @@ test('theme preference, search, keyboard dismissal, and copy command work', asyn
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
   await openPage(page, '/docs/components/button');
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   await page
     .locator('.install-command')
     .getByRole('button', { name: 'Copy Text', exact: true })
@@ -121,13 +123,13 @@ test('theme preference, search, keyboard dismissal, and copy command work', asyn
     .poll(() => page.evaluate(() => navigator.clipboard.readText()))
     .toContain("@import 'tailwindcss';");
   await openPage(page, '/docs/components/button');
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   const command = page.locator('.install-command code');
   await expect(command).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(command).toHaveCSS('border-top-width', '0px');
   await expect(command).toHaveCSS('font-family', /JetBrains Mono/);
   await expect(page.locator('.install-command button svg')).toHaveCount(1);
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   await page
     .locator('.preview-code')
     .getByRole('button', { name: 'Copy Text', exact: true })
@@ -165,10 +167,10 @@ test('Base UI fixture supports keyboard state, disabled variant, code, and scope
   await expect(toggle).toBeDisabled();
   await expect(page.getByRole('combobox', { name: 'Width', exact: true })).toHaveCount(0);
   await expectSiteTheme(page.locator('.preview-stage'), 'dark');
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
-  await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-    '<InternalSmoke',
-  );
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
+  await expect(
+    page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+  ).toContainText('<InternalSmoke');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(
     await page.evaluate(() =>

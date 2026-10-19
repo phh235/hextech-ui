@@ -30,9 +30,7 @@ for (const mode of ['dark', 'light'] as const) {
     const batch = manifest.slice(offset, offset + 12);
     test(`${mode} component catalog pages ${offset + 1}–${offset + batch.length} remain readable and fit their viewport`, async ({
       page,
-      isMobile,
     }) => {
-      test.skip(isMobile);
       test.setTimeout(180000);
       await openPage(page, '/');
       await setMode(page, mode);

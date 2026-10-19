@@ -74,7 +74,7 @@ test('terminal lines retain native padding and simple previews omit the extra to
 }) => {
   await openPage(page, '/docs/components/spinner');
   await expect(page.locator('.preview-toolbar')).toHaveCount(0);
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   await expect(page.locator('.install-command .line')).toHaveCSS('padding-left', '16px');
   await openPage(page, '/docs/components/input');
   await expect(page.getByRole('combobox', { name: 'Width', exact: true })).toHaveCount(0);

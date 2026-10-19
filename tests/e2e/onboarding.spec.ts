@@ -23,16 +23,19 @@ test('installation leads from setup to a working preview with framework-specific
       "@import '../styles/hextech-tokens.css';",
     );
     await expect(page.getByRole('button', { name: 'Queue up', exact: true })).toBeEnabled();
-    await page.getByRole('tab', { name: 'Code', exact: true }).click();
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-      "from '@/components/ui/button'",
-    );
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).not.toContainText(
-      '/r/button.json',
-    );
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-      'button-demo.tsx',
-    );
+    await page
+      .locator('.component-preview')
+      .getByRole('tab', { name: 'Code', exact: true })
+      .click();
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).toContainText("from '@/components/ui/button'");
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).not.toContainText('/r/button.json');
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).toContainText('button-demo.tsx');
     await expect(page.locator('.install-command')).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
@@ -89,10 +92,13 @@ test('public previews omit state selectors, show Destructive and link repository
     await destructive.hover();
     await expect(destructive).not.toHaveCSS('color', color);
     await expect(destructive).not.toHaveCSS('background-image', background);
-    await page.getByRole('tab', { name: 'Code', exact: true }).click();
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-      'variant="destructive"',
-    );
+    await page
+      .locator('.component-preview')
+      .getByRole('tab', { name: 'Code', exact: true })
+      .click();
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).toContainText('variant="destructive"');
     await openPage(page, '/docs/legal');
     const notices = page
       .locator('article')

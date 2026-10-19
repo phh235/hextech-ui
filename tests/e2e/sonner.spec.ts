@@ -49,13 +49,16 @@ for (const mode of ['dark', 'light'] as const) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    await page.getByRole('tab', { name: 'Code', exact: true }).click();
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-      "from '@/components/ui/sonner'",
-    );
-    await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).toContainText(
-      'sonner.promise',
-    );
+    await page
+      .locator('.component-preview')
+      .getByRole('tab', { name: 'Code', exact: true })
+      .click();
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).toContainText("from '@/components/ui/sonner'");
+    await expect(
+      page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+    ).toContainText('sonner.promise');
   });
 }
 

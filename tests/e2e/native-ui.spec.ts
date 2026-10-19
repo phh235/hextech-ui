@@ -26,7 +26,10 @@ for (const mode of ['dark', 'light'] as const) {
     await openPage(page, '/docs/components/input');
     await expectSiteTheme(page.locator('.preview-stage'), mode);
     await expect(page.getByRole('heading', { name: 'Migration and visual notes' })).toHaveCount(0);
-    await page.getByRole('tab', { name: 'Code', exact: true }).click();
+    await page
+      .locator('.component-preview')
+      .getByRole('tab', { name: 'Code', exact: true })
+      .click();
     const example = page.locator('.preview-code figure.shiki');
     await expect(example).toHaveClass(/catppuccin-latte/);
     await example.locator('code span[style]').first().waitFor();

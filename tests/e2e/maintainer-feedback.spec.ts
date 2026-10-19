@@ -80,8 +80,13 @@ test('docs separate installation from named demo source and GitHub links have on
 }) => {
   for (const name of ['button', 'input', 'sonner']) {
     await openPage(page, `/docs/components/${name}`);
-    await page.getByRole('tab', { name: 'Code', exact: true }).click();
-    const code = page.getByRole('tabpanel', { name: 'Code', exact: true });
+    await page
+      .locator('.component-preview')
+      .getByRole('tab', { name: 'Code', exact: true })
+      .click();
+    const code = page
+      .locator('.component-preview')
+      .getByRole('tabpanel', { name: 'Code', exact: true });
     await expect(code).toContainText(`${name}-demo.tsx`);
     await expect(code.locator('.install-command')).toHaveCount(0);
     await expect(code).not.toContainText('npx shadcn');
@@ -89,11 +94,11 @@ test('docs separate installation from named demo source and GitHub links have on
     await expect(page.locator('.install-command')).toHaveCount(1);
   }
   await openPage(page, '/docs/installation');
-  await page.getByRole('tab', { name: 'Code', exact: true }).click();
+  await page.locator('.component-preview').getByRole('tab', { name: 'Code', exact: true }).click();
   await expect(page.locator('.install-command')).toHaveCount(1);
-  await expect(page.getByRole('tabpanel', { name: 'Code', exact: true })).not.toContainText(
-    'Terminal',
-  );
+  await expect(
+    page.locator('.component-preview').getByRole('tabpanel', { name: 'Code', exact: true }),
+  ).not.toContainText('Terminal');
   if (isMobile) await page.getByRole('button', { name: 'Open Sidebar', exact: true }).click();
   const controls = page
     .locator(isMobile ? '#nd-sidebar-mobile' : '#nd-sidebar')

@@ -4,6 +4,7 @@ import path from 'node:path';
 export default defineConfig({
   ...base,
   testDir: './tests/visual',
+  outputDir: path.resolve('.artifacts/visual-results'),
   testMatch: '**/*.spec.ts',
   workers: process.env.CI ? 1 : 2,
   timeout: 60000,
