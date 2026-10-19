@@ -63,3 +63,15 @@ Distinguish source-security reviews from dependency advisory checks. Preserve fa
 ## Releases
 
 Follow `RELEASE_CHECKLIST.md`. Keep publication guards until the final approval. Retain dependency notices, file-level asset decisions and the Riot independence disclaimer. Do not push, publish, submit a directory PR or change domains as an incidental build step.
+
+## Component reference ownership
+
+`pnpm catalog:docs` updates only the marked generated reference in existing component pages. Keep authored usage sections outside those markers; regeneration preserves them. The API table comes from the canonical component manifest. Update it whenever the public contract changes.
+
+Named examples live in `apps/web/components/examples/`. The generator copies their actual source into `usage-example-sources.json`, translating package imports to registry paths. Render them with UsagePreview and register the component in its example map. Do not maintain separate snippets. Markdown export uses the same source and retains authored guidance.
+
+## Local verification and release
+
+GitHub Actions workflows have been removed at the maintainer’s request. Run `pnpm check` locally before a release, plus `pnpm test:visual` on Windows when reviewing screenshots. Issue and PR templates collect reproducible reports and real validation outcomes; they do not trigger remote jobs. Keep existing screenshot baselines unless an intentional reviewed change requires an update.
+
+Packages remain private and publishing stays blocked. Prepare release metadata only after the source, registry, tarballs and deployment pass their checks. The missing upstream LoL Math copyright/permission notice remains a release requirement; do not invent that notice or treat attribution alone as confirmation.

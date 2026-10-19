@@ -17,3 +17,11 @@ Review this checklist for each proposed release. Results belong to that release'
 - [ ] Obtain explicit approval for each push, package publication, production deployment or external submission.
 
 Local reports in ignored `docs/audits/` and `.artifacts/` may support a review, but are not required source files. Keep reusable contracts in [COMPATIBILITY.md](COMPATIBILITY.md) and portable expectations in `tests/fixtures/`.
+
+## Preparing the first release
+
+1. Confirm the original LoL Math copyright/permission notice and distribution rights. Keep the existing attribution and separate ISC/MIT provenance. Do not replace the missing notice with an inferred copyright line.
+2. Select the intended release version and verify ownership of the npm scope and registry namespace. Update package versions, descriptions, package READMEs and the changelog together; keep publication guards until approval.
+3. Run the local integration pipeline and Windows visual suite. Preserve source hashes and exact outcomes. GitHub Actions are intentionally absent; a push is not a validation result.
+4. Inspect packed tarballs and independent registry JS/TS consumers, then check the deployed install URLs, canonical metadata and social image on the approved domain.
+5. Obtain separate approval for repository visibility, package publication and deployment. Tag and document the approved release only after those checks pass.

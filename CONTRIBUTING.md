@@ -31,7 +31,7 @@ pnpm check
 
 The full suite uses local ports 3000, 3100, 3201, 4178 and 4179. Stop the development server before running it. Actual CLI and package installation requires network access. Never replace a failed check with an unverified success claim. Keep generated consumers, dependencies and build output out of source control. Record exact outcomes and acceptance limits in the audit reports.
 
-Screenshot baselines in `tests/visual/` were captured on Windows. The separate Windows CI job runs `playwright.visual.config.ts`; the regular cross-browser suite does not require platform-specific screenshot comparisons. Preserve and review baseline changes deliberately.
+Screenshot baselines in `tests/visual/` were captured on Windows. Run `pnpm test:visual` locally on Windows; the regular cross-browser suite does not require platform-specific screenshot comparisons. GitHub Actions are intentionally disabled. Run the relevant checks locally and include their actual outcomes in your pull request. Preserve and review baseline changes deliberately.
 
 ## What belongs in Git
 
