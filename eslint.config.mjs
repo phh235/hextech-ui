@@ -11,6 +11,7 @@ export default defineConfig([
     '**/.next/**',
     '**/dist/**',
     '**/.source/**',
+    '**/.generated/**',
     '**/.turbo/**',
     '.artifacts/**',
     'test-results/**',

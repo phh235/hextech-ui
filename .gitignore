@@ -2,6 +2,7 @@
 node_modules/
 .next/
 .source/
+.generated/
 .turbo/
 dist/
 apps/web/next-env.d.ts
@@ -55,3 +56,6 @@ npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local visual baselines and capture output; keep the test source in Git.
+/tests/visual/**/*-snapshots/

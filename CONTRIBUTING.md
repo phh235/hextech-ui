@@ -31,7 +31,7 @@ pnpm check
 
 The full suite uses local ports 3000, 3100, 3201, 4178 and 4179. Stop the development server before running it. Actual CLI and package installation requires network access. Never replace a failed check with an unverified success claim. Keep generated consumers, dependencies and build output out of source control. Record exact outcomes and acceptance limits in the audit reports.
 
-Screenshot baselines in `tests/visual/` were captured on Windows. Run `pnpm test:visual` locally on Windows; the regular cross-browser suite does not require platform-specific screenshot comparisons. GitHub Actions are intentionally disabled. Run the relevant checks locally and include their actual outcomes in your pull request. Preserve and review baseline changes deliberately.
+Visual test source stays in `tests/visual/`; screenshots and platform-specific baselines stay local in ignored `.artifacts/visual-baselines/`. After a fresh clone, run `pnpm build` and then `pnpm test:visual:update` once to capture a baseline for your OS/browser. Inspect those images before using `pnpm test:visual` for subsequent comparisons. Creating a baseline is not evidence of a regression comparison or an approved design. The regular browser suite needs no screenshot baseline. GitHub Actions are intentionally disabled; report actual local checks in your pull request.
 
 ## What belongs in Git
 

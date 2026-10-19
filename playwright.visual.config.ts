@@ -5,6 +5,9 @@ export default defineConfig({
   ...base,
   testDir: './tests/visual',
   outputDir: path.resolve('.artifacts/visual-results'),
+  snapshotPathTemplate: path.resolve(
+    '.artifacts/visual-baselines/{testFilePath}-snapshots/{arg}-{projectName}-{platform}{ext}',
+  ),
   testMatch: '**/*.spec.ts',
   workers: process.env.CI ? 1 : 2,
   timeout: 60000,
