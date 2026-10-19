@@ -3,14 +3,25 @@ import { Field as FieldPrimitive } from '@base-ui/react/field';
 import { Form as FormPrimitive } from '@base-ui/react/form';
 import { cn } from '@/lib/cn';
 import { Input, type InputProps } from './input';
+import type { ComponentPropsWithRef } from 'react';
 
 export const Form = FormPrimitive;
 export interface FieldProps extends Omit<FieldPrimitive.Root.Props, 'className'> {
   className?: string;
+  orientation?: 'vertical' | 'horizontal' | 'responsive';
 }
-export function Field({ className, ...props }: FieldProps) {
+export function Field({ className, orientation = 'vertical', ...props }: FieldProps) {
   return (
-    <FieldPrimitive.Root {...props} className={cn('grid gap-2 font-sans text-sm', className)} />
+    <FieldPrimitive.Root
+      {...props}
+      data-orientation={orientation}
+      className={cn(
+        'hx-field gap-2 font-hx-sans text-hx-sm',
+        orientation === 'horizontal' ? 'flex items-start' : 'grid',
+        orientation === 'responsive' && 'sm:flex sm:items-start',
+        className,
+      )}
+    />
   );
 }
 export function FieldLabel({
@@ -21,7 +32,7 @@ export function FieldLabel({
     <FieldPrimitive.Label
       {...props}
       className={cn(
-        'text-sm font-normal leading-[1.1025rem] tracking-[0.02em] text-muted-foreground',
+        'text-hx-sm font-hx-normal leading-[calc(var(--hextech-ui-rem)*1.1025)] tracking-[0.02em] text-hx-muted-foreground',
         className,
       )}
     />
@@ -34,7 +45,7 @@ export function FieldDescription({
   return (
     <FieldPrimitive.Description
       {...props}
-      className={cn('text-xs leading-relaxed text-muted-foreground', className)}
+      className={cn('text-hx-xs leading-relaxed text-hx-muted-foreground', className)}
     />
   );
 }
@@ -42,9 +53,20 @@ export function FieldError({
   className,
   ...props
 }: Omit<FieldPrimitive.Error.Props, 'className'> & { className?: string }) {
-  return <FieldPrimitive.Error {...props} className={cn('text-xs text-destructive', className)} />;
+  return (
+    <FieldPrimitive.Error {...props} className={cn('text-hx-xs text-hx-destructive', className)} />
+  );
 }
 export const FieldControl = FieldPrimitive.Control;
+export const FieldItem = FieldPrimitive.Item;
+
+export function FieldGroup({ className, ...props }: ComponentPropsWithRef<'div'>) {
+  return <div {...props} className={cn('grid min-w-0 gap-6', className)} />;
+}
+
+export function FieldContent({ className, ...props }: ComponentPropsWithRef<'div'>) {
+  return <div {...props} className={cn('grid min-w-0 flex-1 gap-2', className)} />;
+}
 export interface TextFieldProps extends InputProps {
   label: string;
   description?: string;
