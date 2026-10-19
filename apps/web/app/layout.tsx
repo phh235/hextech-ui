@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { InteractionSounds } from '@/components/interaction-sounds';
 import { SiteFooter } from '@/components/site-footer';
 import type { Metadata, Viewport } from 'next';
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </a>
           <SiteShell footer={<SiteFooter />}>{children}</SiteShell>
         </RootProvider>
+        <Analytics />
       </body>
     </html>
   );

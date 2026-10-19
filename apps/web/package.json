@@ -21,6 +21,7 @@
     "@hextech-ui/utils": "workspace:*",
     "@hookform/resolvers": "6.0.0",
     "@openrouter/ai-sdk-provider": "3.1.0",
+    "@vercel/analytics": "2.0.1",
     "ai": "7.0.143",
     "fumadocs-core": "16.17.5",
     "fumadocs-mdx": "15.4.7",
