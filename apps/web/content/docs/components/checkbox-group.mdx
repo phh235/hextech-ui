@@ -1,0 +1,29 @@
+---
+title: 'Checkbox Group'
+description: 'Shared checkbox selection, parent mixed state and form integration.'
+---
+
+{/* BEGIN GENERATED REFERENCE */}
+
+<CatalogPreview name="checkbox-group" />
+
+## Installation
+
+<RegistryInstallCommand name="checkbox-group" />
+
+## API reference
+
+These are the main Checkbox Group options. See the exported TypeScript types for inherited native or primitive props.
+
+| Prop                   | Type                               | Default |
+| ---------------------- | ---------------------------------- | ------- |
+| `value / defaultValue` | `string[]`                         | `[]`    |
+| `onValueChange`        | `(values, details) => void`        | `—`     |
+| `allValues`            | `string[] (for a parent checkbox)` | `—`     |
+| `disabled`             | `boolean`                          | `false` |
+
+{/* END GENERATED REFERENCE */}
+
+## Composition notes
+
+Pair value with onValueChange for controlled selection, or use defaultValue for local state. Each checkbox needs a stable value and a visible label. For a parent checkbox, provide allValues and set parent on Checkbox; mixed state is derived by Base UI. Use Field and FieldLabel for group validation and naming.
