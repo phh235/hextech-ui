@@ -127,7 +127,7 @@ try {
     }
     await writeFile(
       path.join(dir, `src/app/copied-example/page.${ext}`),
-      "import {Example as Buttons} from '../../copied-button';\nimport {Example as Loading} from '../../copied-table-load-more';\nimport {Example as Notifications} from '../../copied-sonner';\nexport const metadata = { title: 'Copied source examples' };\nexport default function Page(){return <main style={{maxWidth:1000,margin:'auto',padding:24}}><h1>Copied source examples</h1><Buttons/><Loading/><Notifications/></main>;}\n",
+      "import {ButtonDemo as Buttons} from '../../copied-button';\nimport {TableLoadMoreDemo as Loading} from '../../copied-table-load-more';\nimport {SonnerDemo as Notifications} from '../../copied-sonner';\nexport const metadata = { title: 'Copied source examples' };\nexport default function Page(){return <main style={{maxWidth:1000,margin:'auto',padding:24}}><h1>Copied source examples</h1><Buttons/><Loading/><Notifications/></main>;}\n",
     );
     await run(process.execPath, [path.join(dir, 'node_modules/next/dist/bin/next'), 'build'], {
       cwd: dir,

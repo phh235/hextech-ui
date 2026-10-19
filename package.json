@@ -11,13 +11,13 @@
     "pnpm": ">=10.34.7 <11"
   },
   "scripts": {
-    "dev": "pnpm registry:build && turbo run dev --filter=@hextech-ui/web --filter=@hextech-ui/react --filter=@hextech-ui/utils",
-    "build": "pnpm registry:build && turbo run build",
+    "dev": "pnpm catalog:docs && pnpm registry:build && turbo run dev --filter=@hextech-ui/web --filter=@hextech-ui/react --filter=@hextech-ui/utils",
+    "build": "pnpm catalog:docs && pnpm registry:build && turbo run build",
     "start": "pnpm --filter @hextech-ui/web start",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "pnpm --filter @hextech-ui/web content:generate && turbo run typecheck && tsc -p tests/tsconfig.json --noEmit",
+    "typecheck": "pnpm catalog:docs && pnpm --filter @hextech-ui/web content:generate && turbo run typecheck && tsc -p tests/tsconfig.json --noEmit && pnpm catalog:validate",
     "test": "vitest run",
     "test:reference": "node scripts/verify-button-states.mjs",
     "test:reference-toggles": "node scripts/verify-toggle-states.mjs",
@@ -28,7 +28,7 @@
     "registry:smoke": "node scripts/registry-smoke.mjs",
     "package:validate": "pnpm --filter \"./packages/*\" build && node scripts/validate-packages.mjs",
     "package:smoke": "node scripts/package-smoke.mjs",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm registry:validate && pnpm package:validate && pnpm package:smoke && pnpm registry:smoke && pnpm catalog:smoke && pnpm blocks:smoke && pnpm next:smoke && pnpm bundle:smoke && pnpm test:e2e && pnpm test:cross-browser",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm registry:validate && pnpm package:validate && pnpm package:smoke && pnpm registry:smoke && pnpm coexistence:smoke && pnpm catalog:smoke && pnpm blocks:smoke && pnpm next:smoke && pnpm bundle:smoke && pnpm test:e2e && pnpm test:cross-browser",
     "catalog:smoke": "node scripts/catalog-smoke.mjs",
     "catalog:docs": "node scripts/generate-component-docs.mjs",
     "blocks:smoke": "node scripts/blocks-smoke.mjs",
@@ -36,7 +36,10 @@
     "bundle:smoke": "node scripts/bundle-smoke.mjs",
     "test:cross-browser": "playwright test --config playwright.cross.config.ts",
     "registry:prepare-directory": "node scripts/prepare-directory.mjs",
-    "test:visual": "playwright test --config playwright.visual.config.ts"
+    "test:visual": "playwright test --config playwright.visual.config.ts",
+    "catalog:validate": "node scripts/validate-component-api.mjs",
+    "coexistence:smoke": "node scripts/coexistence-smoke.mjs",
+    "test:visual:update": "playwright test --config playwright.visual.config.ts --update-snapshots"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
