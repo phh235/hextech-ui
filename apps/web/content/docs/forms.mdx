@@ -41,4 +41,17 @@ The submit Button uses `loading={form.formState.isSubmitting}` to prevent repeat
 
 `form.reset()` restores the declared defaults and clears form errors and dirty state. Reset any separate success message at the same time. When loading another record, supply its values to `reset(record)` instead of switching between controlled and uncontrolled input state.
 
+## Group related controls
+
+Use [Fieldset](/docs/components/fieldset) for a shared legend, `FieldGroup` for layout, and [Checkbox Group](/docs/components/checkbox-group) for shared selection. [Input Group](/docs/components/input-group) adds text or buttons to an input; [Button Group](/docs/components/button-group) groups actions without introducing toolbar arrow-key behavior.
+
+This form combines them with the same validation and submission ownership. Clearing the name or all roles shows field errors. Reset restores the defaults.
+
+<RegistryInstallCommand name="fieldset" />
+<RegistryInstallCommand name="checkbox-group" />
+<RegistryInstallCommand name="input-group" />
+<RegistryInstallCommand name="button-group" />
+
+<UsagePreview name="party-settings" />
+
 See the official [React Hook Form documentation](https://react-hook-form.com/docs/usecontroller/controller), [Zod guide](https://zod.dev/basics) and [Base UI forms handbook](https://base-ui.com/react/handbook/forms) for the underlying contracts.

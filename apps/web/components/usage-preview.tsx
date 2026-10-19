@@ -7,8 +7,10 @@ import FormProfile from './examples/form-profile';
 import AlertTones from './examples/alert-tones';
 import AvatarFallback from './examples/avatar-fallback';
 import EmptyStateAction from './examples/empty-state-action';
+import PartySettings from './examples/party-settings';
 
 const examples = {
+  'party-settings': { title: 'Composed party settings', Component: PartySettings },
   'button-loading': { title: 'Saving an action', Component: ButtonLoading },
   'button-sizes': { title: 'Button sizes', Component: ButtonSizes },
   'combobox-controlled': { title: 'Controlled object selection', Component: ComboboxControlled },
