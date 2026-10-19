@@ -18,18 +18,23 @@ export const Checkbox = forwardRef<HTMLSpanElement, CheckboxProps>(function Chec
         className,
       )}
     >
-      <CheckboxPrimitive.Indicator className="flex size-full items-center justify-center">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 20 20"
-          className="size-3"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          {props.indeterminate ? <path d="M4 10h12" /> : <path d="m4 10 4 4 8-9" />}
-        </svg>
-      </CheckboxPrimitive.Indicator>
+      <CheckboxPrimitive.Indicator
+        className="flex size-full items-center justify-center"
+        render={(indicatorProps, state) => (
+          <span {...indicatorProps}>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              className="size-3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              {state.indeterminate ? <path d="M4 10h12" /> : <path d="m4 10 4 4 8-9" />}
+            </svg>
+          </span>
+        )}
+      />
       {children}
     </CheckboxPrimitive.Root>
   );
