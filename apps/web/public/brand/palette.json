@@ -1,0 +1,24 @@
+{
+  "name": "Hextech UI / Hexcore",
+  "gold": {
+    "light": "#F0E6D2",
+    "base": "#C8AA6E",
+    "facet": "#C89B3C",
+    "shade": "#785A28"
+  },
+  "crystal": {
+    "light": "#CDFAFA",
+    "highlight": "#83F6E9",
+    "base": "#0AC8B9",
+    "facet": "#0397AB",
+    "shade": "#005A82"
+  },
+  "ink": "#010A13",
+  "black": "#000000",
+  "white": "#FFFFFF",
+  "typography": {
+    "family": "Geist",
+    "weight": 600,
+    "license": "SIL OFL 1.1"
+  }
+}

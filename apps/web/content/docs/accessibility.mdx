@@ -1,0 +1,27 @@
+---
+title: Accessibility
+description: Labels, keyboard interactions and accessible composition.
+---
+
+## Labels and semantics
+
+Use buttons for actions and links for navigation. Give every input a visible label and every icon-only button an accessible name. Keep heading levels in order.
+
+Base UI handles supported primitives' focus, keyboard interactions and ARIA states. Labels and the meaning of your content remain part of your app.
+
+## Keyboard interactions
+
+- **Dialogs and popovers:** Escape dismisses and restores focus to the trigger. Alert dialogs require an explicit choice.
+- **Tabs, menus and radio groups:** arrow keys move between items.
+- **Calendars:** arrows move days; Home/End move within a week; Page Up/Down change months.
+- **Trees:** arrows expand and navigate; Home/End and typeahead move focus.
+- **Data tables:** Tab follows the controls. With cell navigation enabled, arrows move cells and Enter/F2 enters a control; Escape returns to the cell.
+- **Toasts:** F6 enters the notification region so its actions and dismiss button can receive keyboard focus.
+
+Drag and drop examples include keyboard and touch alternatives. Virtualized collections keep the active option available to assistive technology. Chart examples include a readable data table.
+
+## Focus, contrast and motion
+
+Keep focus indicators visible when customizing styles. Retest contrast when changing colors, preserve useful touch targets and respect reduced-motion preferences.
+
+Browser checks cover the shipped examples; test your own composition with keyboard and assistive technology. Calendar support currently uses Gregorian ISO dates, and native date-field behavior varies by browser.

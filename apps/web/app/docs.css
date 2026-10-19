@@ -1,0 +1,58 @@
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-400-italic.css';
+/* Fumadocs owns documentation chrome; code uses its site's Catppuccin + JetBrains Mono. */
+@font-face {
+  font-family: 'Hextech Docs Sans';
+  src: url('/fonts/geist-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hextech Docs Mono';
+  src: url('/fonts/geist-mono-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@layer base {
+  .docs-site,
+  .docs-site *,
+  #fd-search-dialog-content,
+  #fd-search-dialog-content * {
+    border-color: var(--color-fd-border);
+  }
+  .light {
+    --color-fd-muted-foreground: #666666;
+  }
+  :root {
+    --hextech-docs-font-sans: 'Hextech Docs Sans', Arial, sans-serif;
+    --hextech-docs-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+:root[data-hextech-ui-theme='hextech'] {
+  --color-fd-primary: var(--hextech-ui-primary);
+  --color-fd-primary-foreground: var(--hextech-ui-primary-foreground);
+  --color-fd-ring: var(--hextech-ui-focus);
+}
+body,
+.site-header,
+.site-footer,
+.landing {
+  font-family: var(--hextech-docs-font-sans);
+}
+.install-command code {
+  font-family: var(--hextech-docs-font-mono);
+}
+.preview-stage {
+  font-family: var(--hextech-ui-font-sans);
+}
+.docs-site .shiki pre,
+.docs-site .shiki code {
+  font-family: var(--hextech-docs-font-mono);
+}
+#fd-search-dialog-content [data-fd-search-dialog-input] {
+  outline: none;
+  border: 0;
+  box-shadow: none;
+}

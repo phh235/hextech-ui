@@ -1,0 +1,27 @@
+{
+  "name": "@hextech-ui/tokens",
+  "version": "0.0.0-phase.1",
+  "description": "Semantic design tokens for Hextech UI.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "src/*.css",
+    "dist/THIRD_PARTY_NOTICES.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./base.css": "./src/base.css",
+    "./tailwind.css": "./src/tailwind.css"
+  },
+  "scripts": {
+    "build": "node ../../scripts/check-css.mjs tokens",
+    "typecheck": "node ../../scripts/check-css.mjs tokens",
+    "prepack": "node ../../scripts/copy-notices.mjs",
+    "prepublishOnly": "node ../../scripts/publish-disabled.mjs"
+  }
+}

@@ -1,0 +1,57 @@
+name: Hextech UI checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      TURBO_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - run: pnpm check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hextech-ui-verification
+          path: |
+            .artifacts/*-result.json
+            playwright-report/
+          if-no-files-found: ignore
+  visual:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      TURBO_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install chromium
+      - run: pnpm build
+      - run: pnpm exec playwright test --config=playwright.visual.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hextech-ui-visual-diffs
+          path: test-results/
+          if-no-files-found: ignore

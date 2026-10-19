@@ -1,0 +1,88 @@
+---
+title: Installation
+description: Add Hextech UI to your React project.
+---
+
+Use React 19 and Tailwind CSS v4. The shadcn CLI adds editable components to your source.
+
+<Steps>
+<Step>
+
+## Prepare your project
+
+In an existing Next.js or Vite project, initialize shadcn if you haven't already:
+
+```bash
+npx shadcn@latest init
+```
+
+Need an app first? Follow the [Next.js](https://ui.shadcn.com/docs/installation/next) or [Vite](https://ui.shadcn.com/docs/installation/vite) setup guide, then return here.
+
+</Step>
+<Step>
+
+## Add a component
+
+Run this from your app directory:
+
+<RegistryInstallCommand name="button" />
+
+This installs the Button source, its dependencies and four theme stylesheets. For JavaScript, set `"tsx": false` in `components.json`; the CLI converts the source to JSX/JS.
+
+</Step>
+<Step>
+
+## Import the styles
+
+Add these imports after Tailwind in your global stylesheet. These paths assume your app uses a `src/` directory.
+
+<Tabs items={['Next.js', 'Vite']} groupId="framework">
+<Tab value="Next.js">
+
+```css title="src/app/globals.css"
+@import 'tailwindcss';
+@import '../styles/hextech-tokens.css';
+@import '../styles/hextech-theme.css';
+@import '../styles/hextech-tailwind.css';
+@import '../styles/hextech-components.css';
+```
+
+</Tab>
+<Tab value="Vite">
+
+```css title="src/index.css"
+@import 'tailwindcss';
+@import './styles/hextech-tokens.css';
+@import './styles/hextech-theme.css';
+@import './styles/hextech-tailwind.css';
+@import './styles/hextech-components.css';
+```
+
+</Tab>
+</Tabs>
+
+Keep your app's existing CSS imports and variables. If your directories differ, adjust the relative paths to the installed `styles/` folder.
+
+</Step>
+<Step>
+
+## Set the theme
+
+Add these attributes to your existing root `<html>` element:
+
+```html
+<html data-hextech-ui-theme="hextech" data-color-mode="dark"></html>
+```
+
+Use `data-color-mode="light"` for light mode. In Next.js, edit `src/app/layout.tsx` or `.jsx`; in Vite, edit `index.html`.
+
+</Step>
+</Steps>
+
+## Try it
+
+Import the Button from your own components directory. Open **Code** to copy a complete example.
+
+<CatalogPreview name="button" />
+
+Browse [all components](/docs/components) or follow [Getting started](/docs/getting-started) for interactive examples. [Registry](/docs/registry) covers custom addresses and namespace setup.

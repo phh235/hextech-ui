@@ -1,0 +1,18 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "---Get Started---",
+    "index",
+    "installation",
+    "getting-started",
+    "---Foundation---",
+    "theming",
+    "registry",
+    "accessibility",
+    "changelog",
+    "contributing",
+    "legal",
+    "---Components---",
+    "components"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/lib/cn": ["../packages/utils/src/cn.ts"],
+      "@/lib/token-value": ["../packages/utils/src/token-value.ts"],
+      "@/lib/button-variants": ["../packages/react/src/lib/button-variants.ts"],
+      "@/lib/*": ["../packages/react/src/lib/*"]
+    }
+  },
+  "include": [
+    "unit/**/*.ts",
+    "e2e/**/*.ts",
+    "../playwright.config.ts",
+    "../playwright.cross.config.ts",
+    "../vitest.config.ts",
+    "visual/**/*.ts",
+    "../playwright.visual.config.ts"
+  ]
+}

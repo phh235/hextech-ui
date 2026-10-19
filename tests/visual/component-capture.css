@@ -1,0 +1,8 @@
+/* A tall component crop must not include the mobile documentation TOC/header.
+   Visibility preserves layout; functional navigation tests use the real chrome. */
+#nd-nav,
+#nd-subnav,
+#nd-docs-layout + button,
+[data-toc-popover] {
+  visibility: hidden !important;
+}

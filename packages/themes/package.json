@@ -1,0 +1,30 @@
+{
+  "name": "@hextech-ui/themes",
+  "version": "0.0.0-phase.1",
+  "description": "Hextech UI theme adapted from the LoL Math UI visual design.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "src/*.css",
+    "dist/THIRD_PARTY_NOTICES.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./hextech.css": "./src/hextech.css"
+  },
+  "scripts": {
+    "build": "node ../../scripts/check-css.mjs themes",
+    "typecheck": "node ../../scripts/check-css.mjs themes",
+    "prepack": "node ../../scripts/copy-notices.mjs",
+    "prepublishOnly": "node ../../scripts/publish-disabled.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow": "5.3.0",
+    "@fontsource/cinzel": "5.3.0"
+  }
+}

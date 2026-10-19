@@ -1,0 +1,63 @@
+---
+title: Getting started
+description: Use your first component and make it interactive.
+---
+
+Complete [Installation](/docs/installation) first. Components import from your app's source directory.
+
+## Your first interaction
+
+<Tabs items={['Next.js', 'Vite']} groupId="framework">
+<Tab value="Next.js">
+
+Use a client component for state and event handlers:
+
+```tsx title="src/app/example.tsx"
+'use client';
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+
+export default function Example() {
+  const [ready, setReady] = useState(false);
+
+  return (
+    <Button aria-pressed={ready} onClick={() => setReady(!ready)}>
+      {ready ? 'Ready' : 'Mark ready'}
+    </Button>
+  );
+}
+```
+
+Render `<Example />` from your page. Use `.jsx` for JavaScript.
+
+</Tab>
+<Tab value="Vite">
+
+Use the component directly in your React app:
+
+```tsx title="src/App.tsx"
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+
+export default function App() {
+  const [ready, setReady] = useState(false);
+
+  return (
+    <Button aria-pressed={ready} onClick={() => setReady(!ready)}>
+      {ready ? 'Ready' : 'Mark ready'}
+    </Button>
+  );
+}
+```
+
+Use `.jsx` for JavaScript. The `@` alias should point to `src`, as configured during shadcn setup.
+
+</Tab>
+</Tabs>
+
+## Make it yours
+
+Edit the installed source or pass `className` to adjust a component. Use [Theming](/docs/theming) for shared colors and fonts.
+
+Component pages keep the example and its code together. Use **Preview** to interact and **Code** to copy the source you need.

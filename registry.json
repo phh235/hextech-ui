@@ -1,0 +1,1024 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "hextech-ui",
+  "homepage": "http://127.0.0.1:3000",
+  "items": [
+    {
+      "name": "internal-cn",
+      "type": "registry:lib",
+      "title": "Internal class utility",
+      "description": "Distribution verification only.",
+      "meta": { "internal": true },
+      "dependencies": ["clsx@2.1.1", "tailwind-merge@3.7.0"],
+      "files": [{ "path": "packages/utils/src/cn.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "internal-state",
+      "type": "registry:hook",
+      "title": "Internal state hook",
+      "description": "Distribution verification only.",
+      "meta": { "internal": true },
+      "files": [{ "path": "registry/hooks/use-internal-state.ts", "type": "registry:hook" }]
+    },
+    {
+      "name": "internal-smoke",
+      "type": "registry:component",
+      "title": "Internal Base UI fixture",
+      "description": "Not a public Hextech UI component. Tests Base UI, dependency resolution, and JS conversion.",
+      "meta": { "internal": true },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/internal-cn.json",
+        "http://127.0.0.1:3000/r/internal-state.json"
+      ],
+      "files": [{ "path": "packages/react/src/internal/internal-smoke.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "token-value",
+      "type": "registry:lib",
+      "title": "Inline token data",
+      "files": [{ "path": "packages/utils/src/token-value.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "calendar-utils",
+      "type": "registry:lib",
+      "title": "calendar-utils",
+      "files": [{ "path": "packages/react/src/lib/calendar-utils.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "chart-utils",
+      "type": "registry:lib",
+      "title": "chart-utils",
+      "dependencies": ["@tanstack/charts@1.1.0"],
+      "files": [{ "path": "packages/react/src/lib/chart-utils.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "client-ready",
+      "type": "registry:lib",
+      "title": "client-ready",
+      "files": [{ "path": "packages/react/src/lib/client-ready.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "collection-state",
+      "type": "registry:lib",
+      "title": "collection-state",
+      "registryDependencies": ["http://127.0.0.1:3000/r/focus-restoration.json"],
+      "files": [{ "path": "packages/react/src/lib/collection-state.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "control-icon",
+      "type": "registry:lib",
+      "title": "control-icon",
+      "files": [{ "path": "packages/react/src/lib/control-icon.tsx", "type": "registry:lib" }]
+    },
+    {
+      "name": "focus-restoration",
+      "type": "registry:lib",
+      "title": "focus-restoration",
+      "files": [{ "path": "packages/react/src/lib/focus-restoration.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "inline-token-node",
+      "type": "registry:lib",
+      "title": "inline-token-node",
+      "dependencies": ["lexical@0.52.0"],
+      "registryDependencies": ["http://127.0.0.1:3000/r/token-value.json"],
+      "files": [{ "path": "packages/react/src/lib/inline-token-node.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "keyboard-press",
+      "type": "registry:lib",
+      "title": "keyboard-press",
+      "files": [{ "path": "packages/react/src/lib/keyboard-press.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "notification-icon",
+      "type": "registry:lib",
+      "title": "notification-icon",
+      "files": [{ "path": "packages/react/src/lib/notification-icon.tsx", "type": "registry:lib" }]
+    },
+    {
+      "name": "selection-options",
+      "type": "registry:lib",
+      "title": "selection-options",
+      "files": [{ "path": "packages/react/src/lib/selection-options.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "theme-scope",
+      "type": "registry:lib",
+      "title": "theme-scope",
+      "files": [{ "path": "packages/react/src/lib/theme-scope.tsx", "type": "registry:lib" }]
+    },
+    {
+      "name": "tree-utils",
+      "type": "registry:lib",
+      "title": "tree-utils",
+      "files": [{ "path": "packages/react/src/lib/tree-utils.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "cn",
+      "type": "registry:lib",
+      "title": "Class composition",
+      "dependencies": ["clsx@2.1.1", "tailwind-merge@3.7.0"],
+      "files": [{ "path": "packages/utils/src/cn.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "button-variants",
+      "type": "registry:lib",
+      "title": "Action style variants",
+      "registryDependencies": ["http://127.0.0.1:3000/r/cn.json"],
+      "files": [{ "path": "packages/react/src/lib/button-variants.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "hextech-theme",
+      "dependencies": ["@fontsource/barlow@5.3.0", "@fontsource/cinzel@5.3.0"],
+      "type": "registry:style",
+      "title": "Hextech theme foundation",
+      "description": "Import the installed styles/hextech-*.css files after Tailwind. Visual design adapted from LoL Math UI; licensed font substitutes and original project artwork.",
+      "files": [
+        {
+          "path": "packages/tokens/src/base.css",
+          "type": "registry:file",
+          "target": "styles/hextech-tokens.css"
+        },
+        {
+          "path": "packages/themes/src/hextech.css",
+          "type": "registry:file",
+          "target": "styles/hextech-theme.css"
+        },
+        {
+          "path": "packages/tokens/src/tailwind.css",
+          "type": "registry:file",
+          "target": "styles/hextech-tailwind.css"
+        },
+        {
+          "path": "packages/react/src/styles.css",
+          "type": "registry:file",
+          "target": "styles/hextech-components.css"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "type": "registry:file",
+          "target": "~/licenses/hextech-ui/THIRD_PARTY_NOTICES.md"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Gold-framed actions with six tones, three sizes, shapes, and a guarded loading state.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "Compact icon actions with an accessible label.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/icon-button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "link",
+      "type": "registry:ui",
+      "title": "Link",
+      "description": "Native links, button styling, and an explicit disabled state.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/link.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "typography",
+      "type": "registry:ui",
+      "title": "Typography",
+      "description": "Headings, body text and labels with Cinzel and Barlow typography.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/typography.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Compact status labels in six color tones.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/badge.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A framed container with header, content and footer parts.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator & Divider",
+      "description": "Semantic separators and a decorative fading divider.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/separator.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text inputs with size, invalid and disabled states.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multiline text inputs with matching field styles.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/input.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/textarea.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Associated labels, descriptions, validation errors, forms, and a ready-to-use TextField.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/input.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkboxes with checked, unchecked and mixed states.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/checkbox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Labeled radio groups with native form participation and arrow-key selection.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/radio.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Gold-edged tracks and overhanging thumbs, controlled or uncontrolled.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/switch.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Pressed actions and roving-focus single/multiple toggle groups.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/toggle.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Gold-framed modal dialogs with focus containment, escape dismissal, and focus restoration.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/dialog.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Confirmation dialogs that require an explicit choice.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/alert-dialog.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Positioned, interactive popups with a native trigger and accessible content.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/popover.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Short descriptions shown on hover or keyboard focus.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/tooltip.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Roving-focus tabs with semantic associations and persistent controlled selection.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/tabs.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Grouped disclosures with keyboard navigation and optional multiple expanded items.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/accordion.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Single disclosure sections with accessible expanded state and associated panels.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/collapsible.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Determinate and indeterminate progress with an associated label and accessible value text.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/progress.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "Locale-aware numeric editing with step controls, bounds, form submission, and keyboard support.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/input.json",
+        "http://127.0.0.1:3000/r/typography.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/number-field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Single and range sliders with keyboard control, original diamond thumbs, and visible value output.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/slider.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Composable single and multiple selection with typed values, focus management, and keyboard typeahead.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/keyboard-press.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/input.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/select.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "Roving-focus toolbar controls and semantic separators.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/toolbar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Multiple native controls composed into a single visual field frame.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/input.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "Action menus with nested submenus, grouped labels, and checkbox items.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/menu.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Free text with optional typed suggestions, keyboard completion and native text submission.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/selection-options.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/input.json",
+        "http://127.0.0.1:3000/r/typography.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/autocomplete.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Typed string or object selection with stable keys, custom rows, keyboard filtering and clearing.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/selection-options.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/input.json",
+        "http://127.0.0.1:3000/r/typography.json",
+        "http://127.0.0.1:3000/r/autocomplete.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/combobox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "multiple-select",
+      "type": "registry:ui",
+      "title": "Multiple Select",
+      "description": "Typed multi-selection of strings or object records with stable chips, filtering and native ID submission.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/selection-options.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/typography.json"
+      ],
+      "files": [
+        { "path": "packages/react/src/components/multiple-select.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search Field",
+      "description": "Labeled search editing with controlled state, clear action, Escape clearing, and form participation.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
+        "http://127.0.0.1:3000/r/input.json",
+        "http://127.0.0.1:3000/r/typography.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/search-field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "A loading indicator with an accessible label.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/spinner.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "Native breadcrumb navigation with original separators and explicit current-page semantics.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/breadcrumbs.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Provider-based notifications with actions and promise management, built on Base UI.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/notification-icon.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/spinner.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/toast.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "preview-card",
+      "type": "registry:ui",
+      "title": "Preview Card",
+      "description": "Hover and focus previews for linked content. Provide a navigable destination for touch users.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/theme-scope.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/preview-card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table Primitives",
+      "description": "Semantic table parts. Use Data Table for sorting, selection and row reordering.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/table.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "vertical-table",
+      "type": "registry:ui",
+      "title": "Vertical Table",
+      "description": "Read-only field-by-field record comparisons with genuine row and column headers.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [
+        { "path": "packages/react/src/components/vertical-table.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Single-date and date-range selection with keyboard navigation.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/calendar-utils.json",
+        "http://127.0.0.1:3000/r/icon-button.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/calendar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "date-field",
+      "type": "registry:ui",
+      "title": "Date & Time Fields",
+      "description": "Native segmented date and time editing with labels, descriptions, and custom native validity.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/input.json",
+        "http://127.0.0.1:3000/r/typography.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/date-field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Pickers",
+      "description": "Editable dates with single-date and range calendar popovers.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/calendar-utils.json",
+        "http://127.0.0.1:3000/r/calendar.json",
+        "http://127.0.0.1:3000/r/date-field.json",
+        "http://127.0.0.1:3000/r/popover.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/date-picker.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "token-field",
+      "type": "registry:ui",
+      "title": "Inline Token Field",
+      "description": "Inline text and atomic mention tokens sharing one caret, with undo, controlled values, safe text editing, and form validation.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["lexical@0.52.0", "@lexical/plain-text@0.52.0", "@lexical/history@0.52.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/token-value.json",
+        "http://127.0.0.1:3000/r/inline-token-node.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/token-field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "title": "Tree",
+      "description": "Hierarchical selection, expansion, typeahead and immutable drag or keyboard reordering.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/collection-state.json",
+        "http://127.0.0.1:3000/r/tree-utils.json",
+        "http://127.0.0.1:3000/r/spinner.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/tree.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tag-group",
+      "type": "registry:ui",
+      "title": "Tags",
+      "description": "Selectable and removable tag collections with roving focus and keyboard removal.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/collection-state.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/tag-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Sortable, selectable, resizable and reorderable rows with pagination and optional cell navigation.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@tanstack/react-table@9.3.1"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json",
+        "http://127.0.0.1:3000/r/checkbox.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/spinner.json",
+        "http://127.0.0.1:3000/r/table-load-more.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/data-table.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "charts",
+      "type": "registry:ui",
+      "title": "Charts",
+      "description": "Optional line, area, grouped bar and ranking plots with keyboard point exploration, legends, data tables and original semantic colors.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@tanstack/charts@1.1.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/chart-utils.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/charts.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "use-list-data",
+      "type": "registry:hook",
+      "title": "Local List Data",
+      "description": "Keyed collection updates, filtering and selection.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/search-field.json"
+      ],
+      "files": [{ "path": "packages/react/src/hooks/use-list-data.ts", "type": "registry:hook" }]
+    },
+    {
+      "name": "use-async-list",
+      "type": "registry:hook",
+      "title": "Async List Data",
+      "description": "Abortable filtering, pagination, reloads and stale-response protection.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/search-field.json"
+      ],
+      "files": [{ "path": "packages/react/src/hooks/use-async-list.ts", "type": "registry:hook" }]
+    },
+    {
+      "name": "virtual-listbox",
+      "type": "registry:ui",
+      "title": "Virtualized Listbox",
+      "description": "Large keyed collections with a mounted active descendant, keyboard navigation and single or multiple selection.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["@tanstack/react-virtual@3.14.21"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        { "path": "packages/react/src/components/virtual-listbox.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "table-load-more",
+      "type": "registry:ui",
+      "title": "Table Load More",
+      "description": "Visibility-triggered row loading with progress keys, abortable requests and an accessible manual retry.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json",
+        "http://127.0.0.1:3000/r/button.json"
+      ],
+      "files": [
+        { "path": "packages/react/src/components/table-load-more.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Imperative notifications with status icons, actions, promises and dismiss controls.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-reimplementation" },
+      "dependencies": ["sonner@2.0.8"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/notification-icon.json",
+        "http://127.0.0.1:3000/r/theme-scope.json",
+        "http://127.0.0.1:3000/r/spinner.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/sonner.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "auth-01",
+      "type": "registry:block",
+      "title": "Account access",
+      "description": "Login, signup and recovery forms with native validation and clearly local mock results.",
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/card.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/field.json",
+        "http://127.0.0.1:3000/r/tabs.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        {
+          "path": "packages/react/src/blocks/auth.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "meta": { "project": "hextech-ui", "sourceKind": "original-block", "mock": true }
+    },
+    {
+      "name": "account-01",
+      "type": "registry:block",
+      "title": "Profile and preferences",
+      "description": "A profile, practice panel, editable preferences and dismissible activity notices.",
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/card.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/field.json",
+        "http://127.0.0.1:3000/r/switch.json",
+        "http://127.0.0.1:3000/r/slider.json",
+        "http://127.0.0.1:3000/r/badge.json",
+        "http://127.0.0.1:3000/r/progress.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        {
+          "path": "packages/react/src/blocks/account.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/account.tsx"
+        }
+      ],
+      "meta": { "project": "hextech-ui", "sourceKind": "original-block", "mock": true }
+    },
+    {
+      "name": "lobby-01",
+      "type": "registry:block",
+      "title": "Party lobby",
+      "description": "Five party slots, local invitations, ready state and a cancellable matchmaking preview.",
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/card.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/field.json",
+        "http://127.0.0.1:3000/r/badge.json",
+        "http://127.0.0.1:3000/r/progress.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        {
+          "path": "packages/react/src/blocks/lobby.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/lobby.tsx"
+        }
+      ],
+      "meta": { "project": "hextech-ui", "sourceKind": "original-block", "mock": true }
+    },
+    {
+      "name": "draft-01",
+      "type": "registry:block",
+      "title": "Draft room",
+      "description": "An original fictional roster with role filters, selection, a gesture-started countdown and lock-in.",
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/card.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/search-field.json",
+        "http://127.0.0.1:3000/r/progress.json",
+        "http://127.0.0.1:3000/r/badge.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        {
+          "path": "packages/react/src/blocks/draft.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/draft.tsx"
+        }
+      ],
+      "meta": { "project": "hextech-ui", "sourceKind": "original-block", "mock": true }
+    },
+    {
+      "name": "hud-01",
+      "type": "registry:block",
+      "title": "Training HUD",
+      "description": "Local health, energy, ability cooldowns and a keyboard-friendly ping menu. Default silent.",
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/card.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/progress.json",
+        "http://127.0.0.1:3000/r/menu.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/client-ready.json"
+      ],
+      "files": [
+        {
+          "path": "packages/react/src/blocks/hud.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hud.tsx"
+        }
+      ],
+      "meta": { "project": "hextech-ui", "sourceKind": "original-block", "mock": true }
+    }
+  ]
+}

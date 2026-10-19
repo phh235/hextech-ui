@@ -1,0 +1,30 @@
+---
+title: Account access
+description: 'Login, signup and recovery forms with native validation and clearly local mock results.'
+---
+
+<BlockPreview name="auth" />
+
+## Installation
+
+Use the tested local registry command above while the documentation server is running on port 3000. The CLI installs this block and its actual component dependencies. See [registry setup](/docs/registry) and [CSS setup](/docs/theming). No public host or namespace is claimed.
+
+## Usage
+
+```tsx
+import { AuthBlock } from '@/components/blocks/auth';
+
+export function Example() {
+  return <AuthBlock />;
+}
+```
+
+The unpublished packed alternative is `@hextech-ui/react/blocks/auth`. The Source tab contains the complete original editable block implementation. Add `className` to adjust its outer container.
+
+## Behavior and accessibility
+
+Login, signup and recovery forms with native validation and clearly local mock results. All data, characters, actions and counts belong to this local demo. No login, email, multiplayer, matchmaking or storage backend is connected. Connect your own services explicitly before offering real actions. Reuse the supplied component labels, keyboard semantics, focus outlines and reduced-motion styles. This block has no audio engine.
+
+## Rights
+
+Original CSS, abstract glyphs and system fonts. No Riot characters, images, audio, fonts or textures. Hextech UI is independent and is not affiliated with or endorsed by Riot Games.

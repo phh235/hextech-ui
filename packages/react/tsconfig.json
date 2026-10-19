@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/lib/cn": ["../utils/src/cn.ts"],
+      "@/lib/token-value": ["../utils/src/token-value.ts"],
+      "@/lib/button-variants": ["./src/lib/button-variants.ts"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/components/ui/*": ["./src/components/*"]
+    }
+  },
+  "include": [
+    "src/index.ts",
+    "src/components",
+    "src/lib",
+    "tsdown.config.ts",
+    "src/blocks",
+    "src/hooks"
+  ]
+}

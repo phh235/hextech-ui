@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Preserve canonical artwork bytes shared with the downloadable brand archive.
+*.svg -text
+
+# Keep upstream font notices byte-for-byte intact.
+apps/web/public/fonts/*-OFL.txt -text
+apps/web/public/brand/licenses/** -text

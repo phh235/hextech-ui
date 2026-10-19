@@ -1,0 +1,57 @@
+# Dependencies and generated output
+node_modules/
+.next/
+.source/
+.turbo/
+dist/
+apps/web/next-env.d.ts
+apps/web/public/r/
+*.tsbuildinfo
+*.tgz
+
+# Credentials and deployment links
+.env*
+!.env.example
+.vercel/
+.aws/
+
+# Local tool/editor settings; shared contributor rules in .agents/ stay in Git
+.codex/
+.claude/
+.idea/
+.vscode/
+AGENTS.local.md
+CLAUDE.local.md
+
+# Local verification runs and historical work notes
+.artifacts/
+test-results/
+playwright-report/
+blob-report/
+coverage/
+.nyc_output/
+docs/audits/
+docs/research/
+docs/progress.md
+docs/audit.md
+docs/architecture/migration-plan.md
+docs/branding/logo-concepts/
+# One-off migration tools depend on local historical reports.
+/scripts/audit-upstream.mjs
+/scripts/audit-dependency-licenses.mjs
+/scripts/update-component-matrix.mjs
+HEXTECH_UI_MASTER_PLAN.md
+
+# Machine files and debug logs
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.pid
+.eslintcache
+.stylelintcache
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

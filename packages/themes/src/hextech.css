@@ -1,0 +1,146 @@
+@import '@fontsource/barlow/latin-400.css';
+@import '@fontsource/barlow/latin-500.css';
+@import '@fontsource/barlow/latin-600.css';
+@import '@fontsource/barlow/latin-700.css';
+@import '@fontsource/cinzel/latin-500.css';
+@import '@fontsource/cinzel/latin-700.css';
+@import '@fontsource/cinzel/latin-900.css';
+/* Semantic component colors for the Hextech light and dark themes. */
+@layer hextech-ui.theme {
+  [data-hextech-ui-theme='hextech'] {
+    --hextech-ui-chart-series-1: #0aa89b;
+    --hextech-ui-chart-series-2: #ba8c2e;
+    --hextech-ui-chart-series-3: #8e6be8;
+    --hextech-ui-chart-series-4: #e8574f;
+    --hextech-ui-chart-series-5: #1e8fd5;
+    --hextech-ui-chart-series-6: #4fa83a;
+    --hextech-ui-control-black: #010a13;
+    --hextech-ui-grey-100: #a09b8c;
+    --hextech-ui-grey-150: #5b5a56;
+    --hextech-ui-grey-200: #3c3c41;
+    --hextech-ui-grey-300: #1e2328;
+    --hextech-ui-gold-100: #f0e6d2;
+    --hextech-ui-gold-200: #c8aa6e;
+    --hextech-ui-gold-300: #cdbe91;
+    --hextech-ui-gold-400: #c89b3c;
+    --hextech-ui-gold-500: #785a28;
+    --hextech-ui-gold-600: #463714;
+    --hextech-ui-gold-700: #32281e;
+    --hextech-ui-blue-100: #cdfafa;
+    --hextech-ui-blue-200: #0ac8b9;
+    --hextech-ui-blue-300: #0397ab;
+    --hextech-ui-blue-400: #005a82;
+    --hextech-ui-blue-500: #0a323c;
+    --hextech-ui-red-100: #ffe5e5;
+    --hextech-ui-red-200: #f59898;
+    --hextech-ui-red-300: #e18896;
+    --hextech-ui-red-400: #c75a6d;
+    --hextech-ui-red-500: #6d2d3d;
+    --hextech-ui-red-600: #592532;
+    --hextech-ui-red-700: #2e141e;
+    --hextech-ui-gradient-gold: linear-gradient(to top, #785a28, #c89b3c, #c8aa6e);
+    --hextech-ui-gradient-gold-hover: linear-gradient(to top, #c89b3c, #c8aa6e, #f0e6d2);
+    --hextech-ui-gradient-gold-press: linear-gradient(to top, #463714, #463714, #785a28);
+    --hextech-ui-gradient-grey: linear-gradient(to top, #1e2328, #1e2328, #1e2328);
+    --hextech-ui-gradient-disabled: linear-gradient(to top, #5b5a56, #5b5a56, #5b5a56);
+    --hextech-ui-gradient-hextech: linear-gradient(to top, #0ac8b9, #005a82);
+    --hextech-ui-gradient-hextech-hover: linear-gradient(to top, #cdfafa, #0397ab);
+    --hextech-ui-gradient-hextech-press: linear-gradient(to top, #0a323c, #005a82);
+    color-scheme: dark;
+    --hextech-ui-background: #010a13;
+    --hextech-ui-foreground: #f0e6d2;
+    --hextech-ui-content-foreground: #ffffff;
+    --hextech-ui-surface: #1e2328;
+    --hextech-ui-muted: #1e282d;
+    --hextech-ui-muted-foreground: #a09b8c;
+    --hextech-ui-border: #785a28;
+    --hextech-ui-primary: #c8aa6e;
+    --hextech-ui-primary-foreground: #010a13;
+    --hextech-ui-secondary: #0a323c;
+    --hextech-ui-secondary-foreground: #cdfafa;
+    --hextech-ui-accent: #0ac8b9;
+    --hextech-ui-notification-accent: #38bdf8;
+    --hextech-ui-destructive: var(--hextech-ui-red-200);
+    --hextech-ui-success: #8dd5b0;
+    --hextech-ui-warning: #edc986;
+    --hextech-ui-focus: #c89b3c;
+    --hextech-ui-native-focus: #eeeeee;
+    --hextech-ui-shadow: 0 12px 36px #00000030;
+    --hextech-ui-glow: none;
+    --hextech-ui-input-background: #010a13;
+    --hextech-ui-input-placeholder: #7a7a7a;
+    --hextech-ui-input-foreground: #f0e6d2;
+    --hextech-ui-input-disabled: #5b5a56;
+    --hextech-ui-input-border: linear-gradient(to top, #785a28, #c89b3c, #c8aa6e);
+    --hextech-ui-input-focus-border: linear-gradient(to top, #c89b3c, #c8aa6e, #f0e6d2);
+    --hextech-ui-input-focus-fill: linear-gradient(to top, #3c3c41, #1e2328, #1e2328);
+  }
+  [data-hextech-ui-theme='hextech'][data-color-mode='light'] {
+    color-scheme: light;
+    --hextech-ui-control-black: #ffffff;
+    --hextech-ui-grey-100: #516570;
+    --hextech-ui-grey-150: #5c6669;
+    --hextech-ui-grey-200: #d9dedf;
+    --hextech-ui-grey-300: #edf0f0;
+    --hextech-ui-gold-100: #2d2315;
+    --hextech-ui-gold-200: #79531d;
+    --hextech-ui-gold-300: #4f360d;
+    --hextech-ui-gold-400: #8b6224;
+    --hextech-ui-gold-500: #bca173;
+    --hextech-ui-gold-600: #e5d6bd;
+    --hextech-ui-gold-700: #f4ebdd;
+    --hextech-ui-blue-100: #143d49;
+    --hextech-ui-blue-200: #137f83;
+    --hextech-ui-blue-300: #83bcc4;
+    --hextech-ui-blue-400: #abd4da;
+    --hextech-ui-blue-500: #e1f0f1;
+    --hextech-ui-red-100: #5c1e2b;
+    --hextech-ui-red-200: #a02e3a;
+    --hextech-ui-red-300: #8a2f40;
+    --hextech-ui-red-400: #b84356;
+    --hextech-ui-red-500: #e9c6cd;
+    --hextech-ui-red-600: #f3d5da;
+    --hextech-ui-red-700: #fbebee;
+    --hextech-ui-gradient-gold: linear-gradient(to top, #bca173, #8b6224, #79531d);
+    --hextech-ui-gradient-gold-hover: linear-gradient(to top, #8b6224, #79531d, #2d2315);
+    --hextech-ui-gradient-gold-press: linear-gradient(to top, #e5d6bd, #e5d6bd, #bca173);
+    --hextech-ui-gradient-grey: linear-gradient(to top, #edf0f0, #edf0f0, #edf0f0);
+    --hextech-ui-gradient-disabled: linear-gradient(to top, #5c6669, #5c6669, #5c6669);
+    --hextech-ui-gradient-hextech: linear-gradient(to top, #137f83, #abd4da);
+    --hextech-ui-gradient-hextech-hover: linear-gradient(to top, #143d49, #83bcc4);
+    --hextech-ui-gradient-hextech-press: linear-gradient(to top, #e1f0f1, #abd4da);
+    --hextech-ui-background: #f7f5ee;
+    --hextech-ui-foreground: #182a35;
+    --hextech-ui-content-foreground: #182a35;
+    --hextech-ui-surface: #ffffff;
+    --hextech-ui-muted: #e8ecea;
+    --hextech-ui-muted-foreground: #516570;
+    --hextech-ui-border: #c3cece;
+    --hextech-ui-primary: #77571e;
+    --hextech-ui-primary-foreground: #ffffff;
+    --hextech-ui-secondary: #d5e7e5;
+    --hextech-ui-secondary-foreground: #214d54;
+    --hextech-ui-accent: #24696b;
+    --hextech-ui-notification-accent: #0369a1;
+    --hextech-ui-destructive: var(--hextech-ui-red-200);
+    --hextech-ui-success: #246747;
+    --hextech-ui-warning: #7e510e;
+    --hextech-ui-focus: #176a74;
+    --hextech-ui-native-focus: #176a74;
+    --hextech-ui-shadow: 0 12px 36px #182a350a;
+    --hextech-ui-glow: none;
+    --hextech-ui-input-background: var(--hextech-ui-surface);
+    --hextech-ui-input-placeholder: #6b6b6b;
+    --hextech-ui-input-foreground: var(--hextech-ui-foreground);
+    --hextech-ui-input-disabled: var(--hextech-ui-muted-foreground);
+    --hextech-ui-input-border: linear-gradient(to top, #77571e, #a67e36, #77571e);
+    --hextech-ui-input-focus-border: linear-gradient(
+      var(--hextech-ui-focus),
+      var(--hextech-ui-focus)
+    );
+    --hextech-ui-input-focus-fill: linear-gradient(
+      var(--hextech-ui-surface),
+      var(--hextech-ui-muted)
+    );
+  }
+}

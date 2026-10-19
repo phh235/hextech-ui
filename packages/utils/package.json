@@ -1,0 +1,33 @@
+{
+  "name": "@hextech-ui/utils",
+  "version": "0.0.0-phase.1",
+  "description": "Framework-independent Hextech UI class and sensory policy utilities.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsdown --watch --no-clean",
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "prepack": "node ../../scripts/copy-notices.mjs",
+    "prepublishOnly": "node ../../scripts/publish-disabled.mjs"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.7.0"
+  }
+}

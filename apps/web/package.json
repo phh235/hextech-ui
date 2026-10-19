@@ -1,0 +1,38 @@
+{
+  "name": "@hextech-ui/web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "content:generate": "fumadocs-mdx",
+    "typecheck": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "4.0.147",
+    "@base-ui/react": "1.9.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fumadocs/ai-chat": "0.1.1",
+    "@hextech-ui/react": "workspace:*",
+    "@hextech-ui/themes": "workspace:*",
+    "@hextech-ui/tokens": "workspace:*",
+    "@hextech-ui/utils": "workspace:*",
+    "@openrouter/ai-sdk-provider": "3.1.0",
+    "ai": "7.0.143",
+    "fumadocs-core": "16.17.5",
+    "fumadocs-mdx": "15.4.7",
+    "fumadocs-ui": "npm:@fumadocs/base-ui@16.17.5",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.3.6",
+    "sonner": "2.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/mdx": "2.0.13",
+    "tailwindcss": "4.3.3"
+  }
+}

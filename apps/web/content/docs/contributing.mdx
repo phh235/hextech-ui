@@ -1,0 +1,49 @@
+---
+title: Contributing
+description: Run the project locally and improve a component.
+---
+
+## Run locally
+
+Use Node.js 24 LTS (24.11 or later, below 25) and pnpm 10.34.7. From the repository root:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+The documentation and registry run on `http://127.0.0.1:3000`.
+
+## Make a focused change
+
+Components live in `packages/react/src/components`. Registry and package builds use this source. Keep library code independent of Next.js and preserve keyboard behavior, labels, controlled state and consumer style overrides.
+
+When adding or changing a component, update its manifest, registry dependencies, package exports and example together:
+
+```bash
+pnpm catalog:docs
+pnpm registry:build
+```
+
+## Verify
+
+Stop the server on port 3000 before running the complete consumer and browser checks:
+
+```bash
+pnpm check
+```
+
+For a focused registry or packed-package check:
+
+```bash
+pnpm registry:validate
+pnpm catalog:smoke
+pnpm package:validate
+pnpm package:smoke
+```
+
+Packed smoke tests install real local tarballs. The workspace package names are not published npm releases. Record actual results and compatibility limits in `docs/audits/`.
+
+## Assets and releases
+
+Use original or appropriately licensed assets and preserve their notices. Review [License and attribution](/docs/legal) before adding fonts or artwork. Publication, deployment and changes to external repositories require maintainer approval.

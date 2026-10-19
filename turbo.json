@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "@hextech-ui/tokens#build": {
+      "outputs": []
+    },
+    "@hextech-ui/themes#build": {
+      "outputs": []
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": [
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXT_PUBLIC_REPOSITORY_URL",
+        "VERCEL",
+        "VERCEL_ENV",
+        "GOOGLE_SITE_VERIFICATION",
+        "NEXT_PUBLIC_REGISTRY_URL"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "@hextech-ui/react#dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["build"]
+    },
+    "@hextech-ui/utils#dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    }
+  }
+}

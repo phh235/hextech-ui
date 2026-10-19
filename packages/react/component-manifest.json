@@ -1,0 +1,888 @@
+[
+  {
+    "name": "button",
+    "title": "Button",
+    "category": "Actions",
+    "upstream": "components/button.tsx",
+    "description": "Gold-framed actions with six tones, three sizes, shapes, and a guarded loading state.",
+    "exports": ["Button", "buttonVariants"],
+    "primitive": "Base UI Button",
+    "api": [
+      ["variant", "primary | secondary | text | hextech | dimmed | destructive", "secondary"],
+      ["size", "small | medium | large", "medium"],
+      ["shape", "normal | square | round", "normal"],
+      ["loading", "boolean", "false"]
+    ]
+  },
+  {
+    "name": "icon-button",
+    "title": "Icon Button",
+    "category": "Actions",
+    "upstream": null,
+    "description": "Compact icon actions with an accessible label.",
+    "exports": ["IconButton"],
+    "primitive": "Button composition",
+    "api": [
+      ["aria-label", "string (required)", "—"],
+      ["shape", "square | round", "square"]
+    ]
+  },
+  {
+    "name": "link",
+    "title": "Link",
+    "category": "Actions",
+    "upstream": "components/button-link.tsx",
+    "description": "Native links, button styling, and an explicit disabled state.",
+    "exports": ["Link", "ButtonLink"],
+    "primitive": "Semantic anchor",
+    "api": [
+      ["href", "string", "—"],
+      ["disabled", "boolean", "false"]
+    ]
+  },
+  {
+    "name": "typography",
+    "title": "Typography",
+    "category": "Layout",
+    "upstream": "components/typography/heading.tsx; components/typography/text.tsx",
+    "description": "Headings, body text and labels with Cinzel and Barlow typography.",
+    "exports": ["Heading", "Text", "Label"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["as", "h1–h6 (Heading), p | span | div (Text)", "h2 / p"],
+      ["size", "sm | md | lg | xl (Heading)", "lg"],
+      ["tone", "default | gold | muted (Heading)", "default"]
+    ]
+  },
+  {
+    "name": "badge",
+    "title": "Badge",
+    "category": "Layout",
+    "upstream": null,
+    "description": "Compact status labels in six color tones.",
+    "exports": ["Badge"],
+    "primitive": "Semantic span",
+    "api": [["tone", "gold | teal | success | warning | destructive | neutral", "gold"]]
+  },
+  {
+    "name": "card",
+    "title": "Card",
+    "category": "Layout",
+    "upstream": null,
+    "description": "A framed container with header, content and footer parts.",
+    "exports": ["Card", "CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["className", "string on every part", "—"],
+      ["animated", "boolean (reduced-motion aware)", "false"]
+    ],
+    "notes": [
+      "Card is an original semantic layout extension; LoL Math has no Card export or story. Its square, dark, two-pixel gradient frame follows the Modal panel styling. It has no hover lift, shadow or default animation."
+    ]
+  },
+  {
+    "name": "separator",
+    "title": "Separator & Divider",
+    "category": "Layout",
+    "upstream": "components/divider.tsx",
+    "description": "Semantic separators and a decorative fading divider.",
+    "exports": ["Separator", "Divider"],
+    "primitive": "Base UI Separator",
+    "api": [
+      ["orientation", "horizontal | vertical", "horizontal"],
+      ["children", "ReactNode (Divider)", "—"]
+    ]
+  },
+  {
+    "name": "input",
+    "title": "Input",
+    "category": "Forms",
+    "upstream": "components/text-field.tsx",
+    "description": "Text inputs with size, invalid and disabled states.",
+    "exports": ["Input", "inputVariants"],
+    "primitive": "Base UI Input",
+    "api": [
+      ["size", "small | medium | large", "medium"],
+      ["type", "native input type", "text"]
+    ]
+  },
+  {
+    "name": "textarea",
+    "title": "Textarea",
+    "category": "Forms",
+    "upstream": "components/text-area.tsx",
+    "description": "Multiline text inputs with matching field styles.",
+    "exports": ["Textarea", "TextArea"],
+    "primitive": "Semantic textarea",
+    "api": [
+      ["rows", "number", "2"],
+      ["disabled / required", "boolean", "false"]
+    ]
+  },
+  {
+    "name": "field",
+    "title": "Field",
+    "category": "Forms",
+    "upstream": "components/text-field.tsx",
+    "description": "Associated labels, descriptions, validation errors, forms, and a ready-to-use TextField.",
+    "exports": [
+      "Form",
+      "Field",
+      "FieldLabel",
+      "FieldDescription",
+      "FieldError",
+      "FieldControl",
+      "TextField"
+    ],
+    "primitive": "Base UI Field / Form",
+    "api": [
+      ["label", "string (TextField required)", "—"],
+      ["description / error", "string (TextField)", "—"],
+      ["name / invalid", "Base UI field props", "—"]
+    ]
+  },
+  {
+    "name": "checkbox",
+    "title": "Checkbox",
+    "category": "Forms",
+    "upstream": "components/checkbox/checkbox.tsx",
+    "description": "Checkboxes with checked, unchecked and mixed states.",
+    "exports": ["Checkbox"],
+    "primitive": "Base UI Checkbox",
+    "api": [
+      ["checked / defaultChecked", "boolean", "false"],
+      ["indeterminate", "boolean", "false"],
+      ["onCheckedChange", "(checked, details) => void", "—"]
+    ]
+  },
+  {
+    "name": "radio",
+    "title": "Radio Group",
+    "category": "Forms",
+    "upstream": "components/radio-group/radio-group.tsx",
+    "description": "Labeled radio groups with native form participation and arrow-key selection.",
+    "exports": ["RadioGroup", "Radio"],
+    "primitive": "Base UI Radio / RadioGroup",
+    "api": [
+      ["value / defaultValue", "string (group)", "—"],
+      ["value", "string (radio)", "—"],
+      ["onValueChange", "(value, details) => void", "—"],
+      ["Radio.children", "managed indicator/track; use an external label", "not accepted"]
+    ]
+  },
+  {
+    "name": "switch",
+    "title": "Switch",
+    "category": "Forms",
+    "upstream": "components/switch.tsx",
+    "description": "Gold-edged tracks and overhanging thumbs, controlled or uncontrolled.",
+    "exports": ["Switch"],
+    "primitive": "Base UI Switch",
+    "api": [
+      ["checked / defaultChecked", "boolean", "false"],
+      ["onCheckedChange", "(checked, details) => void", "—"],
+      ["children", "managed indicator/track; use an external label", "not accepted"]
+    ]
+  },
+  {
+    "name": "toggle",
+    "title": "Toggle",
+    "category": "Actions",
+    "upstream": "components/toggle-button.tsx; components/toggle-button-group.tsx",
+    "description": "Pressed actions and roving-focus single/multiple toggle groups.",
+    "exports": ["Toggle", "ToggleGroup", "ToggleButton", "ToggleButtonGroup"],
+    "primitive": "Base UI Toggle / ToggleGroup",
+    "api": [
+      ["pressed / defaultPressed", "boolean (Toggle)", "false"],
+      ["value / defaultValue", "string[] (ToggleGroup)", "—"],
+      ["multiple", "boolean (group)", "false"]
+    ]
+  },
+  {
+    "name": "dialog",
+    "title": "Dialog",
+    "category": "Overlays",
+    "upstream": "components/modal.tsx",
+    "description": "Gold-framed modal dialogs with focus containment, escape dismissal, and focus restoration.",
+    "exports": [
+      "Dialog",
+      "DialogTrigger",
+      "DialogContent",
+      "DialogTitle",
+      "DialogDescription",
+      "DialogClose",
+      "Modal",
+      "DialogHeading"
+    ],
+    "primitive": "Base UI Dialog",
+    "api": [
+      ["open / defaultOpen", "boolean (Dialog)", "false"],
+      ["onOpenChange", "(open, details) => void", "—"],
+      ["container", "HTMLElement | null (DialogContent)", "body"]
+    ]
+  },
+  {
+    "name": "alert-dialog",
+    "title": "Alert Dialog",
+    "category": "Overlays",
+    "upstream": null,
+    "description": "Confirmation dialogs that require an explicit choice.",
+    "exports": [
+      "AlertDialog",
+      "AlertDialogTrigger",
+      "AlertDialogContent",
+      "AlertDialogTitle",
+      "AlertDialogDescription",
+      "AlertDialogClose"
+    ],
+    "primitive": "Base UI AlertDialog",
+    "api": [
+      ["open / defaultOpen", "boolean", "false"],
+      ["onOpenChange", "(open, details) => void", "—"]
+    ]
+  },
+  {
+    "name": "popover",
+    "title": "Popover",
+    "category": "Overlays",
+    "upstream": "components/popover.tsx",
+    "description": "Positioned, interactive popups with a native trigger and accessible content.",
+    "exports": [
+      "Popover",
+      "PopoverTrigger",
+      "PopoverContent",
+      "PopoverTitle",
+      "PopoverDescription",
+      "PopoverClose",
+      "PopoverBody"
+    ],
+    "primitive": "Base UI Popover",
+    "api": [
+      ["side", "top | bottom | left | right", "bottom"],
+      ["align", "start | center | end", "center"],
+      ["sideOffset", "number", "10"]
+    ]
+  },
+  {
+    "name": "tooltip",
+    "title": "Tooltip",
+    "category": "Overlays",
+    "upstream": null,
+    "description": "Short descriptions shown on hover or keyboard focus.",
+    "exports": ["TooltipProvider", "Tooltip", "TooltipTrigger", "TooltipContent"],
+    "primitive": "Base UI Tooltip",
+    "api": [
+      ["delay", "number (provider, milliseconds)", "Base UI default"],
+      ["side", "top | bottom | left | right", "top"]
+    ]
+  },
+  {
+    "name": "tabs",
+    "title": "Tabs",
+    "category": "Navigation",
+    "upstream": "components/tabs.tsx",
+    "description": "Roving-focus tabs with semantic associations and persistent controlled selection.",
+    "exports": ["Tabs", "TabList", "Tab", "TabPanel"],
+    "primitive": "Base UI Tabs",
+    "api": [
+      ["value / defaultValue", "string", "—"],
+      ["orientation", "horizontal | vertical", "horizontal"],
+      ["value", "string (Tab / TabPanel)", "—"]
+    ]
+  },
+  {
+    "name": "accordion",
+    "title": "Accordion",
+    "category": "Disclosure",
+    "upstream": "components/disclosure.tsx",
+    "description": "Grouped disclosures with keyboard navigation and optional multiple expanded items.",
+    "exports": ["Accordion", "AccordionItem", "AccordionTrigger", "AccordionPanel"],
+    "primitive": "Base UI Accordion",
+    "api": [
+      ["value / defaultValue", "string[]", "—"],
+      ["multiple", "boolean", "false"],
+      ["value", "string (item)", "—"]
+    ]
+  },
+  {
+    "name": "collapsible",
+    "title": "Collapsible",
+    "category": "Disclosure",
+    "upstream": "components/disclosure.tsx",
+    "description": "Single disclosure sections with accessible expanded state and associated panels.",
+    "exports": [
+      "Collapsible",
+      "CollapsibleTrigger",
+      "CollapsiblePanel",
+      "Disclosure",
+      "DisclosureButton",
+      "DisclosurePanel"
+    ],
+    "primitive": "Base UI Collapsible",
+    "api": [
+      ["open / defaultOpen", "boolean", "false"],
+      ["onOpenChange", "(open, details) => void", "—"]
+    ]
+  },
+  {
+    "name": "progress",
+    "title": "Progress",
+    "category": "Feedback",
+    "upstream": "components/progress-bar.tsx",
+    "description": "Determinate and indeterminate progress with an associated label and accessible value text.",
+    "exports": ["Progress", "ProgressBar"],
+    "primitive": "Base UI Progress",
+    "api": [
+      ["value", "number | null", "0"],
+      ["max", "number", "100"],
+      ["label", "string", "Loading"]
+    ]
+  },
+  {
+    "name": "number-field",
+    "title": "Number Field",
+    "category": "Forms",
+    "upstream": "components/number-field.tsx",
+    "description": "Locale-aware numeric editing with step controls, bounds, form submission, and keyboard support.",
+    "exports": ["NumberField"],
+    "primitive": "Base UI NumberField",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value / defaultValue", "number | null", "—"],
+      ["min / max / step", "number", "Base UI defaults"]
+    ]
+  },
+  {
+    "name": "slider",
+    "title": "Slider",
+    "category": "Forms",
+    "upstream": "components/slider/slider.tsx",
+    "description": "Single and range sliders with keyboard control, original diamond thumbs, and visible value output.",
+    "exports": ["Slider", "SliderOutput"],
+    "primitive": "Base UI Slider",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value / defaultValue", "number | number[]", "0"],
+      ["thumbLabels", "string[]", "Generated from label"],
+      ["min / max / step", "number", "0 / 100 / 1"]
+    ]
+  },
+  {
+    "name": "select",
+    "title": "Select",
+    "category": "Forms",
+    "upstream": "components/select/select.tsx",
+    "description": "Composable single and multiple selection with typed values, focus management, and keyboard typeahead.",
+    "exports": [
+      "Select",
+      "SelectValue",
+      "SelectTrigger",
+      "SelectContent",
+      "SelectItem",
+      "SelectGroup",
+      "SelectGroupLabel"
+    ],
+    "primitive": "Base UI Select",
+    "api": [
+      ["value / defaultValue", "Value | Value[]", "—"],
+      ["multiple", "boolean", "false"],
+      ["value", "Value (SelectItem)", "—"]
+    ]
+  },
+  {
+    "name": "toolbar",
+    "title": "Toolbar",
+    "category": "Navigation",
+    "upstream": "components/toolbar.tsx",
+    "description": "Roving-focus toolbar controls and semantic separators.",
+    "exports": ["Toolbar", "ToolbarButton", "ToolbarSeparator"],
+    "primitive": "Base UI Toolbar",
+    "api": [
+      ["orientation", "horizontal | vertical", "horizontal"],
+      ["loopFocus", "boolean", "true"]
+    ]
+  },
+  {
+    "name": "group",
+    "title": "Input Group",
+    "category": "Forms",
+    "upstream": "components/group.tsx",
+    "description": "Multiple native controls composed into a single visual field frame.",
+    "exports": ["Group", "GroupInput", "GroupSeparator"],
+    "primitive": "Semantic group + Base UI Input",
+    "api": [
+      ["aria-label", "string (group accessible name)", "—"],
+      ["className", "string on each part", "—"]
+    ]
+  },
+  {
+    "name": "menu",
+    "title": "Menu",
+    "category": "Overlays",
+    "upstream": "components/menu/menu.tsx",
+    "description": "Action menus with nested submenus, grouped labels, and checkbox items.",
+    "exports": [
+      "Menu",
+      "MenuTrigger",
+      "MenuContent",
+      "MenuItem",
+      "MenuSub",
+      "MenuSubTrigger",
+      "MenuGroup",
+      "MenuLabel",
+      "MenuSeparator",
+      "MenuCheckboxItem"
+    ],
+    "primitive": "Base UI Menu",
+    "api": [
+      ["open / defaultOpen", "boolean", "false"],
+      ["side / align", "positioning options", "bottom / start"],
+      ["disabled", "boolean (item)", "false"]
+    ]
+  },
+  {
+    "name": "autocomplete",
+    "title": "Autocomplete",
+    "category": "Forms",
+    "upstream": "components/autocomplete.tsx",
+    "description": "Free text with optional typed suggestions, keyboard completion and native text submission.",
+    "exports": ["Autocomplete", "AutocompletePrimitive"],
+    "primitive": "Base UI Autocomplete",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["options", "readonly T[]", "required"],
+      ["value / defaultValue", "string", "—"],
+      ["onValueChange", "(text, details) => void", "—"],
+      [
+        "getOptionKey / itemToStringValue",
+        "suggestion identity and text getters",
+        "id/value + label"
+      ],
+      ["mode", "list | both | inline | none", "list"],
+      ["renderOption / isOptionDisabled", "renderer / predicate", "—"],
+      ["clearOnEscape", "boolean; closed Escape clears only when enabled", "false"]
+    ],
+    "notes": [
+      "Autocomplete uses the current Base UI free-text primitive; it is no longer an alias for selection-only Combobox. value/defaultValue and onValueChange carry text, including text absent from suggestions. Suggestion objects use itemToStringValue for displayed/completed text; native form submission contains the input text.",
+      "getOptionKey provides stable suggestion identity. renderOption and isOptionDisabled customize results. mode controls list/inline completion; AutocompletePrimitive exposes unstyled parts for grouped/inline-list/virtualized custom composition.",
+      "Closed Escape preserves text by default; clearOnEscape opts into clearing. The explicit clear button works independently of this preference."
+    ]
+  },
+  {
+    "name": "combobox",
+    "title": "Combobox",
+    "category": "Forms",
+    "upstream": "",
+    "description": "Typed string or object selection with stable keys, custom rows, keyboard filtering and clearing.",
+    "exports": ["Combobox", "ComboboxPrimitive", "useFilter"],
+    "primitive": "Base UI Combobox",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["options", "readonly T[]", "required"],
+      ["getOptionKey", "(option: T) => string | number", "string/id/value"],
+      ["itemToStringLabel", "(option: T) => string", "string/label"],
+      ["renderOption / isOptionDisabled", "row renderer / disabled predicate", "—"],
+      ["value / defaultValue", "T | null", "—"],
+      ["clearOnEscape", "boolean; closed Escape clears only when enabled", "false"],
+      ["size", "small | medium | large", "medium"]
+    ],
+    "notes": [
+      "String and numeric options work directly. Object records may use id/value plus label, or provide identity/display getters. Keys must be nonempty and unique; equal labels with different IDs are supported. Recreated option objects compare by key by default, and current option labels replace stale record labels.",
+      "Selection controls submit stable keys as native form values by default. Override itemToStringValue if your backend uses a different encoding. Disabled predicates apply to choices; removing an already selected chip remains an explicit action.",
+      "Escape dismisses an open popup without discarding committed values. Closed Escape preserves the value by default; clearOnEscape opts into clearing. Clear buttons and chip removal remain available.",
+      "Combobox is selection-only: value is T or null. Use Autocomplete for unrestricted text. ComboboxPrimitive exports unstyled Base UI parts for grouped, virtualized or fully custom compositions. The Autocomplete reexport from this entry now points to the real free-text component."
+    ]
+  },
+  {
+    "name": "multiple-select",
+    "title": "Multiple Select",
+    "category": "Forms",
+    "upstream": "components/select/multiple-select.tsx",
+    "description": "Typed multi-selection of strings or object records with stable chips, filtering and native ID submission.",
+    "exports": ["MultipleSelect"],
+    "primitive": "Base UI Combobox (multiple)",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["options", "readonly T[]", "required"],
+      [
+        "getOptionKey / itemToStringLabel",
+        "identity and display getters",
+        "string/id/value + label"
+      ],
+      ["value / defaultValue", "readonly T[]", "—"],
+      ["renderOption / renderValue", "custom option / chip content", "—"],
+      ["isOptionDisabled", "(option: T) => boolean", "—"],
+      ["emptyState / emptySelection", "ReactNode", "no matches / —"],
+      ["size", "small | medium | large", "medium"],
+      ["clearOnEscape", "boolean; closed Escape clears only when enabled", "false"]
+    ],
+    "notes": [
+      "String and numeric options work directly. Object records may use id/value plus label, or provide identity/display getters. Keys must be nonempty and unique; equal labels with different IDs are supported. Recreated option objects compare by key by default, and current option labels replace stale record labels.",
+      "Selection controls submit stable keys as native form values by default. Override itemToStringValue if your backend uses a different encoding. Disabled predicates apply to choices; removing an already selected chip remains an explicit action.",
+      "Escape dismisses an open popup without discarding committed values. Closed Escape preserves the value by default; clearOnEscape opts into clearing. Clear buttons and chip removal remain available.",
+      "The Object records state demonstrates custom rows, immutable payload refresh, disabled choices, size variants and native form IDs. emptyState, emptySelection, renderValue and tagGroupLabel customize the visible and accessible selection display."
+    ]
+  },
+  {
+    "name": "search-field",
+    "title": "Search Field",
+    "category": "Forms",
+    "upstream": "components/search-field/search-field.tsx",
+    "description": "Labeled search editing with controlled state, clear action, Escape clearing, and form participation.",
+    "exports": ["SearchField"],
+    "primitive": "Base UI Input + semantic search",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value / defaultValue", "string", "empty"],
+      ["onValueChange", "(value: string) => void", "—"],
+      ["onSearch / debounceMs", "(value: string) => void / number", "300 ms"]
+    ]
+  },
+  {
+    "name": "spinner",
+    "title": "Spinner",
+    "category": "Feedback",
+    "upstream": "components/spinner/spinner.tsx",
+    "description": "A loading indicator with an accessible label.",
+    "exports": ["Spinner"],
+    "primitive": "Semantic status",
+    "api": [
+      ["label", "string", "Loading"],
+      ["size", "small | medium | large", "medium"]
+    ]
+  },
+  {
+    "name": "breadcrumbs",
+    "title": "Breadcrumbs",
+    "category": "Navigation",
+    "upstream": "components/breadcrumbs/breadcrumbs.tsx",
+    "description": "Native breadcrumb navigation with original separators and explicit current-page semantics.",
+    "exports": ["Breadcrumbs", "Breadcrumb"],
+    "primitive": "Semantic nav / list / links",
+    "api": [
+      ["href", "string (Breadcrumb)", "—"],
+      ["current", "boolean (Breadcrumb)", "true without href"]
+    ]
+  },
+  {
+    "name": "toast",
+    "title": "Toast",
+    "category": "Feedback",
+    "upstream": null,
+    "description": "Provider-based notifications with actions and promise management, built on Base UI.",
+    "exports": ["ToastProvider", "Toaster", "useToast", "createToastManager"],
+    "primitive": "Base UI Toast",
+    "api": [
+      ["timeout", "number (milliseconds)", "5000"],
+      ["limit", "number", "3"],
+      ["toastManager", "caller-owned manager", "—"]
+    ],
+    "registryDependencies": ["button"],
+    "notes": [
+      "Success and Info icons are blue, Warning icons use the default gold, and Error icons match the destructive button color."
+    ]
+  },
+  {
+    "name": "preview-card",
+    "title": "Preview Card",
+    "category": "Overlays",
+    "upstream": "components/preview-trigger.tsx",
+    "description": "Hover and focus previews for linked content. Provide a navigable destination for touch users.",
+    "exports": ["PreviewCard", "PreviewCardTrigger", "PreviewCardContent"],
+    "primitive": "Base UI PreviewCard",
+    "api": [
+      ["open / defaultOpen", "boolean", "false"],
+      ["href", "string (trigger)", "—"]
+    ]
+  },
+  {
+    "name": "table",
+    "title": "Table Primitives",
+    "category": "Data",
+    "upstream": null,
+    "description": "Semantic table parts. Use Data Table for sorting, selection and row reordering.",
+    "exports": [
+      "Table",
+      "TableCaption",
+      "TableHeader",
+      "TableBody",
+      "TableFooter",
+      "TableRow",
+      "TableHead",
+      "TableCell"
+    ],
+    "primitive": "Semantic HTML table",
+    "api": [
+      ["scope", "col | row (TableHead)", "col"],
+      ["className", "string on each part", "—"]
+    ]
+  },
+  {
+    "name": "vertical-table",
+    "title": "Vertical Table",
+    "category": "Data",
+    "upstream": "components/vertical-table/vertical-table.tsx",
+    "description": "Read-only field-by-field record comparisons with genuine row and column headers.",
+    "exports": ["VerticalTable"],
+    "primitive": "Semantic HTML table",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["records", "readonly T[]", "required"],
+      ["fields", "VerticalTableField<T>[]", "required"],
+      ["recordKey", "(record: T) => Key", "required"]
+    ]
+  },
+  {
+    "name": "calendar",
+    "title": "Calendar",
+    "category": "Dates",
+    "upstream": "components/calendar/calendar.tsx",
+    "description": "Single-date and date-range selection with keyboard navigation.",
+    "exports": ["Calendar", "RangeCalendar"],
+    "primitive": "Semantic APG grid (no Base UI calendar primitive)",
+    "api": [
+      ["value / defaultValue", "ISO day string (Calendar); DateRange (RangeCalendar)", "—"],
+      ["referenceDate", "ISO day (recommended for SSR)", "UTC current day"],
+      ["min / max", "ISO day strings", "0001-01-01 / 9999-12-31"],
+      ["weekStartsOn", "0 | 1", "1"],
+      ["header", "heading | picker", "heading"]
+    ]
+  },
+  {
+    "name": "date-field",
+    "title": "Date & Time Fields",
+    "category": "Dates",
+    "upstream": "components/calendar/date-field.tsx; components/calendar/time-field.tsx",
+    "description": "Native segmented date and time editing with labels, descriptions, and custom native validity.",
+    "exports": ["DateField", "TimeField"],
+    "primitive": "Base UI Input + native date/time",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value / defaultValue", "ISO date or local HH:mm string", "—"],
+      ["validationMessage", "string", "—"]
+    ]
+  },
+  {
+    "name": "date-picker",
+    "title": "Date Pickers",
+    "category": "Dates",
+    "upstream": "components/calendar/date-picker.tsx; components/calendar/date-range-picker.tsx",
+    "description": "Editable dates with single-date and range calendar popovers.",
+    "exports": ["DatePicker", "DateRangePicker"],
+    "primitive": "Base UI Popover + native fields + APG grid",
+    "api": [
+      ["value / defaultValue", "ISO day (DatePicker); DateRange (DateRangePicker)", "—"],
+      ["label", "string (required)", "—"],
+      ["open / defaultOpen", "boolean", "false"],
+      ["isDateUnavailable", "(ISO day) => boolean", "—"]
+    ]
+  },
+  {
+    "name": "token-field",
+    "title": "Inline Token Field",
+    "category": "Advanced",
+    "upstream": "components/token-field/token-field.tsx",
+    "description": "Inline text and atomic mention tokens sharing one caret, with undo, controlled values, safe text editing, and form validation.",
+    "exports": ["TokenField", "TokenFieldValue", "insertToken"],
+    "primitive": "Optional Lexical plain-text editing core",
+    "subpathOnly": true,
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value / defaultValue", "TokenFieldValue", "empty"],
+      ["onValueChange", "(value: TokenFieldValue) => void", "—"],
+      ["required / maxLength", "native validation bridge", "false / unlimited"],
+      ["serialization", "text | json", "text"]
+    ]
+  },
+  {
+    "name": "tree",
+    "title": "Tree",
+    "category": "Collections",
+    "upstream": "components/tree/tree.tsx",
+    "description": "Hierarchical selection, expansion, typeahead and immutable drag or keyboard reordering.",
+    "exports": ["Tree", "moveTreeNode"],
+    "primitive": "Original APG tree + semantic HTML (no Base UI tree primitive)",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["nodes", "readonly TreeNodeData[]", "—"],
+      ["expandedKeys / selectedKeys", "readonly string[]", "uncontrolled"],
+      ["selectionMode", "none | single | multiple", "single"],
+      ["onMove", "(move: TreeMove) => void", "—"],
+      ["loading / onLoadMore", "boolean / callback", "false / —"]
+    ],
+    "notes": [
+      "Data changes reconcile selected IDs: uncontrolled selection forgets records that are actually removed, and controlled owners receive the pruned keys through onSelectionChange. Collapsing a branch preserves the selection of its existing descendants.",
+      "If a focused item disappears or moves into a collapsed branch, focus moves to its visible ancestor, a surviving neighbor or the labeled empty group. Outside focus and pointer interactions remain with the control the user chose. The Dynamic data preview demonstrates these updates."
+    ]
+  },
+  {
+    "name": "tag-group",
+    "title": "Tags",
+    "category": "Collections",
+    "upstream": "components/tag-group/tag-group.tsx",
+    "description": "Selectable and removable tag collections with roving focus and keyboard removal.",
+    "exports": ["Tag", "TagGroup", "TagList"],
+    "primitive": "Base UI Toolbar + semantic HTML",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["items", "readonly TagItem[]", "—"],
+      ["selectionMode", "none | single | multiple", "none"],
+      ["onRemove", "(ids: string[]) => void", "—"],
+      ["tone", "gold | teal | muted", "gold"]
+    ],
+    "notes": [
+      "onRemove is a request. Selection changes only after the owner removes records from items. Uncontrolled selection forgets removed IDs; controlled owners receive pruned keys through onSelectionChange. Reintroducing a deleted record does not automatically select it again.",
+      "Focus follows a surviving tag or the empty toolbar when the focused control is removed. Deferred removals preserve focus outside the collection. The Dynamic data preview demonstrates controlled selection, preserved records and queued local removal."
+    ]
+  },
+  {
+    "name": "data-table",
+    "title": "Data Table",
+    "category": "Advanced",
+    "upstream": "components/table/table.tsx",
+    "description": "Sortable, selectable, resizable and reorderable rows with pagination and optional cell navigation.",
+    "exports": ["DataTable"],
+    "primitive": "Optional TanStack Table v9 + Base UI Checkbox + semantic table/grid",
+    "subpathOnly": true,
+    "api": [
+      ["data / columns", "readonly T[] / DataColumn<T>[]", "—"],
+      ["getRowId / rowLabel", "(row: T) => string (required)", "—"],
+      ["selectionMode", "none | single | multiple", "none"],
+      ["keyboardNavigation", "tab | cell", "tab"],
+      ["resizable", "boolean", "false"],
+      ["onReorder", "(id, target, before | after) => void", "—"],
+      ["pageSize", "positive integer", "10"],
+      ["onLoadMore", "({ signal }) => void | Promise<void>", "—"],
+      ["autoLoadMore / hasMore", "boolean", "false / true"],
+      ["loadKey", "string | number", "data.length"],
+      ["scrollAreaClassName", "string", "—"]
+    ],
+    "notes": [
+      "For automatic loading, constrain the table content with scrollAreaClassName (for example max-h-64 overflow-auto), keeping pagination outside the scrolling row area. autoLoadMore observes the canonical loader only on the last loaded client page. onLoadMore may return a promise and receives AbortSignal; hasMore=false retains a completed row without discarding focused controls.",
+      "With more records still available, a keyboard grid reports aria-rowcount=-1 rather than inventing a total. Once exhausted, counts include the header and retained loading row. Explicit row indices include the header. The page status describes loaded client pages while the backend supply is unknown."
+    ]
+  },
+  {
+    "name": "charts",
+    "title": "Charts",
+    "category": "Advanced",
+    "upstream": "charts/components/area-chart/area-chart.tsx; charts/components/bar-chart/bar-chart.tsx; charts/components/chart-frame/chart-frame.tsx; charts/components/chart-legend/chart-legend.tsx; charts/components/hextech-chart/hextech-chart.tsx; charts/components/line-chart/line-chart.tsx; charts/components/ranking-chart/ranking-chart.tsx",
+    "description": "Optional line, area, grouped bar and ranking plots with keyboard point exploration, legends, data tables and original semantic colors.",
+    "exports": [
+      "LineChart",
+      "AreaChart",
+      "BarChart",
+      "RankingChart",
+      "ChartFrame",
+      "ChartLegend",
+      "HextechChart"
+    ],
+    "primitive": "Optional TanStack Charts React/SVG adapter + native semantic tables",
+    "subpathOnly": true,
+    "api": [
+      ["title", "string (required)", "—"],
+      ["data / x / series", "readonly T[] / category accessor / ChartSeries<T>[]", "—"],
+      ["height", "number", "260"],
+      ["curve", "linear | smooth | step", "linear"],
+      ["points / legend", "boolean", "true"],
+      ["onSelect", "(row, seriesId) => void", "—"]
+    ]
+  },
+  {
+    "name": "use-list-data",
+    "title": "Local List Data",
+    "description": "Keyed collection updates, filtering and selection.",
+    "exports": ["useListData"],
+    "category": "Data hooks",
+    "upstream": "index.ts",
+    "primitive": "Original React state hooks + AbortController",
+    "kind": "hook",
+    "source": "packages/react/src/hooks/use-list-data.ts",
+    "api": [
+      ["getKey", "(item: T) => string (required)", "—"],
+      ["initialItems", "readonly T[]", "[]"],
+      ["filter", "(item, query) => boolean", "—"]
+    ],
+    "registryDependencies": ["button", "search-field"]
+  },
+  {
+    "name": "use-async-list",
+    "title": "Async List Data",
+    "description": "Abortable filtering, pagination, reloads and stale-response protection.",
+    "exports": ["useAsyncList"],
+    "category": "Data hooks",
+    "upstream": "index.ts",
+    "primitive": "Original React state hooks + AbortController",
+    "kind": "hook",
+    "source": "packages/react/src/hooks/use-async-list.ts",
+    "api": [
+      ["load", "async ({ signal, cursor, filterText, sortDescriptor }) => page", "required"],
+      ["getKey", "(item: T) => string (required)", "—"]
+    ],
+    "registryDependencies": ["button", "search-field"]
+  },
+  {
+    "name": "virtual-listbox",
+    "title": "Virtualized Listbox",
+    "category": "Advanced",
+    "upstream": "index.ts",
+    "description": "Large keyed collections with a mounted active descendant, keyboard navigation and single or multiple selection.",
+    "exports": ["VirtualListbox", "useVirtualizer", "useWindowVirtualizer"],
+    "primitive": "Optional TanStack Virtual + original APG listbox semantics",
+    "subpathOnly": true,
+    "api": [
+      ["label / items", "string / readonly VirtualOption[] (required)", "—"],
+      ["value / defaultValue", "readonly string[]", "[]"],
+      ["multiple", "boolean", "false"],
+      ["height / rowHeight", "number", "240 / 44"]
+    ]
+  },
+  {
+    "name": "table-load-more",
+    "title": "Table Load More",
+    "category": "Collections",
+    "upstream": "components/table/table.tsx",
+    "description": "Visibility-triggered row loading with progress keys, abortable requests and an accessible manual retry.",
+    "exports": ["TableLoadMoreItem"],
+    "primitive": "Semantic table row + native IntersectionObserver + Base UI Button",
+    "api": [
+      ["onLoadMore", "({ signal: AbortSignal }) => void | Promise<void>", "required"],
+      ["loadKey", "string | number", "0"],
+      ["autoLoad / hasMore", "boolean", "true"],
+      ["loading / disabled", "boolean", "false"],
+      ["colSpan", "number", "1"],
+      ["root / rootMargin", "Element | Document | null / CSS margin string", "null / 0px"],
+      ["labels", "Partial<TableLoadMoreLabels>", "English labels"],
+      ["cellProps / buttonClassName", "native td props / string", "—"]
+    ],
+    "notes": [
+      "Place this part inside a native table body and set colSpan to the actual column count. Automatic observation is enabled by default; a manual action remains available for keyboard/touch use and browsers without IntersectionObserver. loading controls external pending work; return a promise so the component can also track completion and rejection. AbortSignal is cancelled on unmount; the owner decides how to stop its data request.",
+      "Pass a stable loadKey which changes only when data/cursor/query progress should permit another automatic request, such as rows.length or a query/cursor string. The default key allows one automatic request per mounted instance. A fresh intersection sample is required after key/root changes, avoiding an extra request from stale geometry after rows are appended. Unchanged progress, errors and repeated visibility callbacks do not cause an automatic request loop; retry remains explicit.",
+      "hasMore=false retains the completed action so keyboard focus is not discarded. Pending and completed actions may remain focusable but cannot activate. disabled blocks new work; an accepted request is not rolled back by disabling. The owner appends records and sets exhaustion. TableLoadMoreItem does not invent a backend or automatically fetch a URL.",
+      "Row className, cellProps.className and buttonClassName customize the separate parts. children render additional content before the action. labels localizes loadMore, loading, retry, complete, error and loaded text. A custom observer root must contain the row; rootMargin uses native pixel/percentage syntax.",
+      "DataTable composes this same source through onLoadMore, autoLoadMore, hasMore and loadKey. Automatic loading is opt-in there and waits until its last loaded client page; existing pagination remains explicit. Same component, source registry and npm implementation; no React Aria collection context is required."
+    ]
+  },
+  {
+    "name": "sonner",
+    "title": "Sonner",
+    "category": "Feedback",
+    "upstream": "components/sonner/sonner.tsx",
+    "description": "Imperative notifications with status icons, actions, promises and dismiss controls.",
+    "exports": ["Sonner", "sonner"],
+    "primitive": "Sonner",
+    "subpathOnly": true,
+    "api": [
+      [
+        "position",
+        "top-left | top-center | top-right | bottom-left | bottom-center | bottom-right",
+        "bottom-right"
+      ],
+      ["duration", "number (milliseconds)", "4000"],
+      ["closeButton", "boolean", "false"],
+      ["theme", "light | dark | system", "inherited"],
+      ["sonner.success / error / warning / info / loading / promise", "notification API", "—"]
+    ],
+    "registryDependencies": ["button"]
+  }
+]

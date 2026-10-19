@@ -1,0 +1,78 @@
+{
+  "name": "hextech-ui",
+  "description": "League-inspired components. Open by design.",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.7",
+  "engines": {
+    "node": ">=24.11.0 <25",
+    "pnpm": ">=10.34.7 <11"
+  },
+  "scripts": {
+    "dev": "pnpm registry:build && turbo run dev --filter=@hextech-ui/web --filter=@hextech-ui/react --filter=@hextech-ui/utils",
+    "build": "pnpm registry:build && turbo run build",
+    "start": "pnpm --filter @hextech-ui/web start",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm --filter @hextech-ui/web content:generate && turbo run typecheck && tsc -p tests/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:reference": "node scripts/verify-button-states.mjs",
+    "test:reference-toggles": "node scripts/verify-toggle-states.mjs",
+    "test:reference-inputs": "node scripts/verify-input-states.mjs",
+    "test:e2e": "playwright test",
+    "registry:build": "node scripts/build-registry.mjs",
+    "registry:validate": "node scripts/validate-registry.mjs",
+    "registry:smoke": "node scripts/registry-smoke.mjs",
+    "package:validate": "pnpm --filter \"./packages/*\" build && node scripts/validate-packages.mjs",
+    "package:smoke": "node scripts/package-smoke.mjs",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm registry:validate && pnpm package:validate && pnpm package:smoke && pnpm registry:smoke && pnpm catalog:smoke && pnpm blocks:smoke && pnpm next:smoke && pnpm bundle:smoke && pnpm test:e2e && pnpm test:cross-browser",
+    "catalog:smoke": "node scripts/catalog-smoke.mjs",
+    "catalog:docs": "node scripts/generate-component-docs.mjs",
+    "blocks:smoke": "node scripts/blocks-smoke.mjs",
+    "next:smoke": "node scripts/next-smoke.mjs",
+    "bundle:smoke": "node scripts/bundle-smoke.mjs",
+    "test:cross-browser": "playwright test --config playwright.cross.config.ts",
+    "registry:prepare-directory": "node scripts/prepare-directory.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.2",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.4.0",
+    "postcss": "8.5.23",
+    "prettier": "3.9.10",
+    "publint": "0.3.18",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "shadcn": "4.22.0",
+    "tailwindcss": "4.3.3",
+    "tsdown": "0.23.1",
+    "turbo": "2.11.9",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.3.0",
+      "@types/react-dom": "19.3.0"
+    },
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
+  }
+}

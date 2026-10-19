@@ -1,0 +1,367 @@
+{
+  "name": "@hextech-ui/react",
+  "version": "0.0.0-phase.1",
+  "description": "Hextech UI React foundation. Proposed scope; ownership unverified and publication disabled.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./button": {
+      "types": "./dist/components/button.d.mts",
+      "import": "./dist/components/button.mjs",
+      "default": "./dist/components/button.mjs"
+    },
+    "./icon-button": {
+      "types": "./dist/components/icon-button.d.mts",
+      "import": "./dist/components/icon-button.mjs",
+      "default": "./dist/components/icon-button.mjs"
+    },
+    "./link": {
+      "types": "./dist/components/link.d.mts",
+      "import": "./dist/components/link.mjs",
+      "default": "./dist/components/link.mjs"
+    },
+    "./typography": {
+      "types": "./dist/components/typography.d.mts",
+      "import": "./dist/components/typography.mjs",
+      "default": "./dist/components/typography.mjs"
+    },
+    "./badge": {
+      "types": "./dist/components/badge.d.mts",
+      "import": "./dist/components/badge.mjs",
+      "default": "./dist/components/badge.mjs"
+    },
+    "./card": {
+      "types": "./dist/components/card.d.mts",
+      "import": "./dist/components/card.mjs",
+      "default": "./dist/components/card.mjs"
+    },
+    "./separator": {
+      "types": "./dist/components/separator.d.mts",
+      "import": "./dist/components/separator.mjs",
+      "default": "./dist/components/separator.mjs"
+    },
+    "./input": {
+      "types": "./dist/components/input.d.mts",
+      "import": "./dist/components/input.mjs",
+      "default": "./dist/components/input.mjs"
+    },
+    "./textarea": {
+      "types": "./dist/components/textarea.d.mts",
+      "import": "./dist/components/textarea.mjs",
+      "default": "./dist/components/textarea.mjs"
+    },
+    "./field": {
+      "types": "./dist/components/field.d.mts",
+      "import": "./dist/components/field.mjs",
+      "default": "./dist/components/field.mjs"
+    },
+    "./checkbox": {
+      "types": "./dist/components/checkbox.d.mts",
+      "import": "./dist/components/checkbox.mjs",
+      "default": "./dist/components/checkbox.mjs"
+    },
+    "./radio": {
+      "types": "./dist/components/radio.d.mts",
+      "import": "./dist/components/radio.mjs",
+      "default": "./dist/components/radio.mjs"
+    },
+    "./switch": {
+      "types": "./dist/components/switch.d.mts",
+      "import": "./dist/components/switch.mjs",
+      "default": "./dist/components/switch.mjs"
+    },
+    "./toggle": {
+      "types": "./dist/components/toggle.d.mts",
+      "import": "./dist/components/toggle.mjs",
+      "default": "./dist/components/toggle.mjs"
+    },
+    "./dialog": {
+      "types": "./dist/components/dialog.d.mts",
+      "import": "./dist/components/dialog.mjs",
+      "default": "./dist/components/dialog.mjs"
+    },
+    "./alert-dialog": {
+      "types": "./dist/components/alert-dialog.d.mts",
+      "import": "./dist/components/alert-dialog.mjs",
+      "default": "./dist/components/alert-dialog.mjs"
+    },
+    "./popover": {
+      "types": "./dist/components/popover.d.mts",
+      "import": "./dist/components/popover.mjs",
+      "default": "./dist/components/popover.mjs"
+    },
+    "./tooltip": {
+      "types": "./dist/components/tooltip.d.mts",
+      "import": "./dist/components/tooltip.mjs",
+      "default": "./dist/components/tooltip.mjs"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs.d.mts",
+      "import": "./dist/components/tabs.mjs",
+      "default": "./dist/components/tabs.mjs"
+    },
+    "./accordion": {
+      "types": "./dist/components/accordion.d.mts",
+      "import": "./dist/components/accordion.mjs",
+      "default": "./dist/components/accordion.mjs"
+    },
+    "./collapsible": {
+      "types": "./dist/components/collapsible.d.mts",
+      "import": "./dist/components/collapsible.mjs",
+      "default": "./dist/components/collapsible.mjs"
+    },
+    "./progress": {
+      "types": "./dist/components/progress.d.mts",
+      "import": "./dist/components/progress.mjs",
+      "default": "./dist/components/progress.mjs"
+    },
+    "./number-field": {
+      "types": "./dist/components/number-field.d.mts",
+      "import": "./dist/components/number-field.mjs",
+      "default": "./dist/components/number-field.mjs"
+    },
+    "./slider": {
+      "types": "./dist/components/slider.d.mts",
+      "import": "./dist/components/slider.mjs",
+      "default": "./dist/components/slider.mjs"
+    },
+    "./select": {
+      "types": "./dist/components/select.d.mts",
+      "import": "./dist/components/select.mjs",
+      "default": "./dist/components/select.mjs"
+    },
+    "./toolbar": {
+      "types": "./dist/components/toolbar.d.mts",
+      "import": "./dist/components/toolbar.mjs",
+      "default": "./dist/components/toolbar.mjs"
+    },
+    "./group": {
+      "types": "./dist/components/group.d.mts",
+      "import": "./dist/components/group.mjs",
+      "default": "./dist/components/group.mjs"
+    },
+    "./menu": {
+      "types": "./dist/components/menu.d.mts",
+      "import": "./dist/components/menu.mjs",
+      "default": "./dist/components/menu.mjs"
+    },
+    "./combobox": {
+      "types": "./dist/components/combobox.d.mts",
+      "import": "./dist/components/combobox.mjs",
+      "default": "./dist/components/combobox.mjs"
+    },
+    "./multiple-select": {
+      "types": "./dist/components/multiple-select.d.mts",
+      "import": "./dist/components/multiple-select.mjs",
+      "default": "./dist/components/multiple-select.mjs"
+    },
+    "./search-field": {
+      "types": "./dist/components/search-field.d.mts",
+      "import": "./dist/components/search-field.mjs",
+      "default": "./dist/components/search-field.mjs"
+    },
+    "./spinner": {
+      "types": "./dist/components/spinner.d.mts",
+      "import": "./dist/components/spinner.mjs",
+      "default": "./dist/components/spinner.mjs"
+    },
+    "./breadcrumbs": {
+      "types": "./dist/components/breadcrumbs.d.mts",
+      "import": "./dist/components/breadcrumbs.mjs",
+      "default": "./dist/components/breadcrumbs.mjs"
+    },
+    "./toast": {
+      "types": "./dist/components/toast.d.mts",
+      "import": "./dist/components/toast.mjs",
+      "default": "./dist/components/toast.mjs"
+    },
+    "./preview-card": {
+      "types": "./dist/components/preview-card.d.mts",
+      "import": "./dist/components/preview-card.mjs",
+      "default": "./dist/components/preview-card.mjs"
+    },
+    "./table": {
+      "types": "./dist/components/table.d.mts",
+      "import": "./dist/components/table.mjs",
+      "default": "./dist/components/table.mjs"
+    },
+    "./vertical-table": {
+      "types": "./dist/components/vertical-table.d.mts",
+      "import": "./dist/components/vertical-table.mjs",
+      "default": "./dist/components/vertical-table.mjs"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar.d.mts",
+      "import": "./dist/components/calendar.mjs",
+      "default": "./dist/components/calendar.mjs"
+    },
+    "./date-field": {
+      "types": "./dist/components/date-field.d.mts",
+      "import": "./dist/components/date-field.mjs",
+      "default": "./dist/components/date-field.mjs"
+    },
+    "./date-picker": {
+      "types": "./dist/components/date-picker.d.mts",
+      "import": "./dist/components/date-picker.mjs",
+      "default": "./dist/components/date-picker.mjs"
+    },
+    "./token-field": {
+      "types": "./dist/components/token-field.d.mts",
+      "import": "./dist/components/token-field.mjs",
+      "default": "./dist/components/token-field.mjs"
+    },
+    "./tree": {
+      "types": "./dist/components/tree.d.mts",
+      "import": "./dist/components/tree.mjs",
+      "default": "./dist/components/tree.mjs"
+    },
+    "./tag-group": {
+      "types": "./dist/components/tag-group.d.mts",
+      "import": "./dist/components/tag-group.mjs",
+      "default": "./dist/components/tag-group.mjs"
+    },
+    "./data-table": {
+      "types": "./dist/components/data-table.d.mts",
+      "import": "./dist/components/data-table.mjs",
+      "default": "./dist/components/data-table.mjs"
+    },
+    "./charts": {
+      "types": "./dist/components/charts.d.mts",
+      "import": "./dist/components/charts.mjs",
+      "default": "./dist/components/charts.mjs"
+    },
+    "./use-list-data": {
+      "types": "./dist/hooks/use-list-data.d.mts",
+      "import": "./dist/hooks/use-list-data.mjs",
+      "default": "./dist/hooks/use-list-data.mjs"
+    },
+    "./use-async-list": {
+      "types": "./dist/hooks/use-async-list.d.mts",
+      "import": "./dist/hooks/use-async-list.mjs",
+      "default": "./dist/hooks/use-async-list.mjs"
+    },
+    "./virtual-listbox": {
+      "types": "./dist/components/virtual-listbox.d.mts",
+      "import": "./dist/components/virtual-listbox.mjs",
+      "default": "./dist/components/virtual-listbox.mjs"
+    },
+    "./blocks/auth": {
+      "types": "./dist/blocks/auth.d.mts",
+      "import": "./dist/blocks/auth.mjs",
+      "default": "./dist/blocks/auth.mjs"
+    },
+    "./blocks/account": {
+      "types": "./dist/blocks/account.d.mts",
+      "import": "./dist/blocks/account.mjs",
+      "default": "./dist/blocks/account.mjs"
+    },
+    "./blocks/lobby": {
+      "types": "./dist/blocks/lobby.d.mts",
+      "import": "./dist/blocks/lobby.mjs",
+      "default": "./dist/blocks/lobby.mjs"
+    },
+    "./blocks/draft": {
+      "types": "./dist/blocks/draft.d.mts",
+      "import": "./dist/blocks/draft.mjs",
+      "default": "./dist/blocks/draft.mjs"
+    },
+    "./blocks/hud": {
+      "types": "./dist/blocks/hud.d.mts",
+      "import": "./dist/blocks/hud.mjs",
+      "default": "./dist/blocks/hud.mjs"
+    },
+    "./theme-scope": {
+      "types": "./dist/lib/theme-scope.d.mts",
+      "import": "./dist/lib/theme-scope.mjs",
+      "default": "./dist/lib/theme-scope.mjs"
+    },
+    "./autocomplete": {
+      "types": "./dist/components/autocomplete.d.mts",
+      "import": "./dist/components/autocomplete.mjs",
+      "default": "./dist/components/autocomplete.mjs"
+    },
+    "./table-load-more": {
+      "types": "./dist/components/table-load-more.d.mts",
+      "import": "./dist/components/table-load-more.mjs",
+      "default": "./dist/components/table-load-more.mjs"
+    },
+    "./sonner": {
+      "types": "./dist/components/sonner.d.mts",
+      "import": "./dist/components/sonner.mjs",
+      "default": "./dist/components/sonner.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsdown --watch --no-clean",
+    "build": "tsdown && node ../../scripts/build-styles.mjs",
+    "typecheck": "tsc --noEmit",
+    "prepack": "node ../../scripts/copy-notices.mjs",
+    "prepublishOnly": "node ../../scripts/publish-disabled.mjs"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.9.0",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.7.0"
+  },
+  "peerDependencies": {
+    "@lexical/history": "^0.52.0",
+    "@lexical/plain-text": "^0.52.0",
+    "@tanstack/charts": "^1.1.0",
+    "@tanstack/react-table": "^9.3.1",
+    "lexical": "^0.52.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@tanstack/react-virtual": "^3.14.21",
+    "sonner": "^2.0.8"
+  },
+  "devDependencies": {
+    "@lexical/history": "0.52.0",
+    "@lexical/plain-text": "0.52.0",
+    "@tanstack/charts": "1.1.0",
+    "@tanstack/react-table": "9.3.1",
+    "@tanstack/react-virtual": "3.14.21",
+    "lexical": "0.52.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sonner": "2.0.8"
+  },
+  "peerDependenciesMeta": {
+    "lexical": {
+      "optional": true
+    },
+    "@lexical/plain-text": {
+      "optional": true
+    },
+    "@lexical/history": {
+      "optional": true
+    },
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "@tanstack/charts": {
+      "optional": true
+    },
+    "@tanstack/react-virtual": {
+      "optional": true
+    },
+    "sonner": {
+      "optional": true
+    }
+  }
+}

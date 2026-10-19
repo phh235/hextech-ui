@@ -1,0 +1,76 @@
+---
+title: Theming
+description: Light and dark modes, shared colors and typography.
+---
+
+## Color mode
+
+Set `data-hextech-ui-theme="hextech"` on the root element and choose a color mode:
+
+<Tabs items={['Dark', 'Light']}>
+<Tab value="Dark">
+
+```html
+<html data-hextech-ui-theme="hextech" data-color-mode="dark"></html>
+```
+
+</Tab>
+<Tab value="Light">
+
+```html
+<html data-hextech-ui-theme="hextech" data-color-mode="light"></html>
+```
+
+</Tab>
+</Tabs>
+
+In your app, update `data-color-mode` when the user changes their preference. This documentation site's switch handles persistence for its own pages and previews.
+
+## Customize tokens
+
+Add CSS overrides after the installed stylesheets:
+
+```css title="src/styles/custom-theme.css"
+[data-hextech-ui-theme='hextech'] {
+  --hextech-ui-primary: #d5b775;
+  --hextech-ui-gold-200: #d5b775;
+  --hextech-ui-gold-300: #e0cda1;
+  --hextech-ui-font-sans: 'Barlow', Arial, sans-serif;
+}
+```
+
+Semantic tokens such as `--hextech-ui-primary` and `--hextech-ui-foreground` style shared surfaces and text. Framed controls also use the `gold-*`, `blue-*`, `red-*` and `grey-*` palette tokens for their gradients and interaction states. Check both modes after changing colors.
+
+## Scope a preview
+
+Use `ThemeScope` to give one area its own mode. The same scope passes its mode and explicit CSS variables to library dialogs, popovers and other portals.
+
+<RegistryInstallCommand name="dialog" />
+
+```tsx title="example.tsx"
+'use client';
+
+import { ThemeScope } from '@/lib/theme-scope';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/components/ui/dialog';
+
+export function Example() {
+  return (
+    <ThemeScope colorMode="light">
+      <Dialog>
+        <DialogTrigger>Open light dialog</DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Light preview</DialogTitle>
+        </DialogContent>
+      </Dialog>
+    </ThemeScope>
+  );
+}
+```
+
+Overlay components install the scope helper automatically. Apply custom scope variables through `style`; CSS on an arbitrary ancestor cannot cross a body portal.
+
+## Fonts and motion
+
+UI components use licensed Cinzel and Barlow fonts. The documentation uses Geist for text and JetBrains Mono for code. No external font service is required.
+
+Focus styles and reduced-motion support are built in. Components have no audio; optional card animation is off by default. See [Accessibility](/docs/accessibility) and [License and attribution](/docs/legal).

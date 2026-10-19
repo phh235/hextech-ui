@@ -1,0 +1,42 @@
+---
+title: Registry
+description: Install components from a URL or a named registry.
+---
+
+The registry gives you editable source. Components and shared helpers install into the directories configured in your `components.json`.
+
+## Install from a URL
+
+<RegistryInstallCommand name="button" />
+
+Each component page includes its install command in the **Installation** section. The address follows this site's `NEXT_PUBLIC_SITE_URL` configuration; the local preview uses `http://127.0.0.1:3000` and must be running during installation.
+
+## Use a namespace
+
+Add a registry mapping to `components.json`:
+
+```json title="components.json"
+{
+  "registries": {
+    "@hextech-ui": "http://127.0.0.1:3000/r/{name}.json"
+  }
+}
+```
+
+Replace the local origin with your registry's address when self-hosting. Then install by name:
+
+```bash
+npx shadcn@latest add @hextech-ui/button
+```
+
+## Files and dependencies
+
+With the default `src/` aliases, the CLI writes:
+
+- Components to `src/components/ui`.
+- Hooks to `src/hooks` and shared helpers to `src/lib`.
+- Theme CSS to `src/styles`.
+
+Dependencies install with the component. Set `"tsx": false` in `components.json` for JavaScript output. Finish by importing the CSS as shown in [Installation](/docs/installation).
+
+Registry installation is the current consumer path. The `@hextech-ui/*` npm packages are not published. For running or validating a registry locally, see [Contributing](/docs/contributing).

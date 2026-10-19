@@ -1,0 +1,42 @@
+[
+  {
+    "name": "auth",
+    "registryName": "auth-01",
+    "title": "Account access",
+    "description": "Login, signup and recovery forms with native validation and clearly local mock results.",
+    "exports": ["AuthBlock"],
+    "category": "Account"
+  },
+  {
+    "name": "account",
+    "registryName": "account-01",
+    "title": "Profile and preferences",
+    "description": "A profile, practice panel, editable preferences and dismissible activity notices.",
+    "exports": ["AccountBlock"],
+    "category": "Account"
+  },
+  {
+    "name": "lobby",
+    "registryName": "lobby-01",
+    "title": "Party lobby",
+    "description": "Five party slots, local invitations, ready state and a cancellable matchmaking preview.",
+    "exports": ["LobbyBlock"],
+    "category": "Game layouts"
+  },
+  {
+    "name": "draft",
+    "registryName": "draft-01",
+    "title": "Draft room",
+    "description": "An original fictional roster with role filters, selection, a gesture-started countdown and lock-in.",
+    "exports": ["DraftBlock"],
+    "category": "Game layouts"
+  },
+  {
+    "name": "hud",
+    "registryName": "hud-01",
+    "title": "Training HUD",
+    "description": "Local health, energy, ability cooldowns and a keyboard-friendly ping menu. Default silent.",
+    "exports": ["HudBlock"],
+    "category": "Game layouts"
+  }
+]
