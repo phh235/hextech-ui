@@ -72,6 +72,7 @@ items.push({
       ['tokens/src/base.css', 'hextech-tokens.css'],
       ['themes/src/hextech.css', 'hextech-theme.css'],
       ['tokens/src/tailwind.css', 'hextech-tailwind.css'],
+      ['tokens/src/tailwind-global.css', 'hextech-tailwind-global.css'],
       ['react/src/styles.css', 'hextech-components.css'],
     ].map(([source, target]) => ({
       path: `packages/${source}`,

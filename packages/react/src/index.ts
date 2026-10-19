@@ -68,3 +68,17 @@ export { ThemeScope } from './lib/theme-scope';
 export type { ThemeScopeProps } from './lib/theme-scope';
 
 export * from './components/table-load-more';
+
+export * from './components/fieldset';
+
+export * from './components/checkbox-group';
+
+export * from './components/input-group';
+
+export * from './components/button-group';
+
+export * from './components/meter';
+
+export * from './components/avatar-group';
+
+export * from './components/item';

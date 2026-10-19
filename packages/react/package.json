@@ -325,6 +325,41 @@
       "types": "./dist/components/empty-state.d.mts",
       "import": "./dist/components/empty-state.mjs",
       "default": "./dist/components/empty-state.mjs"
+    },
+    "./fieldset": {
+      "types": "./dist/components/fieldset.d.mts",
+      "import": "./dist/components/fieldset.mjs",
+      "default": "./dist/components/fieldset.mjs"
+    },
+    "./checkbox-group": {
+      "types": "./dist/components/checkbox-group.d.mts",
+      "import": "./dist/components/checkbox-group.mjs",
+      "default": "./dist/components/checkbox-group.mjs"
+    },
+    "./input-group": {
+      "types": "./dist/components/input-group.d.mts",
+      "import": "./dist/components/input-group.mjs",
+      "default": "./dist/components/input-group.mjs"
+    },
+    "./button-group": {
+      "types": "./dist/components/button-group.d.mts",
+      "import": "./dist/components/button-group.mjs",
+      "default": "./dist/components/button-group.mjs"
+    },
+    "./meter": {
+      "types": "./dist/components/meter.d.mts",
+      "import": "./dist/components/meter.mjs",
+      "default": "./dist/components/meter.mjs"
+    },
+    "./avatar-group": {
+      "types": "./dist/components/avatar-group.d.mts",
+      "import": "./dist/components/avatar-group.mjs",
+      "default": "./dist/components/avatar-group.mjs"
+    },
+    "./item": {
+      "types": "./dist/components/item.d.mts",
+      "import": "./dist/components/item.mjs",
+      "default": "./dist/components/item.mjs"
     }
   },
   "scripts": {

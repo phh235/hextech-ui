@@ -132,13 +132,17 @@
       "FieldDescription",
       "FieldError",
       "FieldControl",
-      "TextField"
+      "TextField",
+      "FieldGroup",
+      "FieldContent",
+      "FieldItem"
     ],
     "primitive": "Base UI Field / Form",
     "api": [
       ["label", "string (TextField required)", "—"],
       ["description / error", "string (TextField)", "—"],
-      ["name / invalid", "Base UI field props", "—"]
+      ["name / invalid", "Base UI field props", "—"],
+      ["orientation", "vertical | horizontal | responsive", "vertical"]
     ]
   },
   {
@@ -938,6 +942,119 @@
       ["className", "string on every part", "—"],
       ["children", "ReactNode", "—"]
     ],
+    "upstream": null
+  },
+  {
+    "name": "fieldset",
+    "title": "Fieldset",
+    "category": "Forms",
+    "description": "A semantic group of related controls with a shared legend.",
+    "exports": ["Fieldset", "FieldsetLegend", "FieldsetDescription"],
+    "primitive": "Base UI Fieldset",
+    "api": [
+      ["disabled", "boolean", "false"],
+      ["className", "string on every part", "—"]
+    ],
+    "upstream": null,
+    "registryDependencies": ["field"]
+  },
+  {
+    "name": "checkbox-group",
+    "title": "Checkbox Group",
+    "category": "Forms",
+    "description": "Shared checkbox selection, parent mixed state and form integration.",
+    "exports": ["CheckboxGroup"],
+    "primitive": "Base UI CheckboxGroup",
+    "api": [
+      ["value / defaultValue", "string[]", "[]"],
+      ["onValueChange", "(values, details) => void", "—"],
+      ["allValues", "string[] (for a parent checkbox)", "—"],
+      ["disabled", "boolean", "false"]
+    ],
+    "registryDependencies": ["checkbox"],
+    "upstream": null
+  },
+  {
+    "name": "input-group",
+    "title": "Input Group",
+    "category": "Forms",
+    "description": "Inputs and textareas composed with addons, text and canonical buttons.",
+    "exports": [
+      "InputGroup",
+      "InputGroupInput",
+      "InputGroupAddon",
+      "InputGroupText",
+      "InputGroupButton",
+      "InputGroupTextarea"
+    ],
+    "primitive": "Group, Input, Textarea and Button composition",
+    "api": [
+      [
+        "align (InputGroupAddon)",
+        "inline-start | inline-end | block-start | block-end",
+        "inline-start"
+      ],
+      ["size (InputGroupButton)", "small | medium | large", "small"],
+      ["variant (InputGroupButton)", "ButtonVariant", "text"]
+    ],
+    "upstream": null
+  },
+  {
+    "name": "button-group",
+    "title": "Button Group",
+    "category": "Actions",
+    "description": "Related actions grouped horizontally or vertically without toolbar keyboard behavior.",
+    "exports": ["ButtonGroup", "ButtonGroupSeparator"],
+    "primitive": "Semantic group and Separator",
+    "api": [
+      ["orientation", "horizontal | vertical", "horizontal"],
+      ["aria-label", "string (accessible group name)", "—"]
+    ],
+    "registryDependencies": ["button"],
+    "upstream": null
+  },
+  {
+    "name": "meter",
+    "title": "Meter",
+    "category": "Feedback",
+    "description": "A labeled measurement within a known range, such as health or energy.",
+    "exports": ["Meter"],
+    "primitive": "Base UI Meter",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["value", "number (required)", "—"],
+      ["min / max", "number", "0 / 100"],
+      ["tone", "gold | teal | destructive", "teal"],
+      ["getAriaValueText", "(formattedValue, value) => string", "—"]
+    ],
+    "upstream": null
+  },
+  {
+    "name": "avatar-group",
+    "title": "Avatar Group",
+    "category": "Layout",
+    "description": "Named groups of profile avatars with an optional overflow count.",
+    "exports": ["AvatarGroup", "AvatarGroupCount"],
+    "primitive": "Semantic group",
+    "api": [
+      ["label", "string (required)", "—"],
+      ["aria-label (AvatarGroupCount)", "string describing the extra people", "—"]
+    ],
+    "registryDependencies": ["avatar"],
+    "upstream": null
+  },
+  {
+    "name": "item",
+    "title": "Item",
+    "category": "Layout",
+    "description": "Composable information rows with media, content and explicit actions.",
+    "exports": ["Item", "ItemMedia", "ItemContent", "ItemTitle", "ItemDescription", "ItemActions"],
+    "primitive": "Semantic HTML",
+    "api": [
+      ["variant", "default | outline | muted", "default"],
+      ["className", "string on every part", "—"]
+    ],
+    "registryDependencies": ["avatar", "button"],
     "upstream": null
   }
 ]

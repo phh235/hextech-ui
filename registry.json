@@ -152,6 +152,11 @@
           "target": "styles/hextech-tailwind.css"
         },
         {
+          "path": "packages/tokens/src/tailwind-global.css",
+          "type": "registry:file",
+          "target": "styles/hextech-tailwind-global.css"
+        },
+        {
           "path": "packages/react/src/styles.css",
           "type": "registry:file",
           "target": "styles/hextech-components.css"
@@ -948,6 +953,105 @@
         "http://127.0.0.1:3000/r/cn.json"
       ],
       "files": [{ "path": "packages/react/src/components/empty-state.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "fieldset",
+      "type": "registry:ui",
+      "title": "Fieldset",
+      "description": "A semantic group of related controls with a shared legend.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/field.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/fieldset.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "checkbox-group",
+      "type": "registry:ui",
+      "title": "Checkbox Group",
+      "description": "Shared checkbox selection, parent mixed state and form integration.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/checkbox.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [
+        { "path": "packages/react/src/components/checkbox-group.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Inputs and textareas composed with addons, text and canonical buttons.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/group.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/textarea.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/input-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Related actions grouped horizontally or vertically without toolbar keyboard behavior.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/cn.json",
+        "http://127.0.0.1:3000/r/separator.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/button-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "A labeled measurement within a known range, such as health or energy.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "dependencies": ["@base-ui/react@1.9.0"],
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/meter.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Named groups of profile avatars with an optional overflow count.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/avatar.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/avatar-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "Composable information rows with media, content and explicit actions.",
+      "meta": { "project": "hextech-ui", "sourceKind": "original-extension" },
+      "registryDependencies": [
+        "http://127.0.0.1:3000/r/hextech-theme.json",
+        "http://127.0.0.1:3000/r/avatar.json",
+        "http://127.0.0.1:3000/r/button.json",
+        "http://127.0.0.1:3000/r/cn.json"
+      ],
+      "files": [{ "path": "packages/react/src/components/item.tsx", "type": "registry:ui" }]
     },
     {
       "name": "auth-01",
