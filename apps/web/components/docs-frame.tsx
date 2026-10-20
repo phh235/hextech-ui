@@ -15,12 +15,7 @@ function SidebarControls() {
     <div className="flex items-center justify-between gap-3" data-docs-controls>
       <div className="flex items-center gap-1">
         {repositoryUrl && (
-          <GitHubButton
-            href={repositoryUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="size-9"
-          />
+          <GitHubButton href={repositoryUrl} target="_blank" rel="noopener noreferrer" />
         )}
         <Link
           href={supportUrl}

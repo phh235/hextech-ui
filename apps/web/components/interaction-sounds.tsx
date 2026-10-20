@@ -2,6 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from 'react';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
+import { cn } from '@/lib/cn';
 import {
   clickSoundFor,
   createInteractionSounds,
@@ -73,7 +74,7 @@ export function SoundToggle() {
       aria-label="Sound effects"
       aria-pressed={enabled}
       title={enabled ? 'Mute sound effects' : 'Enable sound effects'}
-      className={buttonVariants({ variant: 'ghost', size: 'icon', className: 'size-9' })}
+      className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }))}
       onClick={() => {
         fallbackEnabled = !enabled;
         try {

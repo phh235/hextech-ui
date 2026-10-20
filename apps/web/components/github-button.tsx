@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { ComponentProps } from 'react';
 import { buttonVariants, type ButtonProps } from 'fumadocs-ui/components/ui/button';
+import { cn } from '@/lib/cn';
 
 /** GitHub Octicons mark-github-16, MIT, Copyright (c) 2026 GitHub Inc.
  * Original notice: /icons/octicons-LICENSE.txt
@@ -32,7 +33,7 @@ export function GitHubButton({
       aria-label="GitHub"
       title="GitHub"
       {...props}
-      className={buttonVariants({ variant, size, className })}
+      className={cn(buttonVariants({ variant, size }), className)}
       data-repository-link="true"
     >
       <GitHubIcon />
