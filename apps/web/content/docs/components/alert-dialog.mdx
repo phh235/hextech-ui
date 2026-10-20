@@ -15,13 +15,19 @@ description: 'Confirmation dialogs that require an explicit choice.'
 
 These are the main Alert Dialog options. See the exported TypeScript types for inherited native or primitive props.
 
-| Prop                 | Type                      | Default |
-| -------------------- | ------------------------- | ------- |
-| `open / defaultOpen` | `boolean`                 | `false` |
-| `onOpenChange`       | `(open, details) => void` | `—`     |
+| Prop                 | Type                           | Default        |
+| -------------------- | ------------------------------ | -------------- |
+| `open / defaultOpen` | `boolean`                      | `false`        |
+| `onOpenChange`       | `(open, details) => void`      | `—`            |
+| `showCloseButton`    | `boolean (AlertDialogContent)` | `false`        |
+| `closeLabel`         | `string`                       | `Close dialog` |
 
 {/* END GENERATED REFERENCE */}
 
 ## Confirmation
 
 Use for a decision that needs an explicit response. Provide a title, consequence and clearly labeled cancel/confirm actions. Use `open` with `onOpenChange` to own visibility. Keep focus restoration intact after either choice.
+
+## Corner close button
+
+Use `<AlertDialogContent showCloseButton>` when closing is a safe cancellation. The corner X dismisses the alert; it never confirms the destructive action. It is off by default so callers can require an explicit decision. Set `closeLabel` for a localized accessible name.

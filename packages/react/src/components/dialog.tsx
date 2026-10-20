@@ -1,5 +1,6 @@
 'use client';
 import { Dialog as Primitive } from '@base-ui/react/dialog';
+import { ControlIcon } from '@/lib/control-icon';
 import { cn } from '@/lib/cn';
 import { usePortalTheme } from '@/lib/theme-scope';
 import { buttonVariants } from '@/lib/button-variants';
@@ -7,6 +8,8 @@ export const Dialog = Primitive.Root;
 export const DialogPortal = Primitive.Portal;
 export interface DialogContentProps extends Omit<Primitive.Popup.Props, 'className'> {
   className?: string;
+  showCloseButton?: boolean;
+  closeLabel?: string;
   container?: Primitive.Portal.Props['container'];
 }
 export function DialogTrigger({
@@ -15,7 +18,14 @@ export function DialogTrigger({
 }: Omit<Primitive.Trigger.Props, 'className'> & { className?: string }) {
   return <Primitive.Trigger {...props} className={buttonVariants({ className })} />;
 }
-export function DialogContent({ className, container, ...props }: DialogContentProps) {
+export function DialogContent({
+  className,
+  container,
+  children,
+  showCloseButton = true,
+  closeLabel = 'Close dialog',
+  ...props
+}: DialogContentProps) {
   const portalTheme = usePortalTheme();
   return (
     <Primitive.Portal container={container}>
@@ -30,7 +40,20 @@ export function DialogContent({ className, container, ...props }: DialogContentP
             'hx-popup hx-modal relative grid w-full max-w-md gap-4 border-2 border-transparent p-6 font-hx-sans leading-[normal] text-[var(--hextech-ui-content-foreground)] outline-none',
             className,
           )}
-        />
+        >
+          {children}
+          {showCloseButton && (
+            <Primitive.Close
+              type="button"
+              aria-label={closeLabel}
+              title={closeLabel}
+              data-hextech-ui="button"
+              className="hx-modal-close absolute -right-3 -top-3 z-10 grid size-10 place-items-center rounded-full"
+            >
+              <ControlIcon name="close" width="18" height="18" />
+            </Primitive.Close>
+          )}
+        </Primitive.Popup>
       </Primitive.Viewport>
     </Primitive.Portal>
   );

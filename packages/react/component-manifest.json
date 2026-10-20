@@ -222,7 +222,9 @@
     "api": [
       ["open / defaultOpen", "boolean (Dialog)", "false"],
       ["onOpenChange", "(open, details) => void", "—"],
-      ["container", "HTMLElement | null (DialogContent)", "body"]
+      ["container", "HTMLElement | null (DialogContent)", "body"],
+      ["showCloseButton", "boolean (DialogContent)", "true"],
+      ["closeLabel", "string", "Close dialog"]
     ]
   },
   {
@@ -242,7 +244,9 @@
     "primitive": "Base UI AlertDialog",
     "api": [
       ["open / defaultOpen", "boolean", "false"],
-      ["onOpenChange", "(open, details) => void", "—"]
+      ["onOpenChange", "(open, details) => void", "—"],
+      ["showCloseButton", "boolean (AlertDialogContent)", "false"],
+      ["closeLabel", "string", "Close dialog"]
     ]
   },
   {

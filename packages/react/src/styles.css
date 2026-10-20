@@ -1270,3 +1270,40 @@
     z-index: 1;
   }
 }
+
+@layer components {
+  .hx-modal-close {
+    appearance: none;
+    padding: 0;
+    border: 2px solid var(--hextech-ui-gold-400);
+    background: var(--hextech-ui-surface);
+    color: var(--hextech-ui-gold-300);
+    outline: 1px solid var(--hextech-ui-gold-600);
+    outline-offset: 3px;
+    cursor: pointer;
+  }
+  .hx-modal-close:hover:not(:disabled) {
+    border-color: var(--hextech-ui-gold-100);
+    color: var(--hextech-ui-gold-100);
+    background: var(--hextech-ui-muted);
+  }
+  .hx-modal-close:active:not(:disabled) {
+    border-color: var(--hextech-ui-gold-600);
+    color: var(--hextech-ui-gold-500);
+  }
+  .hx-modal-close:focus-visible {
+    outline: 2px solid var(--hextech-ui-focus);
+    outline-offset: 4px;
+  }
+  .hx-modal-close:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+@media (forced-colors: active) {
+  .hx-modal-close {
+    border-color: ButtonText;
+    color: ButtonText;
+    background: ButtonFace;
+  }
+}

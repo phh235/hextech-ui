@@ -363,6 +363,7 @@
         "http://127.0.0.1:3000/r/hextech-theme.json",
         "http://127.0.0.1:3000/r/cn.json",
         "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
         "http://127.0.0.1:3000/r/theme-scope.json"
       ],
       "files": [{ "path": "packages/react/src/components/dialog.tsx", "type": "registry:ui" }]
@@ -378,6 +379,7 @@
         "http://127.0.0.1:3000/r/hextech-theme.json",
         "http://127.0.0.1:3000/r/cn.json",
         "http://127.0.0.1:3000/r/button-variants.json",
+        "http://127.0.0.1:3000/r/control-icon.json",
         "http://127.0.0.1:3000/r/theme-scope.json"
       ],
       "files": [{ "path": "packages/react/src/components/alert-dialog.tsx", "type": "registry:ui" }]

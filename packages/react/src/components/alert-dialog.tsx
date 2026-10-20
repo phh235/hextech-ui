@@ -1,14 +1,24 @@
 'use client';
 import { AlertDialog as Primitive } from '@base-ui/react/alert-dialog';
+import { ControlIcon } from '@/lib/control-icon';
 import { cn } from '@/lib/cn';
 import { usePortalTheme } from '@/lib/theme-scope';
 import { buttonVariants } from '@/lib/button-variants';
 export const AlertDialog = Primitive.Root;
 export const AlertDialogTrigger = Primitive.Trigger;
+export interface AlertDialogContentProps extends Omit<Primitive.Popup.Props, 'className'> {
+  className?: string;
+  /** An explicit cancel affordance; confirmation dialogs keep it off by default. */
+  showCloseButton?: boolean;
+  closeLabel?: string;
+}
 export function AlertDialogContent({
   className,
+  children,
+  showCloseButton = false,
+  closeLabel = 'Close dialog',
   ...props
-}: Omit<Primitive.Popup.Props, 'className'> & { className?: string }) {
+}: AlertDialogContentProps) {
   const portalTheme = usePortalTheme();
   return (
     <Primitive.Portal>
@@ -23,7 +33,20 @@ export function AlertDialogContent({
             'hx-popup hx-modal relative grid w-full max-w-md gap-4 border-2 border-transparent p-6 font-hx-sans text-hx-foreground outline-none',
             className,
           )}
-        />
+        >
+          {children}
+          {showCloseButton && (
+            <Primitive.Close
+              type="button"
+              aria-label={closeLabel}
+              title={closeLabel}
+              data-hextech-ui="button"
+              className="hx-modal-close absolute -right-3 -top-3 z-10 grid size-10 place-items-center rounded-full"
+            >
+              <ControlIcon name="close" width="18" height="18" />
+            </Primitive.Close>
+          )}
+        </Primitive.Popup>
       </Primitive.Viewport>
     </Primitive.Portal>
   );

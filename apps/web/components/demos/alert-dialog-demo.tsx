@@ -14,7 +14,7 @@ export function AlertDialogDemo() {
     <>
       <AlertDialog>
         <AlertDialogTrigger>Leave party</AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent showCloseButton>
           <AlertDialogTitle>Leave this party?</AlertDialogTitle>
           <AlertDialogDescription>This is a local demo action.</AlertDialogDescription>
           <AlertDialogClose>Stay</AlertDialogClose>

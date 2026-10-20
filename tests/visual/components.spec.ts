@@ -70,7 +70,21 @@ test('scoped dark dialog retains portal theme and layout', async ({ page }) => {
   await openPage(page, '/internal/components/dialog');
   await page.getByRole('button', { name: 'Edit profile', exact: true }).click();
   await page.mouse.move(0, 0);
-  await expect(page.getByRole('dialog')).toHaveScreenshot('dialog-dark-portal.png');
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByRole('button', { name: 'Close dialog', exact: true })).toBeVisible();
+  const rect = (await dialog.boundingBox())!;
+  const viewport = page.viewportSize()!;
+  const x = Math.max(0, rect.x - 16);
+  const y = Math.max(0, rect.y - 16);
+  // Include the corner control and its focus ring beyond the popup border box.
+  await expect(page).toHaveScreenshot('dialog-dark-portal.png', {
+    clip: {
+      x,
+      y,
+      width: Math.min(viewport.width - x, rect.width + 32),
+      height: Math.min(viewport.height - y, rect.height + 32),
+    },
+  });
 });
 for (const name of ['combobox', 'multiple-select'])
   test(`${name} object records retain layout and custom option content`, async ({ page }) => {
